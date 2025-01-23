@@ -18,7 +18,7 @@ const Home = () => {
           <div className='left top'>
             <h3>HEY! THIS IS</h3>
             <h1>
-              <span style={{ color: 'blue', fontWeight: 'bold' }}>Nurul Islam</span>
+              <span style={{ color: 'blue', fontWeight: 'bold' }}>Nurul Islamgit</span>
             </h1>
             <h2>
               <span style={{ color: 'black', fontWeight: 'bold' }}> I'm a</span>
