@@ -6,9 +6,9 @@
   "dependencies": {
     "cra-template": "1.2.0",
     "emailjs-com": "^3.2.0",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "react-scripts": "^3.0.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-scripts": "5.0.1",
     "react-simple-typewriter": "^5.0.1",
     "web-vitals": "^4.2.4"
   },
