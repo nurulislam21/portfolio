@@ -23,6 +23,44 @@
     text-decoration-thickness: 5px;
     margin-bottom: 50px;
 }
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #f9f9f9;
+  }
+  
+  .call-to-action {
+    text-align: center;
+  }
+  
+  .call-to-action h2 {
+    font-size: 2rem;
+    color: #a000e7; /* Bright purple */
+    margin-bottom: 1rem;
+  }
+  
+  #resume-button {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: bold;
+    color: #a000e7;
+    background: transparent;
+    border: 2px dashed #a000e7;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  
+  #resume-button:hover {
+    background-color: #a000e7;
+    color: #fff;
+    transform: scale(1.05);
+  }
+  
 .bar{
     font-size: 23px;
 }
@@ -61,7 +99,7 @@
 }
 .Technical-bars .bar .progress-line span{
     height: 100%;
-    background-color: blue;
+    background-color: whitesmoke;
     position: absolute;
     border-radius: 10px;
     animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
@@ -184,7 +222,7 @@
 }
 .path{
     stroke-width: 15;
-    stroke: blue;
+    stroke: whitesmoke;
     fill: transparent;
     stroke-dasharray: 502;
     stroke-dashoffset: 502;

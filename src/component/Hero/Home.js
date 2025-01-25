@@ -7,7 +7,7 @@ import skill3 from "../pic/skill3.png"
 import skill4 from "../pic/skill4.png"
 import skill5 from "../pic/skill5.png"
 import skill6 from "../pic/skill6.png"
-import mypdf from '../pic/Nurul-Islam-Resume-30-7-2024.pdf';
+// import mypdf from '../pic/Nurul-Islam-Resume-30-7-2024.pdf';
 import { Typewriter } from "react-simple-typewriter"
 
 const Home = () => {
@@ -41,11 +41,11 @@ const Home = () => {
               Now dreaming of a world where robots actually understand what they are doing. Developing the definitive tool that will make it happen.
               <p>Isn't it enough detail for you? You can read more bellow.</p>
             </p>
-            <div className='hero_btn'>
+            {/* <div className='hero_btn'>
               <a href={mypdf} download>
                 <button className='btn_shadow'>Download CV</button>
               </a>
-            </div>
+            </div> */}
             <div className='hero_btn d_flex'>
               <div className='col_1'>
                 <h4>FIND WITH ME</h4>
