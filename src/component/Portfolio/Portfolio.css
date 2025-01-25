@@ -64,7 +64,7 @@ header{
   color: #ff014f;
 }
 .Portfolio .box:hover {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 /*------------popup--------*/
 body.active-modal {
@@ -91,20 +91,20 @@ body.active-modal {
 }
 
 .overlay {
-  background-color: #ecf0f3;
+  background-color: #000000;
 }
 .modal-content {
   position: absolute;
   top: 12%;
   left: 8%;
   line-height: 1.4;
-  background: #f0f3f5;
+  background: #242424;
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 85%;
   min-width: 60%;
   z-index: 9999;
-  box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff;
+  box-shadow: 4px 4px 8px #686868, -4px -4px 8px #2b2b2b;
   padding: 50px;
   border-radius: 10px;
 }

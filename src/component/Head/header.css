@@ -3,59 +3,65 @@ header {
   line-height: 10vh;
 }
 
-/* header .container {
-  padding-top: 1%;
-} */
-header img{
+header img {
   top: 5vh;
-  /* width: 60px;
-  height: 60px; */
 }
+
 header ul li {
   margin-left: 30px;
 }
+
 header ul li a {
   transition: 0.5s;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 1px;
+  color: #ffffff; /* White text */
 }
+
 header ul li a:hover {
-  color: blue;
+  color: #32cd32; /* Green on hover */
 }
+
 .home-btn {
   padding: 18px 25px;
   border-radius: 6px;
   transition: 0.3s all ease;
   cursor: pointer;
   height: fit-content;
-  color: blue;
+  color: #32cd32; /* Green text */
 }
+
 .home-btn {
-  background: linear-gradient(145deg, #e2e8ec, #ffffff);
-  box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff;
+  background: linear-gradient(145deg, #1f1f1f, #2b2b2b); /* Black shades for button */
+  box-shadow: 4px 4px 8px #0d0d0d, -4px -4px 8px #363636; /* Adjusted shadows */
 }
+
 .home-btn:hover {
-  background: blue;
-  color: white;
+  background: #32cd32; /* Green background on hover */
+  color: #000000; /* Black text */
 }
+
 .open {
   display: none;
 }
+
 .header.active {
   height: 10vh;
   position: fixed;
   top: 0;
   z-index: 1000;
   width: 100%;
-  background-color: #ecf0f3;
+  background-color: #292929; /* Black header */
   box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.75);
   transition: 0.5s;
 }
+
 @media (max-width: 768px) {
   header ul {
     padding-top: 30px;
   }
+
   .nav-links-mobile {
     position: absolute;
     display: block;
@@ -66,41 +72,47 @@ header ul li a:hover {
     transition: all 0.5s ease-in-out;
     width: 60%;
     height: auto;
-    background-color: white;
+    background-color: #1f1f1f; /* Dark background for mobile menu */
     z-index: 888;
     border-radius: 10px;
   }
+
   header ul li {
     width: 100%;
     transition: all 0.5s ease-in-out;
     text-transform: uppercase;
     line-height: 70px;
   }
+
   header .link {
     display: none;
   }
+
   .close,
   .open {
     position: absolute;
     top: 35px;
     right: 20px;
-    color: blue;
+    color: #32cd32; /* Green for mobile menu icons */
     display: block;
     font-size: 25px;
     z-index: 999;
   }
+
   .close {
     right: 45%;
   }
+
   .close.home-btn {
-    background: linear-gradient(145deg, #e2e8ec, #ffffff);
-    color: blue;
+    background: linear-gradient(145deg, #1f1f1f, #2b2b2b); /* Black shades for close button */
+    color: #32cd32; /* Green text */
     border-radius: 50%;
     padding: 0;
     width: 60px;
     height: 60px;
     line-height: 60px;
   }
+
   .header.active {
     height: 8%;
   }

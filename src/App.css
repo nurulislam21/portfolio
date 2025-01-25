@@ -12,8 +12,8 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #ffffff;
-  color: #3c3e41;
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
 }
 
 .container {
@@ -32,7 +32,7 @@ body {
 
 a {
   text-decoration: none;
-  color: inherit;
+  color: #32cd32; /* Green links */
 }
 
 li {
@@ -59,20 +59,20 @@ button {
   border-radius: 6px;
   transition: 0.3s all ease;
   cursor: pointer;
-  color: #000;
-  background: linear-gradient(145deg, #e2e8ec, #ffffff);
-  box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff;
+  color: #ffffff; /* White text */
+  background: linear-gradient(145deg, #1f1f1f, #2b2b2b); /* Black shades for buttons */
+  box-shadow: 4px 4px 8px #0d0d0d, -4px -4px 8px #363636; /* Adjusted for black theme */
 }
 
 .btn_shadow:hover {
-  background: #ff014f;
-  color: white;
+  background: #32cd32; /* Green on hover */
+  color: #ffffff; /* Black text */
   transform: translateY(-10px);
 }
 
 .box_shodow {
-  background: linear-gradient(145deg, #e2e8ec, #ffffff);
-  box-shadow: 4px 4px 8px #cbcbcb, -4px -4px 8px #ffffff;
+  background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
+  box-shadow: 4px 4px 8px #0d0d0d, -4px -4px 8px #363636;
   border-radius: 10px;
 }
 
@@ -96,20 +96,20 @@ button {
 }
 
 .heading h4 {
-  color: #ff014f;
+  color: #32cd32; /* Green text */
   letter-spacing: 2px;
   font-weight: 400;
 }
 
 .heading h1 {
   font-size: 60px;
-  color: #3c3e41;
+  color: #ffffff; /* White text */
   font-weight: 600;
   margin: 20px 0;
 }
 
 h1 {
-  color: #3c3e41;
+  color: #ffffff;
 }
 
 .grid {
@@ -119,7 +119,7 @@ h1 {
 }
 
 p {
-  color: #3c3e41;
+  color: #ffffff; /* White text */
   line-height: 1.6;
 }
 
@@ -128,7 +128,7 @@ p {
 }
 
 .primary_color {
-  color: #ff014f;
+  color: #32cd32; /* Green primary color */
 }
 
 textarea,
@@ -137,31 +137,33 @@ input {
   padding: 15px;
   border-radius: 8px;
   outline: none;
-  border: 3px solid #e2e8ec;
+  border: 3px solid #363636; /* Dark border */
   margin-bottom: 20px;
   font-size: 16px;
+  background-color: #000000; /* Black background */
+  color: #ffffff; /* White text */
 }
 
 textarea:focus,
 input:focus {
-  border-color: #ff014f;
+  border-color: #32cd32; /* Green focus */
 }
 
 footer {
   margin: 60px 0;
   text-align: center;
   padding: 20px 0;
-  background-color: #f5f5f5;
+  background-color: #1f1f1f; /* Dark footer background */
 }
 
 footer p {
-  color: #3c3e41;
+  color: #ffffff;
   font-size: 14px;
   margin-top: 10px;
 }
 
 footer a {
-  color: #ff014f;
+  color: #32cd32; /* Green links */
   text-decoration: none;
   font-weight: 500;
 }
