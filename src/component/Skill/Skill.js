@@ -129,7 +129,7 @@ const Skill = () => {
                     </div>
                     <div class="call-to-action">
                         <h2>Interested to work together?</h2>
-                        <a href={mypdf} download="resume.pdf">
+                        <a href={mypdf} onToggle="Nurul Islam Noman-resume 2024.pdf">
                             <button id="resume-button">GRAB MY RESUME</button>
                         </a>
                     </div>

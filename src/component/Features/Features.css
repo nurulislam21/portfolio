@@ -22,7 +22,7 @@
   opacity: 0;
 }
 .features .box:hover{
-  background: linear-gradient(#000000, rgb(166, 0, 255));
+  background: linear-gradient(black, green);
 }
 .features .box:hover p {
   color: white;
