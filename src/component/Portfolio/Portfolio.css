@@ -38,7 +38,7 @@ header{
   text-transform: uppercase;
 }
 .Portfolio .category span {
-  color: #ff014f;
+  color: greenyellow;
   font-size: 13px;
   letter-spacing: 2px;
   font-weight: 500;
@@ -48,7 +48,7 @@ header{
   right: 30px;
   bottom: 11%;
   transform: rotate(-45deg);
-  color: #ff014f;
+  color: greenyellow;
   opacity: 0;
   transition: 0.5s;
 }
@@ -61,7 +61,7 @@ header{
   padding-bottom: 30px;
 }
 .Portfolio .box:hover h2 {
-  color: #ff014f;
+  color: greenyellow;
 }
 .Portfolio .box:hover {
   color: rgb(255, 255, 255);
@@ -146,7 +146,7 @@ body.active-modal {
 }
 .modal-text button {
   margin-right: 20px;
-  color: #ff014f;
+  color: greenyellow;
 }
 .modal-text button i {
   margin-left: 10px;

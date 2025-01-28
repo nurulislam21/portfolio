@@ -5,7 +5,7 @@ import Home from "./component/Hero/Home"
 import Portfolio from "./component/Portfolio/Portfolio"
 import Resume from "./component/Resume/Resume"
 import Skill from './component/Skill/Skill'
-import Testimonial from "./component/Testimonial/Testimonial"
+// import Testimonial from "./component/Testimonial/Testimonial"
 import Blog from "./component/Blog/Blog"
 import Contact from "./component/Contact/Contact"
 import Footer from "./component/Footer"
@@ -20,7 +20,7 @@ const App = () => {
       <Portfolio />
       <Resume />
       <Skill />
-      <Testimonial />
+      {/* <Testimonial /> */}
       <Blog />
       <Contact />
       <Footer />
