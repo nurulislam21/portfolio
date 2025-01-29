@@ -6,7 +6,7 @@
   position: relative;
 }
 .Portfolio .box:hover {
-  background: linear-gradient(black, silver 120%);
+  background: linear-gradient(green, black );
   transform: translateY(-0);
 }
 /* body {
@@ -127,7 +127,7 @@ body.active-modal {
   max-width: 85%;
   min-width: 60%;
   z-index: 9999;
-  box-shadow: 4px 4px 8px #2b2b2b, -4px -4px 8px #686868;
+  box-shadow: 4px 4px 8px greenyellow, -4px -4px 8px #686868;
   padding: 50px;
   border-radius: 10px;
 }
