@@ -76,7 +76,7 @@
 
 .Contact .right input:focus,
 .Contact .right textarea:focus {
-  border-color: #007bff;
+  border-color: greenyellow;
 }
 
 .Contact .right button {
@@ -85,14 +85,15 @@
   padding: 12px;
   font-size: 16px;
   color: rgb(255, 255, 255);
-  background-color: #007bff;
+  background-color: green;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
 .Contact .right button:hover {
-  background-color: #0056b3;
+  color: black;
+  background-color: greenyellow;
 }
 
 .Contact .right button i {
