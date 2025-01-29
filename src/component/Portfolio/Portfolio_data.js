@@ -68,7 +68,7 @@ const Portfolio_data = [
     category: "3D Design",
     totalLike: "690",
     title: "Smart Glass",
-    description: "Design a smart glass in Drishti Technology ltd my internship period.",
+    description: "I designed a smart glass in Drishti Technology Ltd during my internship period.",
     image: pimg12,
   },
   {
