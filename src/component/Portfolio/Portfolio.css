@@ -75,9 +75,9 @@ header{
 }
 
 .load-more button {
+  background: greenyellow;
   padding: 20px 40px;      /* Adjust button padding */
-  background-color: greenyellow; /* Button color */
-  color: white;            /* Button text color */
+  color: black;            /* Button text color */
   border: none;            /* Remove border */
   border-radius: 5px;      /* Rounded corners */
   cursor: pointer;         /* Pointer cursor on hover */
@@ -121,28 +121,31 @@ body.active-modal {
   top: 12%;
   left: 8%;
   line-height: 1.4;
-  background: silver;
+  background-color: #2b2b2b;
   padding: 14px 28px;
   border-radius: 3px;
   max-width: 85%;
   min-width: 60%;
   z-index: 9999;
-  box-shadow: 4px 4px 8px #686868, -4px -4px 8px #2b2b2b;
+  box-shadow: 4px 4px 8px #2b2b2b, -4px -4px 8px #686868;
   padding: 50px;
   border-radius: 10px;
 }
 
 .modal-text {
   padding: 0 100px 0 50px;
+  /* color: black; */
 }
 .modal-text h1 {
   margin: 20px 0 20px 0;
   font-size: 30px;
+  /* color: black; */
 }
 .modal-text p {
   font-size: 17px;
   margin-bottom: 20px;
   line-height: 25px;
+  color: greenyellow;
 }
 .modal-text button {
   margin-right: 20px;
