@@ -36,7 +36,7 @@ const Home = () => {
                 delaySpeed={1000}
               />
             </h2>
-            <p>I am a robotics professional with expertise in robotic control systems, machine learning, and software development, with a particular focus on aviation-related robotics. My work involves integrating hardware and software to develop innovative solutions for aerospace applications, including UAVs, autonomous systems, and advanced navigation technologies. Committed to advancing both robotics and aviation, I actively explore emerging methodologies and technologies to deliver impactful, cutting-edge results. I am eager to collaborate on challenging projects that drive technological innovation in these fields.
+            <p> As a robotics engineer specializing in control systems, machine learning, and software development, I bring focused expertise in advancing robotic applications within the aviation industry. My career centers on the seamless integration of hardware and software to design advanced solutions for aerospace challenges, including unmanned aerial vehicles (UAVs), autonomous systems, and next-generation navigation technologies. Dedicated to pushing the boundaries of innovation, I continuously research emerging methodologies and leverage cutting-edge tools to deliver high-impact, state-of-the-art outcomes. I am keen to engage with forward-thinking teams and projects that aim to advance technological progress at the intersection of robotics and aerospace engineering.
             </p>
             {/* <div className='hero_btn'>
               <a href={mypdf} download>
