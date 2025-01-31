@@ -1,6 +1,6 @@
 // export default Contact;
 import { useState } from 'react';
-import contact1 from './contact1.jpg';
+import contact1 from './contract.jpg';
 import './Contact.css';
 import emailjs from 'emailjs-com';  // Import emailjs
 
