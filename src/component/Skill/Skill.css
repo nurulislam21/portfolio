@@ -99,7 +99,7 @@ body {
 }
 .Technical-bars .bar .progress-line span{
     height: 100%;
-    background-color: greenyellow;
+    background-color: green;
     position: absolute;
     border-radius: 10px;
     animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
@@ -222,7 +222,7 @@ body {
 }
 .path{
     stroke-width: 15;
-    stroke: greenyellow;
+    stroke: green;
     fill: transparent;
     stroke-dasharray: 502;
     stroke-dashoffset: 502;

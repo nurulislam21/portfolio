@@ -78,7 +78,7 @@ const Contact = () => {
                 <div className='details'>
                   <h1>Nurul Islam</h1>
                   <p>I am available for freelance work. Connect with me via my social media or call me directly.</p>
-                  {/* <p>Phone: +8801744247204</p> */}
+                  <p>Phone: +8801823395901</p>
                   <p>Email: noman1272003@gmail.com</p>
                   <span>FIND WITH ME</span>
                   <div className='button f_flex'>

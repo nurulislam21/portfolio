@@ -16,24 +16,31 @@ const Home = () => {
       <section className='hero' id='home'>
         <div className='container f_flex top'>
           <div className='left top'>
-            {/* <h3>HEY! THIS IS</h3> */}
+            <h3>HEY! MY NAME IS</h3>
             <h1>
               <span style={{ color: 'gray', fontWeight: 'bold' }}>Nurul Islam Noman</span>
             </h1>
-            {/* <h2>
-              <span style={{ color: 'white', fontWeight: 'normal' }}> I'm a professional </span>
-                <Typewriter words={[" Full Stack Robotics Engineer.", "  Auto CAD desiner.", " PCB desiner.", " Researcher.", " FREELANCER."]} loop cursor cursorStyle='|' typeSpeed={70} deleteSpeed={50} delaySpeed={1000}/>
-            </h2> */}
             <h2>
-              <span style={{ color: 'white', fontWeight: 'normal' }}>I'm a </span>
+              <span style={{ color: 'white', fontWeight: 'bold' }}>I SPECIALIZE IN </span>
               <Typewriter
-                words={["Robotics Engineer.", "Auto CAD Designer.", "PCB Designer.", "Researcher.", "Freelancer."]}
+                words={[
+                  "Robotics & Autonomous Systems.",
+                  "Mechanical Design & CAD Modeling.",
+                  "PCB Design & Embedded Hardware.",
+                  "Embedded Systems & IoT Solutions.",
+                  "Advanced Research & Development.",
+                  "Software Engineering & Algorithm Design.",
+                  "Aerospace & UAV Technologies.",
+                  "3D Printing & Rapid Prototyping.",
+                  "Electronics Engineering & Circuit Design.",
+                  "Technical Consulting & Innovation Strategy."
+                ]}
                 loop
                 cursor
                 cursorStyle="|"
                 typeSpeed={70}
                 deleteSpeed={50}
-                delaySpeed={1000}
+                delaySpeed={1500}
               />
             </h2>
             <p> As a robotics engineer specializing in control systems, machine learning, and software development, I bring focused expertise in advancing robotic applications within the aviation industry. My career centers on the seamless integration of hardware and software to design advanced solutions for aerospace challenges, including unmanned aerial vehicles (UAVs), autonomous systems, and next-generation navigation technologies. Dedicated to pushing the boundaries of innovation, I continuously research emerging methodologies and leverage cutting-edge tools to deliver high-impact, state-of-the-art outcomes. I am keen to engage with forward-thinking teams and projects that aim to advance technological progress at the intersection of robotics and aerospace engineering.
@@ -111,7 +118,7 @@ const Home = () => {
             </div>
           </div>
         </div>
-      </section>
+      </section >
     </>
   )
 }
