@@ -9,6 +9,39 @@
   background: linear-gradient(green, black );
   transform: translateY(-0);
 }
+/* Portfolio.css */
+
+/* Base styles */
+/* .Portfolio {
+  padding: 50px 0;
+  background: #fff;
+} */
+
+/* Full-page mode */
+.Portfolio.full-page {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999; /* Ensure it's above other content */
+  overflow-y: auto; /* Enable scrolling if content is long */
+  background: black; /* Solid background to cover underlying page */
+}
+
+/* Center content in full-page mode */
+.Portfolio.full-page .container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Grid layout adjustments */
+.Portfolio .content.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  padding: 20px 0;
+}
 /* body {
   font-family: "Poppins", sans-serif;
   background-color: #ecf0f3;
