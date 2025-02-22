@@ -1,0 +1,133 @@
+.Resume .heading h1 {
+  font-size: 40px;
+}
+.Resume .content {
+  max-width: 85%;
+  margin: auto;
+}
+.Resume .box {
+  padding: 40px;
+}
+.Resume hr {
+  margin: 30px 0 30px 0;
+  border: 1px solid #e3e9ed;
+  background-color: #e3e9ed;
+}
+.Resume .rate .btn_shadow {
+  color: blue;
+  padding: 15px 30px;
+  font-weight: bold;
+  transition: 0.5s;
+}
+.Resume p {
+  font-size: 18px;
+  transition: 0.5s;
+}
+.Resume .box {
+  margin-bottom: 40px;
+  position: relative;
+  background: #000000;
+}
+.Resume .btn_shadow:hover {
+  transform: translate(0);
+}
+.Resume .box:hover .btn_shadow {
+  background: blue;
+  box-shadow: none;
+  color: white;
+}
+.Resume .box:hover{
+  background: linear-gradient(#000000, gray);
+}
+.Resume .box:hover p {
+  color: white;
+}
+.Resume .content-section {
+  position: relative;
+}
+.Resume .left {
+  position: relative;
+}
+/* .Resume .left::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: 0.2%;
+  height: 80%;
+  width: 5px;
+  background: #d9dee2;
+  z-index: -2;
+}
+.Resume .box::after {
+  content: "";
+  position: absolute;
+  top: 0%;
+  left: -10%;
+  height: 5px;
+  width: 50px;
+  background: #d9dee2;
+  z-index: -2;
+}
+.Resume .box::before {
+  content: "";
+  position: absolute;
+  top: -2%;
+  left: -10%;
+  height: 10px;
+  width: 10px;
+  background: #fff;
+  border: 5px solid #d9dee2;
+  border-radius: 50%;
+  z-index: 5;
+  transition: 0.5s;
+} */
+.Resume .left::after {
+  content: "";
+  position: absolute;
+  top: 0; /* Start from the top of the parent */
+  left: 0; /* Align with the left edge of the parent */
+  height: 100%; /* Full height of the parent */
+  width: 5px; /* Vertical line thickness */
+  background: #d9dee2; /* Line color */
+  z-index: -1; /* Positioned behind other elements */
+}
+
+.Resume .box::after {
+  content: "";
+  position: absolute;
+  top: 50%; /* Center vertically within the parent */
+  left: -8%; /* Adjust horizontal alignment for visual consistency */
+  transform: translateY(-50%); /* Ensure perfect vertical centering */
+  height: 5px; /* Horizontal line thickness */
+  width: 50px; /* Length of the horizontal line */
+  background: #d9dee2; /* Line color */
+  z-index: -1; /* Positioned behind the box content */
+}
+
+.Resume .box::before {
+  content: "";
+  position: absolute;
+  top: 50%; /* Center vertically within the parent */
+  left: -10%; /* Adjust horizontal alignment for consistency with ::after */
+  transform: translateY(-50%); /* Ensure perfect vertical centering */
+  height: 10px; /* Circle size */
+  width: 10px; /* Circle size */
+  background: #fff; /* Background color */
+  border: 5px solid #d9dee2; /* Border thickness and color */
+  border-radius: 50%; /* Make it a perfect circle */
+  z-index: 0; /* Ensure layering above the ::after line */
+  transition: background 0.5s ease; /* Smooth transition for hover effect */
+}
+
+.Resume .box:hover::before {
+  background: greenyellow; /* Circle color change on hover */
+}
+@media (max-width: 768px) {
+  .Resume .d_flex {
+    flex-direction: column;
+  }
+  .Resume .left::after {
+    top: 10%;
+    height: 90%;
+  }
+}
