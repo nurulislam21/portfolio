@@ -1,2 +1,2 @@
-https://nurulislam21.github.io/portfolio/
+https://nurulislam21.github.io
 Thanks for visiting my profile!
