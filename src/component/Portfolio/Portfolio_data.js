@@ -1,4 +1,3 @@
-
 import pimg1 from '../pic/pimg1.jpg'
 import pimg5 from '../pic/pimg8.jpg'
 import pimg7 from '../pic/id7.png'
@@ -15,13 +14,14 @@ import pimg18 from '../pic/INDROUSTRIAL AUTOMATION.jpg'
 import pimg19 from '../pic/PLANE CRASH.jpg' 
 import pimg20 from '../pic/2D DRAW PEB.jpg'
 import pimg21 from '../pic/ESPCAM.jpg'
+
 const Portfolio_data = [
   {
     id: 1,
     category: "AVIATION",
     totalLike: "1k",
     title: "Design Next-Gen Aircraft",
-    description: "Designed a futuristic aircraft concept with advanced aerodynamics and sustainable propulsion systems. The design incorporates cutting-edge technologies and materials for improved performance vertical takeof and landing capabilities.",
+    description: "Designed a futuristic aircraft concept with advanced aerodynamics and sustainable propulsion systems. The design incorporates cutting-edge technologies and materials for improved performance and vertical takeoff and landing (VTOL) capabilities.",
     image: pimg10,
   },
   {
@@ -37,7 +37,7 @@ const Portfolio_data = [
     category: "Robotic",
     totalLike: "750",
     title: "Robot Gathering Robot",
-    description: "Devloped a robot for robot gathering problems solving algorithm.",
+    description: "Developed a robot specifically for solving robot-gathering algorithmic challenges.",
     image: pimg11,
   },
   {
@@ -45,14 +45,15 @@ const Portfolio_data = [
     category: "Robotic",
     totalLike: "630",
     title: "Self-Driving Car",
-    description: "Designed a self-driving car prototype with advanced sensors, AI algorithms, and safety features. The vehicle is capable of autonomous navigation, obstacle avoidance, and real-time decision-making for safe and efficient transportation to partcpate in the WRO Future Engineering Challenge.",
+    description: "Designed a self-driving car prototype with advanced sensors, AI algorithms, and safety features. Capable of autonomous navigation, obstacle avoidance, and real-time decision-making for the WRO Future Engineering Challenge.",
     image: pimg7,
   },
   {
     id: 5,
     category: "Robotic",
     totalLike: "470",
-    title: "Design a robot for IRO Robot in movie Category",
+    title: "IRO Robot in Movie Category",
+    description: "Custom-designed robot tailored for the International Robot Olympiad (IRO) movie category.",
     image: pimg5,
   },
   {
@@ -60,7 +61,7 @@ const Portfolio_data = [
     category: "Robotic",
     totalLike: "380",
     title: "Line Follower Robot",
-    description: "Make a line follower robot and implemant PID controller for better performance.",
+    description: "Engineered a high-speed line follower robot implementing a custom PID controller for optimized track performance and stability.",
     image: pimg8,
   },
   {
@@ -68,23 +69,23 @@ const Portfolio_data = [
     category: "3D Design",
     totalLike: "690",
     title: "Smart Glass",
-    description: "I designed a smart glass in Drishti Technology Ltd during my internship period.",
+    description: "Designed the 3D enclosure and mechanical structure for a smart glass wearable device during my internship at Drishti Technology Ltd.",
     image: pimg12,
   },
   {
     id: 8,
     category: "PCB",
     totalLike: "690",
-    title: "Design a Professional PCB",
-    description: "Design a professional PCB.",
+    title: "Professional PCB Design",
+    description: "Comprehensive schematic layout and routing for a professional-grade printed circuit board.",
     image: pimg13,
   },
   {
     id: 9,
     category: "3D Design",
     totalLike: "690",
-    title: "Ricshaw Model",
-    description: "Design a Ricshaw model.",
+    title: "Rickshaw Model",
+    description: "Detailed 3D CAD modeling of a traditional rickshaw.",
     image: pimg14,
   },
   {
@@ -92,39 +93,39 @@ const Portfolio_data = [
     category: "3D Design",
     totalLike: "690",
     title: "Quadcopter",
-    description: "Design a Quadcopter model.",
+    description: "Full mechanical design and aerodynamic modeling for a custom quadcopter frame.",
     image: pimg15,
   },
   {
     id: 11,
     category: "Prototype",
     totalLike: "690",
-    title: "Smart Glass",
-    description: "Build a smart glass prototype.",
+    title: "Smart Glass Prototype",
+    description: "Physical assembly and prototyping of the smart glass wearable device.",
     image: pimg16,
   },
   {
     id: 12,
     category: "Product Design",
     totalLike: "690",
-    title: "Industrial Automation Device Box",
-    description: "Design a device box for ongshak inrustrial automation project.",
+    title: "Automation Device Box",
+    description: "Designed a rugged industrial device enclosure for an Ongshak automation project.",
     image: pimg17,
   },
   {
     id: 13,
     category: "Product Design",
     totalLike: "690",
-    title: "Industrial Automation Device Box",
-    description: "build a device for steel tech inrustrial.",
+    title: "Industrial Automation Hardware",
+    description: "Built and integrated a control device for Steel Tech Industrial.",
     image: pimg18,
   },
   {
     id: 14,
     category: "AVIATION",
     totalLike: "690",
-    title: "Plane",
-    description: "Design print and build a plane for my hoby project.",
+    title: "RC Plane",
+    description: "Designed, 3D printed, and built a custom fixed-wing aircraft for aerospace research.",
     image: pimg19,
   },
   {
@@ -132,17 +133,17 @@ const Portfolio_data = [
     category: "PCB",
     totalLike: "690",
     title: "2D Drawing PCB",
-    description: "Design a 2D drawing PCB using 3D printer.",
+    description: "Prototyped a 2D drawing PCB utilizing advanced 3D printing techniques.",
     image: pimg20,
   },
   {
     id: 16,
     category: "Prototype",
     totalLike: "690",
-    title: "Micro level soldaring",
-    description: "in this picture i am doing micro level soldaring for my project using ES32 Cam",
+    title: "Micro-Level Soldering",
+    description: "Executing precise, micro-level SMD soldering for a compact ESP32-CAM vision project.",
     image: pimg21,
   }
-]
+];
 
-export default Portfolio_data
+export default Portfolio_data;

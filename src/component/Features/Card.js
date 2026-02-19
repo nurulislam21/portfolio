@@ -1,18 +1,23 @@
-import React from "react"
+import React from "react";
 
-const Card = (props) => {
+const Card = ({ image, title, desc, index }) => {
   return (
-    <>
-      <div className='box btn_shadow'>
-        <img src={props.image} alt='' />
-        <h2>{props.title}</h2>
-        <p>{props.desc}</p>
-        <a href='https://nurulislam21.github.io/portfolio/#home'>
-          <i className='fas fa-arrow-right'></i>
-        </a>
+    <div className="feature-card">
+      {/* Visual Depth: Background index number */}
+      <span className="card-number">0{index + 1}</span>
+      
+      <div className="card-icon">
+        <img src={image} alt={title} />
       </div>
-    </>
-  )
-}
+      
+      <h2>{title}</h2>
+      <p className="card-desc">{desc}</p>
+      
+      <a href="#portfolio" className="card-arrow" aria-label={`View my ${title} projects`}>
+        <i className="fas fa-arrow-right"></i>
+      </a>
+    </div>
+  );
+};
 
-export default Card
+export default Card;

@@ -1,297 +1,252 @@
+/* --- Core Layout --- */
+.skill-grid {
+  gap: 50px;
+  align-items: stretch;
+}
 
-/* section{
-    display: flex;
-    flex-wrap: wrap;
-} */
-.Skill{
-    margin-bottom: 50px;
-    height: 100%;
+.container1 {
+  width: 50%;
+  padding: 50px;
+  border-radius: 12px;
 }
-.sub-title span{
-    color: #a000e7;
+
+.heading1 {
+  text-align: left;
+  font-size: 24px;
+  color: var(--text-main);
+  margin-bottom: 40px;
+  font-family: "Fira Code", monospace;
+  letter-spacing: 1px;
 }
-.container1{
-    width: 500px;
-    height: 100%;
-    padding: 75px 0px;
-    margin-left: 10px;
+
+/* --- Technical Linear Bars --- */
+.Technical-bars .bar {
+  margin: 30px 0;
 }
-.heading1{
-    text-align: center;
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    text-decoration-thickness: 5px;
-    margin-bottom: 50px;
+
+.Technical-bars .info {
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
 }
-body {
-    font-family: Arial, sans-serif;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    margin: 0;
-    background-color: #f9f9f9;
+
+.skill-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.skill-title svg {
+  width: 30px;
+  height: 30px;
+  filter: grayscale(80%) brightness(1.5);
+  transition: var(--transition);
+}
+
+.container1:hover .skill-title svg {
+  filter: grayscale(0%) brightness(1);
+}
+
+.Technical-bars .info span {
+  font-size: 16px;
+  font-weight: 500;
+  color: var(--text-main);
+  opacity: 0; /* Hidden by default */
+}
+
+/* Trigger animation ONLY when AOS adds the aos-animate class */
+.container1.aos-animate .Technical-bars .info span {
+  animation: showText 0.5s 0.5s linear forwards;
+}
+
+/* The Progress Track */
+.Technical-bars .progress-line {
+  position: relative;
+  border-radius: 10px;
+  width: 100%;
+  height: 8px;
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+}
+
+/* The Animated Progress Fill */
+.Technical-bars .progress-line span {
+  position: absolute;
+  height: 100%;
+  background-color: var(--accent-green);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--accent-glow);
+  transform: scaleX(0);
+  transform-origin: left;
+}
+
+/* Trigger filling animation when scrolled into view */
+.container1.aos-animate .Technical-bars .progress-line span {
+  animation: animateLinear 1s 0.5s cubic-bezier(1, 0, 0.5, 1) forwards;
+}
+
+/* The Percentage Tooltip */
+.Technical-bars .progress-line span::after {
+  content: attr(data-percent);
+  position: absolute;
+  padding: 2px 8px;
+  background-color: var(--accent-green);
+  color: var(--bg-dark);
+  font-weight: 700;
+  font-size: 12px;
+  border-radius: 3px;
+  top: -30px;
+  right: -15px;
+  opacity: 0;
+}
+
+.Technical-bars .progress-line span::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: 6px solid transparent;
+  border-top-color: var(--accent-green);
+  top: -10px;
+  right: -5px;
+  opacity: 0;
+}
+
+.container1.aos-animate .Technical-bars .progress-line span::after,
+.container1.aos-animate .Technical-bars .progress-line span::before {
+  animation: showText 0.5s 1.2s linear forwards;
+}
+
+/* --- Professional Radial Bars --- */
+.radial-bars {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.radial-bar {
+  width: 45%;
+  height: 180px;
+  margin-bottom: 30px;
+  position: relative;
+}
+
+.radial-bar svg {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-90deg);
+  width: 130px;
+  height: 130px;
+}
+
+.progress-bg {
+  stroke-width: 12;
+  stroke: var(--bg-dark);
+  fill: transparent;
+}
+
+.path {
+  stroke-width: 12;
+  stroke: var(--accent-green);
+  fill: transparent;
+  stroke-dasharray: 502;
+  stroke-dashoffset: 502; /* Hidden by default */
+  stroke-linecap: round;
+  filter: drop-shadow(0 0 3px var(--accent-glow));
+}
+
+/* Trigger circular animations when scrolled into view */
+.container1.aos-animate .path-1 { animation: animate-path1 1s 0.5s linear forwards; }
+.container1.aos-animate .path-2 { animation: animate-path2 1s 0.5s linear forwards; }
+.container1.aos-animate .path-3 { animation: animate-path3 1s 0.5s linear forwards; }
+.container1.aos-animate .path-4 { animation: animate-path4 1s 0.5s linear forwards; }
+
+.percentage {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--text-main);
+  opacity: 0;
+}
+
+.radial-bar .text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  left: 50%;
+  bottom: 0px;
+  transform: translateX(-50%);
+  font-size: 16px;
+  color: var(--text-muted);
+  font-weight: 500;
+  opacity: 0;
+}
+
+.container1.aos-animate .percentage,
+.container1.aos-animate .text {
+  animation: showText 0.5s 1s linear forwards;
+}
+
+/* --- Call to Action Container --- */
+.call-to-action {
+  text-align: center;
+  padding: 50px;
+  border: 1px dashed var(--accent-green);
+}
+
+.call-to-action h2 {
+  font-family: "Fira Code", monospace;
+  font-size: 28px;
+  color: var(--text-main);
+  margin-bottom: 10px;
+}
+
+.call-to-action p {
+  color: var(--text-muted);
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+#resume-button {
+  font-size: 16px;
+  padding: 15px 40px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* --- Animations --- */
+@keyframes showText { 100% { opacity: 1; } }
+@keyframes animateLinear { 100% { transform: scaleX(1); } }
+@keyframes animate-path1 { 100% { stroke-dashoffset: 50; } }
+@keyframes animate-path2 { 100% { stroke-dashoffset: 175; } }
+@keyframes animate-path3 { 100% { stroke-dashoffset: 100; } }
+@keyframes animate-path4 { 100% { stroke-dashoffset: 75; } }
+
+/* --- Responsive Layout --- */
+@media (max-width: 992px) {
+  .skill-grid {
+    flex-direction: column;
   }
-  
-  .call-to-action {
-    text-align: center;
-  }
-  
-  .call-to-action h2 {
-    font-size: 2rem;
-    color: orange; /* Bright purple */
-    margin-bottom: 1rem;
-  }
-  
-  #resume-button {
-    padding: 0.75rem 1.5rem;
-    font-size: 1rem;
-    font-weight: bold;
-    color: #a000e7;
-    background: transparent;
-    border: 2px dashed #a000e7;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  
-  #resume-button:hover {
-    background-color: greenyellow;
-    color: black;
-    transform: scale(1.05);
-  }
-  
-.bar{
-    font-size: 23px;
-}
-.Technical-bars .bar{
-    margin: 40px 0;
-}
-.Technical-bars .bar:first-child{
-    margin-top: 0;
-}
-.Technical-bars .bar:last-child{
-    margin-bottom: 0;
-}
-.Technical-bars .bar .info{
-    margin-bottom: 5px;
-}
-.Technical-bars .bar .info span{
-    font-size: 17px;
-    font-weight: 500;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
-}
-.Technical-bars .bar .progress-line{
-    position: relative;
-    border-radius: 10px;
+  .container1 {
     width: 100%;
-    height: 10px;
-    background-color: rgb(255, 255, 255);
-    animation: animate 0.2s cubic-bezier(1,0,0.5,1) forwards;
-    transform: scaleX(0);
-    transform-origin: left;
-}
-@keyframes animate{
-    100%{
-        transform: scaleX(1);
-    }
-}
-.Technical-bars .bar .progress-line span{
-    height: 100%;
-    background-color: orange;
-    position: absolute;
-    border-radius: 10px;
-    animation: animate 1s 1s cubic-bezier(1,0,0.5,1) forwards;
-    transform: scaleX(0);
-    transform-origin: left;
-}
-.progress-line.html span{
+    padding: 30px;
+  }
+  .radial-bar {
     width: 50%;
-}
-.progress-line.arduino span{
-    width: 90%;
-}
-.progress-line.raspberrypi span{
-    width: 65%;
-}
-.progress-line.solidworks span{
-    width: 60%;
-}
-.progress-line.altium span{
-    width: 70%;
-}
-.progress-line.matlab span{
-    width: 30%;
-}
-.progress-line.c span{
-    width: 85%;
-}
-.progress-line.python span{
-    width: 80%;
-}
-.progress-line span::after{
-    position: absolute;
-    padding: 1px 8px;
-    /* background-color: whitesmoke; */
-    color: white;
-    font-size: 12px;
-    border-radius: 3px;
-    top: -28px;
-    right: 0;
-    animation: showText 0.5s 1.5s linear forwards;
-    opacity: 0;
-}
-.progress-line.arduino span::after{
-    content: "90%";
-}
-.progress-line.raspberrypi span::after{
-    content: "65%";
-}
-.progress-line.solidworks span::after{
-    content: "60%";
-}
-.progress-line.altium span::after{
-    content: "70%";
-}
-.progress-line.matlab span::after{
-    content: "30%";
-}
-.progress-line.c span::after{
-    content: "85%";
-}
-.progress-line.python span::after{
-    content: "80%";
-}
-.progress-line span::before{
-    content: "";
-    position: absolute;
-    width: 0;
-    height: 0;
-    border: 7px solid transparent;
-    border-bottom-width: 0px;
-    border-right-width: 0px;
-    border-top-color: #000;
-    top: -10px;
-    right: 0;
-    animation: showText 0.5s 1.5s linear forwards;
-    opacity: 0;
-}
-@keyframes showText{
-    100%{
-        opacity: 1;
-    }
-}
-
-
-.radial-bars{
-    width: 100%;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-.radial-bars .radial-bar{
-    width: 50%;
-    height: 170px;
-    margin-bottom: 10px;
-    position: relative;
-}
-.radial-bars .radial-bar svg{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%) rotate(-90deg);
-    width: 120px;
-    height: 160px;
-}
-.radial-bars .radial-bar .progress-bar{
-    stroke-width: 15;
-    stroke: white;
-    fill: transparent;
-    stroke-dasharray: 502;
-    stroke-dashoffset: 502;
-    stroke-linecap: round;
-    animation: animate-bar 1s linear forwards;
-
-}
-@keyframes animate-bar{
-    100%{
-        stroke-dashoffset: -1;
-    }
-}
-.path{
-    stroke-width: 15;
-    stroke: orange;
-    fill: transparent;
-    stroke-dasharray: 502;
-    stroke-dashoffset: 502;
-    stroke-linecap: round;
-}
-.path-1{animation: animate-path1 1s 1s linear forwards;}
-.path-2{animation: animate-path2 1s 1s linear forwards;}
-.path-3{animation: animate-path3 1s 1s linear forwards;}
-.path-4{animation: animate-path4 1s 1s linear forwards;}
-@keyframes animate-path1{
-    100%{
-        stroke-dashoffset: 50;
-    }
-}
-@keyframes animate-path2{
-    100%{
-        stroke-dashoffset: 175;
-    }
-}
-@keyframes animate-path3{
-    100%{
-        stroke-dashoffset: 125;
-    }
-}
-@keyframes animate-path4{
-    100%{
-        stroke-dashoffset: 75;
-    }
-}
-.radial-bar .percentage{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 17px;
-    font-weight: 500;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
-}
-.text{
-    width: 100%;
-    position: absolute;
-    text-align: center;
-    left: 50%;
-    bottom: -5px;
-    transform: translateX(-50%);
-    font-size: 17px;
-    font-weight: 500;
-    animation: showText 0.5s 1s linear forwards;
-    opacity: 0;
+  }
 }
 
 @media (max-width: 768px) {
-    .container1{
-        width: 200px;
-    }
-    .radial-bars .radial-bar svg{
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%) rotate(-90deg);
-        width: 80px;
-        height: 100px;
-    }
-    .heading1{
-        text-underline-offset: 5px;
-        text-decoration-thickness: 2px;
-    }
-    .bar{
-        font-size: 13px;
-    }
+  .radial-bar {
+    width: 100%;
+    margin-bottom: 40px;
+  }
+  .call-to-action h2 {
+    font-size: 20px;
+  }
 }

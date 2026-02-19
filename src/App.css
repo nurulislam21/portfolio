@@ -1,5 +1,41 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
+/* Importing Poppins for main text, and Fira Code for technical accents */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Fira+Code:wght@400;500&display=swap");
 
+/* --- PRO UPGRADE 1: CSS Variables --- */
+:root {
+  --bg-dark: #0f1115;         /* Deep tech-charcoal instead of pure black */
+  --bg-card: #181c25;         /* Slightly lighter for project cards */
+  --text-main: #e2e8f0;       /* Soft white for better readability */
+  --text-muted: #94a3b8;      /* Gray for paragraphs */
+  --accent-green: #32cd32;    /* Your signature neon green */
+  --accent-glow: rgba(50, 205, 50, 0.3); /* Soft green glow */
+  --border-color: #2a3143;    /* Subtle borders for structure */
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+/* --- PRO UPGRADE: Custom Tech Scrollbar --- */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-dark); 
+}
+
+::-webkit-scrollbar-thumb {
+  background: #2a3143; 
+  border-radius: 10px;
+  border: 2px solid var(--bg-dark); /* Creates a sleek padded look */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-green); 
+}
+
+/* Make highlighted text look like a terminal */
+::selection {
+  background: var(--accent-green);
+  color: var(--bg-dark);
+}
 * {
   padding: 0;
   margin: 0;
@@ -12,18 +48,22 @@ html {
 
 body {
   font-family: "Poppins", sans-serif;
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* White text */
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.7;
 }
 
 .container {
-  max-width: 90%;
+  max-width: 1200px; /* Setting a fixed max-width is more standard than 90% */
   margin: auto;
+  padding: 0 20px;
 }
 
+/* --- Layout Utilities --- */
 .d_flex {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .f_flex {
@@ -32,20 +72,20 @@ body {
 
 a {
   text-decoration: none;
-  color: #32cd32; /* Green links */
+  color: var(--accent-green);
+  transition: var(--transition);
+}
+
+a:hover {
+  text-shadow: 0 0 8px var(--accent-glow);
 }
 
 li {
   list-style: none;
 }
 
-.uppercase {
-  text-transform: uppercase;
-}
-
-.capitalize {
-  text-transform: capitalize;
-}
+.uppercase { text-transform: uppercase; }
+.capitalize { text-transform: capitalize; }
 
 button {
   border: none;
@@ -54,159 +94,134 @@ button {
   cursor: pointer;
 }
 
+/* --- PRO UPGRADE 2: Sleek Tech Buttons --- */
 .btn_shadow {
-  padding: 18px 25px;
-  border-radius: 6px;
-  transition: 0.3s all ease;
+  padding: 16px 28px;
+  border-radius: 8px;
+  font-family: "Fira Code", monospace; /* Gives buttons a cool engineering feel */
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--accent-green);
+  background: transparent;
+  border: 1px solid var(--accent-green);
+  transition: var(--transition);
   cursor: pointer;
-  color: #ffffff; /* White text */
-  background: linear-gradient(145deg, #1f1f1f, #2b2b2b); /* Black shades for buttons */
-  box-shadow: 4px 4px 8px #0d0d0d, -4px -4px 8px #363636; /* Adjusted for black theme */
+  box-shadow: 0 0 10px transparent;
 }
 
 .btn_shadow:hover {
-  background: #32cd32; /* Green on hover */
-  color: #ffffff; /* Black text */
-  transform: translateY(-10px);
+  background: var(--accent-green);
+  color: var(--bg-dark);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px var(--accent-glow); /* Glowing effect instead of heavy shadows */
 }
 
+/* --- PRO UPGRADE 3: Modern Card Design (Kept your class name box_shodow) --- */
 .box_shodow {
-  background: linear-gradient(145deg, #1f1f1f, #2b2b2b);
-  box-shadow: 4px 4px 8px #0d0d0d, -4px -4px 8px #363636;
-  border-radius: 10px;
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 30px;
+  transition: var(--transition);
+  position: relative;
+  overflow: hidden;
 }
 
-.row,
-.left,
-.right {
-  width: 50%;
+.box_shodow:hover {
+  border-color: var(--accent-green);
+  transform: translateY(-5px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px var(--accent-glow);
 }
 
-.top {
-  margin-top: 80px;
-}
+/* Width utilities */
+.row { width: 100%; display: flex; flex-wrap: wrap; gap: 30px; }
+.left, .right { width: calc(50% - 15px); }
 
-.mtop {
-  margin-top: 40px;
-}
+/* Spacing */
+.top { margin-top: 80px; }
+.mtop { margin-top: 40px; }
 
+/* --- Typography Hierarchy --- */
 .heading {
-  margin: 50px 0;
+  margin: 60px 0;
   text-align: center;
 }
 
 .heading h4 {
-  color: #32cd32; /* Green text */
+  color: var(--accent-green);
+  font-family: "Fira Code", monospace; /* Code font for subheadings */
   letter-spacing: 2px;
-  font-weight: 400;
+  font-weight: 500;
+  font-size: 14px;
+  text-transform: uppercase;
 }
 
 .heading h1 {
-  font-size: 60px;
-  color: #ffffff; /* White text */
-  font-weight: 600;
-  margin: 20px 0;
-}
-
-h1 {
-  color: #ffffff;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-gap: 35px;
+  font-size: 56px;
+  color: var(--text-main);
+  font-weight: 700;
+  margin: 15px 0;
+  letter-spacing: -1px;
 }
 
 p {
-  color: #ffffff; /* White text */
-  line-height: 1.6;
+  color: var(--text-muted);
 }
 
-.text-center {
-  text-align: center;
-}
+.text-center { text-align: center; }
+.primary_color { color: var(--accent-green); }
 
-.primary_color {
-  color: #32cd32; /* Green primary color */
-}
-
+/* --- Forms & Inputs --- */
 textarea,
 input {
   width: 100%;
-  padding: 15px;
+  padding: 16px;
   border-radius: 8px;
   outline: none;
-  border: 3px solid #363636; /* Dark border */
+  border: 1px solid var(--border-color);
   margin-bottom: 20px;
   font-size: 16px;
-  background-color: #000000; /* Black background */
-  color: #ffffff; /* White text */
+  font-family: "Poppins", sans-serif;
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  transition: var(--transition);
 }
 
 textarea:focus,
 input:focus {
-  border-color: #32cd32; /* Green focus */
+  border-color: var(--accent-green);
+  box-shadow: 0 0 0 3px var(--accent-glow);
 }
 
+/* --- Footer --- */
 footer {
-  margin: 60px 0;
+  margin-top: 80px;
   text-align: center;
-  padding: 20px 0;
-  background-color: #1f1f1f; /* Dark footer background */
+  padding: 30px 0;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--bg-card);
 }
 
 footer p {
-  color: #ffffff;
+  color: var(--text-muted);
   font-size: 14px;
-  margin-top: 10px;
 }
 
-footer a {
-  color: #32cd32; /* Green links */
-  text-decoration: none;
-  font-weight: 500;
+/* --- Responsive Styles --- */
+@media (max-width: 992px) {
+  .left, .right { width: 100%; }
 }
 
-/* Responsive Styles */
 @media (max-width: 768px) {
   .grid {
     grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
   }
-
-  .left,
-  .right {
-    width: 100%;
-  }
-
-  .heading h1 {
-    font-size: 40px;
-  }
-
-  .btn_shadow {
-    padding: 15px 20px;
-  }
-
-  .box_shodow {
-    padding: 20px;
-  }
-
-  textarea,
-  input {
-    padding: 12px;
-  }
+  .heading h1 { font-size: 40px; }
 }
 
 @media (max-width: 480px) {
-  .heading h1 {
-    font-size: 30px;
-  }
-
-  .grid {
-    grid-template-columns: 1fr;
-  }
-
-  .btn_shadow {
-    padding: 12px 18px;
-  }
+  .heading h1 { font-size: 32px; }
+  .grid { grid-template-columns: 1fr; }
+  .box_shodow { padding: 20px; }
 }

@@ -1,88 +1,47 @@
-
-// import React, { useState } from "react";
-// import "./Portfolio.css";
-// import Card from "./Card";
-// import Portfolio_data from "./Portfolio_data";
-
-// const Portfolio = () => {
-//   const [showFullPage, setShowFullPage] = useState(false);
-//   const initialItems = 4; // Initially show 4 items
-
-//   return (
-//     <>
-//       <section className="Portfolio top" id="portfolio">
-//         <div className="container">
-//           <div className="heading text-center">
-//             <h4>VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK</h4>
-//             <h1>{showFullPage ? "Portfolio" : "Portfolio!"}</h1>
-//           </div>
-
-//           <div className="content grid">
-//             {Portfolio_data
-//               .slice(0, showFullPage ? Portfolio_data.length : initialItems)
-//               .map((value, index) => (
-//                 <Card
-//                   key={index}
-//                   image={value.image}
-//                   category={value.category}
-//                   totalLike={value.totalLike}
-//                   title={value.title}
-//                   description={value.description}
-//                 />
-//               ))}
-//           </div>
-
-//           <div className="text-center">
-//             <button className="btn_shadow" onClick={() => setShowFullPage(!showFullPage)}>
-//               {showFullPage ? "Go Back" : "See More"}
-//             </button>
-//           </div>
-//         </div>
-//       </section>
-//     </>
-//   );
-// };
-
-// export default Portfolio;
-
 import React, { useState } from "react";
 import "./Portfolio.css";
 import Card from "./Card";
 import Portfolio_data from "./Portfolio_data";
 
 const Portfolio = () => {
-  const [showFullPage, setShowFullPage] = useState(false);
-  const initialItems = 4;
+  const [showAll, setShowAll] = useState(false);
+  const initialItems = 6;
 
   return (
-    <section
-      className={`Portfolio ${showFullPage ? "full-page" : ""}`} // Add/remove class based on state
-      id="portfolio"
-    >
+    <section className="Portfolio top" id="portfolio">
       <div className="container">
-        <div className="heading text-center">
-          <h4>VISIT MY PORTFOLIO AND KEEP YOUR FEEDBACK</h4>
-          <h1>{showFullPage ? "Full Portfolio" : "Portfolio"}</h1>
+        
+        <div className="heading text-center" data-aos="fade-up">
+          <h4>VISIT MY PORTFOLIO AND LEAVE YOUR FEEDBACK</h4>
+          <h1>My Projects</h1>
         </div>
 
-        {/* Display ALL items in full-page mode */}
         <div className="content grid">
-          {Portfolio_data.slice(0, showFullPage ? Portfolio_data.length : initialItems).map(
+          {Portfolio_data.slice(0, showAll ? Portfolio_data.length : initialItems).map(
             (item, index) => (
-              <Card key={index} {...item} />
+              <Card 
+                key={index}
+                image={item.image}
+                category={item.category}
+                totalLike={item.totalLike}
+                title={item.title}
+                description={item.description}
+                aosDelay={index * 100} /* Passing the delay as a prop! */
+              />
             )
           )}
         </div>
 
-        {/* Toggle button */}
-        <div className="text-center">
+        <div className="text-center mtop" data-aos="fade-up" data-aos-delay="300">
           <button
-            className="btn_shadow"
-            onClick={() => setShowFullPage(!showFullPage)}
+            className="btn_shadow load-more-btn"
+            onClick={() => setShowAll(!showAll)}
           >
-            {showFullPage ? "Go Back" : "See More"}
+            {showAll ? "Show Less" : "View All Projects"}
+            <i className={`fas ${showAll ? "fa-chevron-up" : "fa-chevron-down"} ml-10`}></i>
           </button>
         </div>
+        
       </div>
     </section>
   );

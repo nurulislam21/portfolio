@@ -1,83 +1,71 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react";
+import ReactDOM from "react-dom"; // PRO UPGRADE: Required for Portals
 
 const Card = (props) => {
-  const [modal, setModal] = useState(false)
+  const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
-    setModal(!modal)
-  }
+    setModal(!modal);
+  };
 
-  if (modal) {
-    document.body.classList.add("active-modal")
-  } else {
-    document.body.classList.remove("active-modal")
-  }
+  // Lock body scroll when modal is open
+  useEffect(() => {
+    if (modal) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => { document.body.style.overflow = "auto"; };
+  }, [modal]);
+
   return (
     <>
-      <div className='box btn_shadow '>
-        <div className='img'>
-          <img src={props.image} alt='' onClick={toggleModal} />
+      {/* The Main Plaque Card - Now handles its own AOS animation! */}
+      <div 
+        className="box box_shodow achievement-card" 
+        onClick={toggleModal}
+        data-aos="fade-up"
+        data-aos-delay={props.aosDelay}
+      >
+        <div className="img">
+          <img src={props.image} alt={props.title_one} />
         </div>
-        <div className='category d_flex'>
-          <span onClick={toggleModal}>{props.date}</span>
-          {/* <label>
-            <i className='far fa-heart'></i> {props.date}
-          </label> */}
+        <div className="category d_flex">
+          <span className="date-badge">{props.date}</span>
         </div>
-        <div className='title'>
-          <h2 onClick={toggleModal}>{props.title_one}</h2>
-          <a href='#popup' className='arrow' onClick={toggleModal}>
-            <i class='fas fa-arrow-right'></i>
-          </a>
+        <div className="title">
+          <h2>{props.title_one}</h2>
+          <button className="arrow-btn" aria-label="View Certificate">
+            <i className="fas fa-search-plus"></i>
+          </button>
         </div>
       </div>
 
-      {/* Popup box */}
-      {modal && (
-        <div className='modal modal-blog'>
-          <div onClick={toggleModal} className='overlay'></div>
-          <div className='modal-content'>
-            <div className='modal-img left'>
-              <img src={props.ppimage} alt='' />
+      {/* PRO UPGRADE: React Portal teleports the modal to the body to prevent grid/transform bugs */}
+      {modal && ReactDOM.createPortal(
+        <div className="modal-wrapper">
+          <div onClick={toggleModal} className="overlay"></div>
+          <div className="modal-content box_shodow achievement-modal">
+            
+            <button className="close-modal btn_shadow" onClick={toggleModal}>
+              <i className="fas fa-times"></i>
+            </button>
+
+            <div className="modal-body">
+              <span className="date-badge">Event Date // {props.date}</span>
+              <h1 className="modal-title">{props.title_one}</h1>
+              
+              <div className="modal-img-full">
+                <img src={props.ppimage} alt={props.title_one} />
+              </div>
             </div>
-            <div className='modal-text right'>
-              <span>{props.date}</span>
-              <h1>{props.title_one}</h1>
-              <p>{props.desc_one}</p>
-
-              <h1>{props.title_two}</h1>
-              <p>{props.desc_two}</p>
-
-              <h1>{props.title_three}</h1>
-              <p>{props.desc_three}</p>
-
-              <button className='close-modal btn_shadow' onClick={toggleModal}>
-                <i class='fas fa-times'></i>
-              </button>
-
-              {/*---------Leave Message----------  */}
-              {/* <div className='contact mtop'>
-                <h1>Leave a Reply</h1>
-
-                <form className='blog_contact d_flex'>
-                  <div className='left'>
-                    <input type='text' placeholder='Name' />
-                    <input type='email' placeholder='Email' />
-                    <input type='text' placeholder='Website' />
-                    <button className='btn_shadow'>SUBMIT NOW</button>
-                  </div>
-                  <div className='right'>
-                    <textarea cols='30' rows='12' placeholder='Comment'></textarea>
-                  </div>
-                </form>
-              </div> */}
-              {/*---------Leave Message----------  */}
-            </div>
+            
           </div>
-        </div>
+        </div>,
+        document.body // This is where the portal drops the HTML
       )}
     </>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

@@ -1,39 +1,74 @@
-/* .features{
+/* --- Professional Variables --- */
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --accent-glow: rgba(0, 255, 136, 0.4); /* Neon Green Glow */
+}
+
+.feature-card {
+  position: relative;
+  background: var(--glass-bg);
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--glass-border);
+  border-radius: 20px;
+  padding: 50px 35px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Background Number Effect */
+.card-number {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  font-size: 120px;
+  font-weight: 900;
+  color: rgba(255, 255, 255, 0.03);
+  z-index: -1;
+  transition: 0.5s ease;
+}
+
+/* Hover State */
+.feature-card:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.07);
+  border-color: var(--accent-green);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+}
+
+.feature-card:hover .card-number {
+  color: rgba(0, 255, 136, 0.08);
+  transform: scale(1.1) rotate(-5deg);
+}
+
+/* Improved Typography */
+.feature-card h2 {
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  font-size: 20px;
+  margin: 20px 0;
+}
+
+.card-desc {
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  opacity: 0.8;
+  -webkit-line-clamp: 4; /* Slightly tighter text */
+}
+
+/* Glowing Border Bottom */
+.feature-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 3px;
+  background: var(--accent-green);
+  transition: 0.5s ease;
+}
+
+.feature-card:hover::after {
   width: 100%;
-  height: 100vh;
-  background: url(../pic/cover.jpg) no-repeat center center/cover;
-} */
-.features .box {
-  /* padding: 30%; */
-  width: 100%;
-}
-.features .box h2 {
-  margin: 20px 0 20px 0;
-}
-.features .box p {
-  word-spacing: 2px;
-  transition: 0.5s;
-}
-.features .box i {
-  font-size: 30px;
-  margin-top: 20px;
-  left: 10%;
-  transition: 0.5s;
-  opacity: 0;
-}
-.features .box:hover{
-  background: linear-gradient(black, green);
-}
-.features .box:hover p {
-  color: white;
-}
-.features .box:hover i {
-  color: white;
-  opacity: 1;
-}
-@media(max-width: 768px){
-  .features .box {
-    padding: 5%;
-    margin-left: 10px;
-  }
 }

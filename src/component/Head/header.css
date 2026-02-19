@@ -1,119 +1,133 @@
-header {
-  height: 10vh;
-  line-height: 10vh;
-}
-
-header img {
-  top: 5vh;
-}
-
-header ul li {
-  margin-left: 30px;
-}
-
-header ul li a {
-  transition: 0.5s;
-  font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 1px;
-  color: #ffffff; /* White text */
-}
-
-header ul li a:hover {
-  color: #32cd32; /* Green on hover */
-}
-
-.home-btn {
-  padding: 18px 25px;
-  border-radius: 6px;
-  transition: 0.3s all ease;
-  cursor: pointer;
-  height: fit-content;
-  color: #32cd32; /* Green text */
-}
-
-.home-btn {
-  background: linear-gradient(145deg, #1f1f1f, #2b2b2b); /* Black shades for button */
-  box-shadow: 4px 4px 8px #0d0d0d, -4px -4px 8px #363636; /* Adjusted shadows */
-}
-
-.home-btn:hover {
-  background: #32cd32; /* Green background on hover */
-  color: #000000; /* Black text */
-}
-
-.open {
-  display: none;
-}
-
-.header.active {
-  height: 10vh;
+/* --- Default Header State (Transparent & at the top) --- */
+.header {
+  height: 80px;
+  line-height: 80px;
   position: fixed;
   top: 0;
-  z-index: 1000;
+  left: 0;
   width: 100%;
-  background-color: #292929; /* Black header */
-  box-shadow: -1px 11px 24px -11px rgba(0, 0, 0, 0.75);
-  transition: 0.5s;
+  z-index: 999;
+  transition: var(--transition);
+  background-color: transparent;
 }
 
-@media (max-width: 768px) {
-  header ul {
-    padding-top: 30px;
-  }
+/* --- Scrolled Header State (Frosted Glass Effect) --- */
+.header.scrolled {
+  background: rgba(15, 17, 21, 0.85); /* Dark charcoal with transparency */
+  backdrop-filter: blur(10px); /* Frosted glass blur */
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+  height: 70px;
+  line-height: 70px;
+}
 
-  .nav-links-mobile {
-    position: absolute;
+/* --- Logo Styling --- */
+.header .logo h1 {
+  font-family: "Fira Code", monospace;
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -1px;
+}
+
+.header .logo span {
+  color: var(--accent-green);
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* --- Desktop Navigation --- */
+.header .navlink {
+  display: flex;
+  align-items: center;
+}
+
+.header .link li {
+  margin-left: 30px;
+  list-style: none;
+}
+
+.header .link li a {
+  color: var(--text-main);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+  transition: var(--transition);
+  position: relative;
+}
+
+/* Cool animated underline on hover */
+.header .link li a::after {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: -4px;
+  left: 0;
+  background-color: var(--accent-green);
+  transition: width 0.3s ease;
+  box-shadow: 0 0 5px var(--accent-glow);
+}
+
+.header .link li a:hover {
+  color: var(--accent-green);
+}
+
+.header .link li a:hover::after {
+  width: 100%;
+}
+
+/* Shrink the hire me button slightly for the header */
+.header-btn {
+  padding: 10px 20px !important;
+  font-size: 13px !important;
+}
+
+/* --- Mobile Menu Toggle Icon --- */
+.toggle {
+  display: none;
+  font-size: 24px;
+  color: var(--accent-green);
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* --- Mobile Navigation Styles --- */
+@media (max-width: 992px) {
+  .toggle {
     display: block;
-    list-style: none;
-    box-shadow: rgba(50, 50, 93, 0.23) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
-    left: 20px;
-    top: 20px;
-    transition: all 0.5s ease-in-out;
-    width: 60%;
-    height: auto;
-    background-color: #1f1f1f; /* Dark background for mobile menu */
-    z-index: 888;
-    border-radius: 10px;
+    z-index: 1000;
   }
 
-  header ul li {
-    width: 100%;
-    transition: all 0.5s ease-in-out;
-    text-transform: uppercase;
-    line-height: 70px;
-  }
-
-  header .link {
+  .header .link {
     display: none;
   }
 
-  .close,
-  .open {
+  /* Slide-in Mobile Menu */
+  .nav-links-mobile {
     position: absolute;
-    top: 35px;
-    right: 20px;
-    color: #32cd32; /* Green for mobile menu icons */
-    display: block;
-    font-size: 25px;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--bg-card);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     z-index: 999;
+    gap: 20px;
   }
 
-  .close {
-    right: 45%;
+  .nav-links-mobile li {
+    list-style: none;
   }
 
-  .close.home-btn {
-    background: linear-gradient(145deg, #1f1f1f, #2b2b2b); /* Black shades for close button */
-    color: #32cd32; /* Green text */
-    border-radius: 50%;
-    padding: 0;
-    width: 60px;
-    height: 60px;
-    line-height: 60px;
-  }
-
-  .header.active {
-    height: 8%;
+  .nav-links-mobile li a {
+    font-size: 20px;
+    font-weight: 600;
+    color: var(--text-main);
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 }

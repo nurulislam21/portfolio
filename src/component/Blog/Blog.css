@@ -1,43 +1,139 @@
-.modal-blog.modal,
-.modal-blog.overlay {
-  overflow: scroll;
+/* --- Strict 3-Column Grid Layout (PRO FIX) --- */
+section.Portfolio .content.grid {
+  display: grid !important;
+  grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 equal columns */
+  gap: 35px !important; 
+  padding-top: 20px;
 }
-.modal-blog.modal .modal-content {
-  position: relative;
-  top: 10%;
-  left: 0;
-  max-width: 70%;
-  margin: auto;
-  margin-bottom: 10%;
-}
-.modal-blog .modal-content .left,
-.modal-blog .modal-content .right {
-  width: 100%;
-  padding: 0;
-  margin-top: 30px;
-}
-/*----------blog_contact--------*/
 
-.blog_contact .left,
-.blog_contact .right {
-  margin: 0 25px 0 0;
+/* Make sure it drops to 2 columns on tablets, and 1 column on phones */
+@media (max-width: 992px) {
+  section.Portfolio .content.grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
 }
-/* .box{
+
+@media (max-width: 768px) {
+  section.Portfolio .content.grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+/* --- Strict 3-Column Grid for Achievements --- */
+.Blog .content.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+  padding-top: 20px;
+}
+
+/* --- Achievement Plaque Design --- */
+.achievement-card {
+  background: var(--bg-card);
+  border-radius: 10px;
+  padding: 15px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  border: 1px solid var(--border-color);
+  transition: all 0.4s ease;
+  height: 100%;
+}
+
+/* Hover Physics for Awards */
+.achievement-card:hover {
+  transform: translateY(-8px);
+  border-color: #ffb400; /* Gold border for achievements */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 180, 0, 0.15);
+}
+
+/* --- Certificate Image Cropping --- */
+.achievement-card .img {
+  width: 100%;
+  height: 200px; /* Slightly shorter than projects */
+  border-radius: 6px;
+  overflow: hidden;
+  margin-bottom: 20px;
+  position: relative;
+  background-color: #000; /* Behind the image */
+}
+
+.achievement-card .img img {
   width: 100%;
   height: 100%;
-  background: linear-gradient(rgba(0,0,0,0.6), #ff004f);
-  border-radius: 10px;
-  position: absolute;
-  left: 0;
-  bottom: 0;
+  object-fit: cover; /* Keeps certificates uniform */
+  object-position: top; /* Focuses on the top of the certificate */
+  transition: transform 0.5s ease;
+  opacity: 0.9;
+}
+
+.achievement-card:hover .img img {
+  transform: scale(1.05);
+  opacity: 1;
+}
+
+/* --- Typography --- */
+.date-badge {
+  color: #ffb400; /* Gold text */
+  font-family: "Fira Code", monospace;
+  font-size: 12px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: inline-block;
+  background: rgba(255, 180, 0, 0.1);
+  padding: 4px 8px;
+  border-radius: 4px;
+}
+
+.achievement-card h2 {
+  font-size: 18px;
+  color: var(--text-main);
+  transition: var(--transition);
+  line-height: 1.4;
+}
+
+.achievement-card:hover h2 {
+  color: #ffb400;
+}
+
+/* --- Achievement Modal (The Certificate Viewer) --- */
+.achievement-modal {
+  width: 90%;
+  max-width: 750px;
+  padding: 40px;
+  text-align: center;
+  background: var(--bg-card);
+  border: 1px solid #ffb400; /* Gold Modal Border */
+  border-radius: 12px;
+  box-shadow: 0 0 50px rgba(255, 180, 0, 0.2);
+}
+
+.achievement-modal .modal-title {
+  font-size: 28px;
+  color: var(--text-main);
+  margin-bottom: 30px;
+}
+
+.modal-img-full {
+  width: 100%;
+  border-radius: 8px;
   overflow: hidden;
-} */
-/*----------blog_contact--------*/
+  border: 2px solid var(--border-color);
+}
+
+.modal-img-full img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* --- Responsive Layout Fixes --- */
+@media (max-width: 1024px) {
+  .Blog .content.grid { grid-template-columns: repeat(2, 1fr); }
+}
 @media (max-width: 768px) {
-  .modal-blog.modal .modal-content {
-    max-width: 90%;
-  }
-  .modal-blog.modal .modal-content {
-    margin-bottom: 20%;
-  }
+  .Blog .content.grid { grid-template-columns: 1fr; }
+  .achievement-modal { padding: 25px 15px; }
+  .achievement-modal .modal-title { font-size: 22px; }
 }

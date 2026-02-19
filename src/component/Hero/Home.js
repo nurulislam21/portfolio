@@ -1,39 +1,38 @@
-import React from "react"
-import "./Home.css"
-import hero from "../pic/realhero.jpg"
-import skill1 from "../pic/skill1.png"
-import skill2 from "../pic/skill2.png"
-import skill3 from "../pic/skill3.png"
-import skill4 from "../pic/skill4.png"
-import skill5 from "../pic/skill5.png"
-import skill6 from "../pic/skill6.png"
+import React from "react";
+import "./Home.css";
+import hero from "../pic/realhero.jpg";
+import skill1 from "../pic/skill1.png";
+import skill2 from "../pic/skill2.png";
+import skill3 from "../pic/skill3.png";
+import skill4 from "../pic/skill4.png";
+import skill5 from "../pic/skill5.png";
+import skill6 from "../pic/skill6.png";
 import mypdf from '../pic/Nurul-Islam-Resume-30-7-2024.pdf';
-import { Typewriter } from "react-simple-typewriter"
+import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
   return (
-    <>
-      <section className='hero' id='home'>
-        <div className='container f_flex top'>
-          <div className='left top'>
-            <h3>HEY! MY NAME IS</h3>
-            <h2>
-              <span style={{ color: 'gray', fontWeight: 'bold' }}>Nurul Islam Noman</span>
-            </h2>
-            <h2>
-              <span style={{ color: 'white', fontWeight: 'bold' }}>I SPECIALIZE IN </span>
+    <section className="hero" id="home">
+      <div className="container f_flex top">
+
+        {/* Left Content Area */}
+        <div className="left top">
+          <h3 className="hero-subtitle">SYSTEM INITIALIZED //</h3>
+          <h1 className="hero-title">
+            Nurul Islam <span className="primary_color">Noman</span>
+          </h1>
+          <h2 className="hero-typing">
+            <span className="static-text">I SPECIALIZE IN </span>
+            <span className="typing-text">
               <Typewriter
                 words={[
-                  "Robotics & Autonomous Systems.",
-                  "Mechanical Design & CAD Modeling.",
-                  "PCB Design & Embedded Hardware.",
-                  "Embedded Systems & IoT Solutions.",
-                  "Advanced Research & Development.",
-                  "Software Engineering & Algorithm Design.",
-                  "Aerospace & UAV Technologies.",
-                  "3D Printing & Rapid Prototyping.",
-                  "Electronics Engineering & Circuit Design.",
-                  "Technical Consulting & Innovation Strategy."
+                  "Robotics & Autonomous Systems",
+                  "Mechanical & CAD Engineering",
+                  "Embedded Systems & IoT",
+                  "Aerospace & VTOL Technology",
+                  "Software & Algorithm Design",
+                  "Rapid Prototyping & R&D",
+                  "Technical Consulting & Strategy"
                 ]}
                 loop
                 cursor
@@ -42,87 +41,80 @@ const Home = () => {
                 deleteSpeed={50}
                 delaySpeed={1500}
               />
-            </h2>
-            <p>
-              {/* I am an experienced Robotics Engineer, Embedded Systems Developer, and Software Engineer with a demonstrated history of working in the research and development industry. Skilled in Robotics, Embedded Systems, PCB Design, Mechanical Design, Software Development, and Algorithm Design. Strong engineering professional with a Bachelor of Science (B.Sc.) focused in Electical and Electronics Engineering. */}
-              I am a highly skilled Robotics Engineer, Embedded Systems Developer, and Software Engineer with extensive experience in research and development, particularly within the aviation UAV sector. My expertise spans Robotics, Embedded Systems, PCB Design, Mechanical Design, Software Development, and Algorithm Design. Holding a Bachelor of Science (B.Sc.) in Electrical and Electronics Engineering, I am committed to delivering innovative engineering solutions that advance UAV and aerospace technologies.
-            </p>
-            <div className='hero_btn'>
-              <a href={mypdf} download>
-                <button className='btn_shadow'>Download CV</button>
-              </a>
-            </div>
-            <div className='hero_btn d_flex'>
-              <div className='col_1'>
-                <h4>FIND WITH ME</h4>
-                <div className='button'>
-                  <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer">
-                    <button className='btn_shadow'>
-                      <i class='fab fa-linkedin-in'></i>
-                    </button>
-                  </a>
-                  <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer">
-                    <button className='btn_shadow'>
-                      <i class='fab fa-facebook-f'></i>
-                    </button>
-                  </a>
-                  <a href="https://www.instagram.com/nurul_islam.noman/" target="_blank" rel="noopener noreferrer">
-                    <button className='btn_shadow'>
-                      <i class='fab fa-instagram'></i>
-                    </button>
-                  </a>
-                  <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer">
-                    <button className='btn_shadow'>
-                      <i class='fa-brands fa-github'></i>
-                    </button>
-                  </a>
-                </div>
-              </div>
+            </span>
+          </h2>
+          <p className="hero-description">
+            A versatile Robotics Engineer and Embedded Developer with a focus on the UAV and aerospace industries. I specialize in the full development lifecycle—from PCB design and mechanical modeling to software architecture and algorithm optimization. Holding a degree in Electrical and Electronics Engineering, I am committed to delivering robust, innovative solutions for the next generation of autonomous aerial systems.
+          </p>
 
-              <div className='col_1'>
-                <h4>Which Tols I use</h4>
-                <a href="https://www.altium.com/" target="_blank" rel="noopener noreferrer">
-                  <button className='btn_shadow'>
-                    <img src={skill3} alt='' />
-                  </button>
+          <div className="hero_btn_main">
+            <a href={mypdf} download>
+              <button className="btn_shadow download-btn">
+                <i className="fas fa-download"></i> Download CV
+              </button>
+            </a>
+          </div>
+
+          {/* Social and Tools Grid */}
+          <div className="hero_bottom d_flex">
+            <div className="col_1">
+              <h4>CONNECT WITH ME</h4>
+              <div className="social-grid">
+                <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer">
+                  <button className="btn_shadow icon-btn"><i className="fab fa-linkedin-in"></i></button>
                 </a>
-                <a href="https://www.solidworks.com/" target="_blank" rel="noopener noreferrer">
-                  <button className='btn_shadow'>
-                    <img src={skill2} alt='' />
-                  </button>
+                <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer">
+                  <button className="btn_shadow icon-btn"><i className="fab fa-facebook-f"></i></button>
                 </a>
-                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer">
-                  <button className='btn_shadow'>
-                    <img src={skill6} alt='' />
-                  </button>
+                <a href="https://www.instagram.com/nurul_islam.noman/" target="_blank" rel="noopener noreferrer">
+                  <button className="btn_shadow icon-btn"><i className="fab fa-instagram"></i></button>
                 </a>
-                <a href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noopener noreferrer">
-                  <button className='btn_shadow'>
-                    <img src={skill5} alt='' />
-                  </button>
-                </a>
-                <a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer">
-                  <button className='btn_shadow'>
-                    <img src={skill1} alt='' />
-                  </button>
-                </a>
-                <a href="https://www.arduino.cc/" target="_blank" rel="noopener noreferrer">
-                  <button className='btn_shadow'>
-                    <img src={skill4} alt='' />
-                  </button>
+                <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer">
+                  <button className="btn_shadow icon-btn"><i className="fa-brands fa-github"></i></button>
                 </a>
               </div>
             </div>
-          </div>
-          <div className='right'>
-            <div className='right_img'>
-              <img src={hero} alt='' />
+
+            <div className="col_1">
+              <h4>HARDWARE & DEV TOOLS</h4>
+              <div className="tools-grid">
+                <a href="https://www.altium.com/" target="_blank" rel="noopener noreferrer" title="Altium Designer">
+                  <button className="btn_shadow tool-btn"><img src={skill3} alt="Altium" /></button>
+                </a>
+                <a href="https://www.solidworks.com/" target="_blank" rel="noopener noreferrer" title="SOLIDWORKS">
+                  <button className="btn_shadow tool-btn"><img src={skill2} alt="SolidWorks" /></button>
+                </a>
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" title="Python">
+                  <button className="btn_shadow tool-btn"><img src={skill6} alt="Python" /></button>
+                </a>
+                <a href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noopener noreferrer" title="MATLAB">
+                  <button className="btn_shadow tool-btn"><img src={skill5} alt="MATLAB" /></button>
+                </a>
+                <a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer" title="TensorFlow">
+                  <button className="btn_shadow tool-btn"><img src={skill1} alt="TensorFlow" /></button>
+                </a>
+                <a href="https://www.arduino.cc/" target="_blank" rel="noopener noreferrer" title="Arduino / Microcontrollers">
+                  <button className="btn_shadow tool-btn"><img src={skill4} alt="Arduino" /></button>
+                </a>
+              </div>
             </div>
           </div>
         </div>
-      </section >
-    </>
-  )
-}
 
-export default Home
+        {/* Right Image Area */}
+        <div className="right">
+          <div className="right_img_wrapper">
+            <div className="right_img">
+              <img src={hero} alt="Nurul Islam Noman" />
+            </div>
+            <div className="tech-corner top-left"></div>
+            <div className="tech-corner bottom-right"></div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+};
+
+export default Home;

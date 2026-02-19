@@ -1,0 +1,37 @@
+.preloader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: #050505; /* Pitch black for terminal */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 99999;
+  overflow: hidden;
+}
+
+.terminal-box {
+  width: 80%;
+  max-width: 600px;
+  text-align: left;
+}
+
+.terminal-text {
+  font-family: "Fira Code", monospace;
+  color: #32cd32; /* Neon green */
+  font-size: 18px;
+  line-height: 1.8;
+  white-space: pre-wrap; /* Keeps the line breaks from the JS string */
+  text-shadow: 0 0 5px rgba(50, 205, 50, 0.5);
+}
+
+.cursor {
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
