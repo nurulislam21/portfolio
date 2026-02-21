@@ -3,13 +3,13 @@ const ResumeApi = [
     id: 1,
     category: "education",
     year: "International University of Scholars (2024 - 2028)",
-    title: "Bachelor of Science in Electrical and Electronics Engineering",
+    title: "B.Sc. in Electrical and Electronics Engineering (EEE)",
   },
   {
     id: 2,
     category: "education",
     year: "M.A Hashem University College (2021 - 2022)",
-    title: "Higher Secondary Certificate",
+    title: "Higher Secondary Certificate (Science)",
   },
   {
     id: 3,
@@ -22,21 +22,21 @@ const ResumeApi = [
     category: "experience",
     year: "Engineering Head (Aug 2024 - Present)",
     title: "Team RoboMore",
-    desc: "Team RoboMore is a robotics team that is dedicated to creating socially intelligent machines that enrich the quality of our lives and educationally enriching the students.",
+    desc: "Directing hardware architecture and kinematics for autonomous systems. Led teams to top-tier competitive finishes, including podium placements at the BUET Robocarnival and representing Bangladesh at the WRO International Final in Singapore.",
   },
   {
     id: 5,
     category: "experience",
     year: "Embedded System Engineer (Feb 2024 - Dec 2024)",
     title: "Drishti Technologies Ltd.",
-    desc: "Drishti Technologies Ltd. is a leading technology company in Bangladesh. I was responsible for developing and maintaining the embedded system of the company.",
+    desc: "Developed and maintained embedded architectures for enterprise tech solutions. Focused on optimizing firmware, sensor integration, and ensuring stable system performance for smart wearable prototypes.",
   },
   {
     id: 6,
     category: "experience",
-    year: "Software and Hardware Specialist (2020 - Present)",
+    year: "Hardware & Firmware Specialist (2020 - Present)",
     title: "Bees Robotics",
-    desc: "Bees Robotics is a robotics company that provides services in the field of robotics. I am responsible for developing and maintaining the software and hardware of the company.",
+    desc: "Spearheading the design and deployment of custom PCB solutions and control algorithms. Responsible for translating complex robotics concepts into deployable, production-ready hardware.",
   },
 ];
 

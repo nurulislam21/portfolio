@@ -1,174 +1,231 @@
-/* --- Strict 3-Column Grid Layout (PRO FIX) --- */
-section.Portfolio .content.grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 equal columns */
-  gap: 35px !important; 
-  padding-top: 20px;
-}
-
-/* Make sure it drops to 2 columns on tablets, and 1 column on phones */
-@media (max-width: 992px) {
-  section.Portfolio .content.grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-@media (max-width: 768px) {
-  section.Portfolio .content.grid {
-    grid-template-columns: 1fr !important;
-  }
-}
 /* --- Strict 3-Column Grid Layout --- */
 .Portfolio .content.grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr); /* Forces 3 equal columns */
-  gap: 35px; /* Adds perfect spacing between cards */
+  grid-template-columns: repeat(3, 1fr); 
+  gap: 30px; 
   padding-top: 20px;
 }
 
-/* --- The Pro Card Design --- */
+/* --- The Pro Hardware Card --- */
 .portfolio-card {
-  background: var(--bg-card); /* Dark charcoal from App.css */
-  border-radius: 12px;
-  border: 1px solid var(--border-color);
-  padding: 20px;
+  background: rgba(0, 255, 136, 0.02); /* Very subtle green tint */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px; /* Sharper, more technical edges */
+  padding: 15px;
   display: flex;
   flex-direction: column;
-  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Bouncy smooth transition */
+  transition: all 0.4s ease;
   cursor: pointer;
   position: relative;
   overflow: hidden;
   height: 100%;
 }
 
-/* --- Glowing Hover Physics --- */
 .portfolio-card:hover {
-  transform: translateY(-12px); /* Lifts the card up */
-  border-color: var(--accent-green); /* Neon green border */
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.8), 0 0 15px rgba(50, 205, 50, 0.2);
+  transform: translateY(-8px);
+  border-color: rgba(0, 255, 136, 0.5); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(0, 255, 136, 0.05);
 }
 
-/* --- Perfect Image Cropping --- */
+/* --- Image & HUD Overlay --- */
 .portfolio-card .img {
   width: 100%;
-  height: 220px; /* Forces every image to be exactly this tall */
-  border-radius: 8px;
+  height: 220px;
+  border-radius: 2px;
   overflow: hidden;
   margin-bottom: 20px;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .portfolio-card .img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* THIS IS THE MAGIC! Crops the image perfectly without black bars */
-  object-position: center;
-  transition: transform 0.6s ease;
+  object-fit: cover;
+  transition: transform 0.6s ease, filter 0.3s ease;
+  filter: grayscale(40%); /* Slightly desaturated until hovered */
 }
 
 .portfolio-card:hover .img img {
-  transform: scale(1.1); /* Smooth image zoom on hover */
+  transform: scale(1.05);
+  filter: grayscale(0%);
 }
 
-/* --- Badges and Text --- */
+.img-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 255, 136, 0.2);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: 0.3s ease;
+  backdrop-filter: blur(2px);
+}
+
+.img-overlay span {
+  font-family: 'Fira Code', monospace;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  transform: translateY(20px);
+  transition: 0.3s ease;
+}
+
+.portfolio-card:hover .img-overlay { opacity: 1; }
+.portfolio-card:hover .img-overlay span { transform: translateY(0); }
+
+/* --- Specs & Typography --- */
 .portfolio-card .category {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 15px;
+  margin-bottom: 12px;
 }
 
 .cat-badge {
-  color: var(--bg-dark);
-  background: var(--accent-green);
+  color: var(--accent-green);
+  background: rgba(0, 255, 136, 0.1);
   font-family: "Fira Code", monospace;
-  font-size: 11px;
-  font-weight: 600;
-  letter-spacing: 2px;
+  font-size: 10px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
-  padding: 6px 12px;
-  border-radius: 4px;
+  padding: 4px 8px;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
 }
 
 .portfolio-card .likes {
-  font-size: 14px;
+  font-family: "Fira Code", monospace;
+  font-size: 12px;
   color: var(--text-muted);
 }
 
 .portfolio-card h2 {
-  font-size: 20px;
+  font-family: 'Inter', sans-serif;
+  font-size: 18px;
+  font-weight: 600;
   color: var(--text-main);
   line-height: 1.4;
   margin-bottom: 10px;
   transition: var(--transition);
 }
 
-.portfolio-card:hover h2 {
-  color: var(--accent-green);
-}
+.portfolio-card:hover h2 { color: var(--accent-green); }
 
-/* --- The Arrow Button --- */
-.portfolio-card .arrow-btn {
-  position: absolute;
-  bottom: 20px;
-  right: 20px;
-  font-size: 24px;
-  color: var(--accent-green);
-  opacity: 0;
-  transform: rotate(-45deg) scale(0.5);
-  transition: all 0.4s ease;
-}
-
-.portfolio-card:hover .arrow-btn {
-  opacity: 1;
-  transform: rotate(-45deg) scale(1);
-}
-
-/* --- Modal/Popup Styling --- */
+/* --- Modal/Popup HUD Styling --- */
 .modal-wrapper {
-  position: fixed;
-  top: 0; left: 0; width: 100vw; height: 100vh;
+  position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
   z-index: 9999;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: flex; justify-content: center; align-items: center;
 }
 
 .overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(10, 12, 16, 0.9);
-  backdrop-filter: blur(8px);
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(10, 12, 16, 0.95); /* Darker, more solid background */
 }
 
 .modal-content {
   position: relative;
   z-index: 10000;
   width: 80%;
-  max-width: 900px;
+  max-width: 1000px;
   max-height: 90vh;
   overflow-y: auto;
   padding: 40px;
-  background: var(--bg-card);
+  background: #0f1115;
   border: 1px solid var(--accent-green);
-  border-radius: 12px;
-  box-shadow: 0 0 40px rgba(50, 205, 50, 0.2);
+  box-shadow: 0 0 50px rgba(0, 255, 136, 0.15), inset 0 0 20px rgba(0, 255, 136, 0.05);
+  border-radius: 4px;
+}
+
+/* Modal Scanline Effect */
+.modal-content::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+  z-index: 2;
+  background-size: 100% 4px, 6px 100%;
+  pointer-events: none;
 }
 
 .close-modal {
   position: absolute;
   top: 20px; right: 20px;
   width: 40px; height: 40px;
-  border-radius: 50%;
+  background: transparent;
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
   font-size: 18px;
+  cursor: pointer;
+  transition: 0.3s ease;
+  z-index: 10;
 }
 
-.modal-body { display: flex; gap: 40px; align-items: center; }
-.modal-img { width: 50%; border-radius: 8px; overflow: hidden; border: 1px solid var(--border-color); }
+.close-modal:hover {
+  background: var(--accent-green);
+  color: #000;
+}
+
+.modal-body { display: flex; gap: 40px; align-items: center; position: relative; z-index: 5; }
+.modal-img { width: 50%; position: relative; padding: 10px; border: 1px solid rgba(255,255,255,0.1); }
 .modal-img img { width: 100%; height: auto; display: block; }
 .modal-text { width: 50%; }
-.modal-text h1 { font-size: 32px; color: var(--text-main); margin: 15px 0; }
-.modal-text p { font-size: 16px; color: var(--text-muted); margin-bottom: 25px; line-height: 1.7; }
+.system-badge { margin-bottom: 15px; display: inline-block; }
+.modal-text h1 { font-size: 32px; color: var(--text-main); margin: 15px 0; letter-spacing: -1px; }
+.modal-text p { font-size: 15px; color: var(--text-muted); margin-bottom: 30px; line-height: 1.8; }
+
 .modal-actions { display: flex; gap: 15px; }
+
+/* --- Pro Buttons for Load More & Modal --- */
+.pro-btn {
+  font-family: 'Fira Code', monospace;
+  font-size: 13px;
+  padding: 12px 25px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.active-btn {
+  background: var(--accent-green);
+  color: #000;
+  border: 1px solid var(--accent-green);
+}
+
+.active-btn:hover {
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+.outline-btn {
+  background: transparent;
+  color: var(--accent-green);
+  border: 1px solid var(--accent-green);
+}
+
+.outline-btn:hover {
+  background: rgba(0, 255, 136, 0.1);
+  transform: translateY(-2px);
+}
+
+.load-more-btn {
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  margin-top: 20px;
+}
+
+.load-more-btn:hover {
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+}
 
 /* --- Responsive Layout Fixes --- */
 @media (max-width: 1024px) {
@@ -177,7 +234,9 @@ section.Portfolio .content.grid {
   .modal-img, .modal-text { width: 100%; }
 }
 @media (max-width: 768px) {
-  .Portfolio .content.grid { grid-template-columns: 1fr; } /* 1 column on mobile */
+  .Portfolio .content.grid { grid-template-columns: 1fr; } 
   .portfolio-card .img { height: 250px; }
-  .modal-content { width: 95%; padding: 25px; }
+  .modal-content { width: 95%; padding: 25px; max-height: 85vh; }
+  .modal-actions { flex-direction: column; }
+  .pro-btn { width: 100%; justify-content: center; }
 }

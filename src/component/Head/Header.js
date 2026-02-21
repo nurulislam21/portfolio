@@ -5,46 +5,50 @@ const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
 
-  // PRO FIX: Properly handling the scroll event in React
+  // Optimized scroll listener
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
 
     window.addEventListener("scroll", handleScroll);
-    
-    // Cleanup function to prevent memory leaks
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <header className={`header ${isScrolled ? "scrolled" : ""}`}>
-      <div className="container d_flex">
+      <div className="container d_flex header-container">
         
-        {/* Sleek Logo Area */}
+        {/* Terminal-Inspired Logo */}
         <div className="logo">
-          <h1 className="sub-title">
-            <span className="primary_color">N</span>oman.
-          </h1>
+          <a href="#home">
+            <h1 className="sub-title">
+              NOMAN<span className="cursor-blink">_</span>
+            </h1>
+          </a>
         </div>
 
         {/* Navigation */}
         <div className="navlink">
           <nav>
             <ul 
-              className={isMobile ? "nav-links-mobile" : "link f_flex uppercase"} 
+              className={isMobile ? "nav-links-mobile active" : "link f_flex uppercase"} 
               onClick={() => setIsMobile(false)}
             >
-              <li><a href="#home">Home</a></li>
-              <li><a href="#features">Features</a></li>
-              <li><a href="#portfolio">Portfolio</a></li>
-              <li><a href="#resume">Resume</a></li>
-              <li><a href="#skill">Skill</a></li>
-              <li><a href="#blog">Achievements</a></li>
-              <li><a href="#contact">Contact</a></li>
-              <li>
-                <a href="https://www.fiverr.com/nomanmugdo" target="_blank" rel="noopener noreferrer">
-                  <button className="btn_shadow header-btn">Hire Me</button>
+              <li><a href="#home"><span className="nav-num">00.</span> Home</a></li>
+              <li><a href="#features"><span className="nav-num">01.</span> Expertise</a></li>
+              <li><a href="#portfolio"><span className="nav-num">02.</span> Projects</a></li>
+              <li><a href="#resume"><span className="nav-num">03.</span> Resume</a></li>
+              <li><a href="#blog"><span className="nav-num">04.</span> Milestones</a></li>
+              <li><a href="#contact"><span className="nav-num">05.</span> Contact</a></li>
+              
+              {/* Pro LinkedIn Connect Button */}
+              <li className="hire-btn-container">
+                <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer">
+                  <button className="pro-btn">
+                    <i className="fab fa-linkedin-in" style={{ marginRight: '8px', fontSize: '14px' }}></i> 
+                    CONNECT //
+                  </button>
                 </a>
               </li>
             </ul>

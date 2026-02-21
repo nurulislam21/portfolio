@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom"; // PRO UPGRADE: Required for Portals
+import ReactDOM from "react-dom"; 
 
 const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
   const [modal, setModal] = useState(false);
@@ -8,7 +8,6 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
     setModal(!modal);
   };
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (modal) {
       document.body.style.overflow = "hidden";
@@ -20,55 +19,59 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
 
   return (
     <>
-      {/* The Grid Card - Now handles its own AOS animation! */}
       <div 
-        className="box box_shodow portfolio-card" 
+        className="portfolio-card" 
         onClick={toggleModal}
         data-aos="fade-up" 
         data-aos-delay={aosDelay}
       >
         <div className="img">
           <img src={image} alt={title} />
+          {/* Tech Overlay on image hover */}
+          <div className="img-overlay">
+            <span>INSPECT_MODULE //</span>
+          </div>
         </div>
         <div className="category d_flex">
           <span className="cat-badge">{category}</span>
           <label className="likes">
-            <i className="far fa-heart"></i> {totalLike}
+            <i className="fas fa-microchip"></i> UID-{totalLike}
           </label>
         </div>
         <div className="title">
           <h2>{title}</h2>
-          <button className="arrow-btn" aria-label="View Project Details">
+          <button className="arrow-btn" aria-label="View Specs">
             <i className="fas fa-arrow-right"></i>
           </button>
         </div>
       </div>
 
-      {/* PRO UPGRADE: React Portal teleports the modal out of the grid to prevent CSS bugs */}
       {modal && ReactDOM.createPortal(
         <div className="modal-wrapper">
           <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content box_shodow">
+          <div className="modal-content">
             
-            <button className="close-modal btn_shadow" onClick={toggleModal}>
+            <button className="close-modal" onClick={toggleModal}>
               <i className="fas fa-times"></i>
             </button>
 
             <div className="modal-body d_flex">
               <div className="modal-img left">
                 <img src={image} alt={title} />
+                <div className="tech-corner top-left"></div>
+                <div className="tech-corner bottom-right"></div>
               </div>
               <div className="modal-text right">
-                <span className="cat-badge">Project Specs // {category}</span>
+                <span className="cat-badge system-badge">SPEC_FILE // {category}</span>
                 <h1>{title}</h1>
-                <p>{description || "Detailed project specifications and documentation are currently being updated."}</p>
+                <p>{description || "Detailed project specifications and telemetry data are currently being updated in the central repository."}</p>
                 
-                <div className="button f_flex mtop modal-actions">
-                  <button className="btn_shadow">
-                    LIKE THIS <i className="far fa-thumbs-up"></i>
+                <div className="modal-actions mtop">
+                  <button className="pro-btn outline-btn">
+                    <i className="fas fa-code-branch"></i> REPOSITORY
                   </button>
-                  <button className="btn_shadow active-btn">
-                    VIEW REPO <i className="fas fa-chevron-right"></i>
+                  <button className="pro-btn active-btn">
+                    <i className="fas fa-file-pdf"></i> SCHEMATICS
                   </button>
                 </div>
               </div>
@@ -76,7 +79,7 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
             
           </div>
         </div>,
-        document.body // This is where the portal drops the HTML
+        document.body 
       )}
     </>
   );

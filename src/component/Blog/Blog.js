@@ -7,19 +7,20 @@ const Blog = () => {
   const [showAll, setShowAll] = useState(false);
   const initialItems = 6;
 
+  // Reverse the API data to show new achievements first
+  const reversedBlog = [...BlogApi].reverse();
+
   return (
     <section className="Blog top" id="blog">
       <div className="container">
         
-        {/* Fade up the heading */}
         <div className="heading text-center" data-aos="fade-up">
           <h4>MILESTONES & RECOGNITION</h4>
           <h1>Awards & Achievements</h1>
         </div>
 
-        {/* The Grid */}
         <div className="content grid">
-          {BlogApi.slice(0, showAll ? BlogApi.length : initialItems).map((value, index) => {
+          {reversedBlog.slice(0, showAll ? reversedBlog.length : initialItems).map((value, index) => {
             return (
               <Card 
                 key={index} 
@@ -27,13 +28,12 @@ const Blog = () => {
                 ppimage={value.ppimage} 
                 date={value.date} 
                 title_one={value.title_one} 
-                aosDelay={index * 100} /* Passing the animation delay as a prop! */
+                aosDelay={index * 100} 
               />
             );
           })}
         </div>
 
-        {/* Load More Button */}
         {BlogApi.length > initialItems && (
           <div className="text-center mtop" data-aos="fade-up" data-aos-delay="300">
             <button

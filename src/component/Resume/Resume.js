@@ -4,10 +4,8 @@ import ResumeApi from "./ResumeApi";
 import Card from "./Card";
 
 const Resume = () => {
-  // Helper function with added AOS animations
   const renderContent = (category, iconClass) => {
     return ResumeApi.filter((val) => val.category === category).map((val, index) => (
-      // Staggered delay for the timeline nodes
       <div key={index} data-aos="fade-up" data-aos-delay={index * 150}>
         <Card
           title={val.title}
@@ -23,31 +21,30 @@ const Resume = () => {
     <section className="Resume top" id="resume">
       <div className="container">
         
-        {/* Main Heading Animation */}
         <div className="heading text-center" data-aos="fade-up">
-          <h4>7+ YEARS OF ENGINEERING & FREELANCE EXPERIENCE</h4>
-          <h1>My Resume</h1>
+          <h4>SYSTEM LOGS // ACADEMIC & PROFESSIONAL TIMELINE</h4>
+          <h1>Operational History</h1>
         </div>
 
         <div className="content-section mtop d_flex">
           
-          {/* Education Section - Slides in from the left */}
+          {/* Education Timeline */}
           <div className="left" data-aos="fade-right" data-aos-duration="1000">
             <div className="heading">
-              <h1>Education</h1>
+              <h2 className="timeline-title">01. Academic Data</h2>
             </div>
             <div className="resume-timeline">
-              {renderContent("education", "fa-solid fa-graduation-cap")}
+              {renderContent("education", "fa-solid fa-microchip")}
             </div>
           </div>
 
-          {/* Experience Section - Slides in from the right */}
+          {/* Experience Timeline */}
           <div className="left" data-aos="fade-left" data-aos-duration="1000">
             <div className="heading">
-              <h1>Experience</h1>
+              <h2 className="timeline-title">02. Field Experience</h2>
             </div>
             <div className="resume-timeline">
-              {renderContent("experience", "fa-solid fa-award")}
+              {renderContent("experience", "fa-solid fa-satellite-dish")}
             </div>
           </div>
           

@@ -4,7 +4,8 @@ import Slide from "./Slide"
 import TestimonialApi from "./TestimonialApi"
 
 const Testimonial = () => {
-  const [data, setdata] = useState(TestimonialApi)
+  // PRO FIX: Removed 'setdata' to clear the ESLint 'unused variable' warning
+  const [data] = useState(TestimonialApi)
   const [index, setIndex] = useState(0)
 
   useEffect(() => {
@@ -20,36 +21,38 @@ const Testimonial = () => {
   useEffect(() => {
     let slider = setInterval(() => {
       setIndex(index + 1)
-    }, 3000)
+    }, 5000) 
     return () => clearInterval(slider)
   }, [index])
 
   return (
     <>
-      <section className='Testimonial' id='clients'>
+      <section className='Testimonial top' id='clients'>
         <div className='container'>
-          <div className='heading text-center'>
-            <h4>WHAT CLIENTS SAY</h4>
-            <h1>Testimonial</h1>
+          
+          <div className='heading text-center' data-aos="fade-up">
+            <h4>VERIFIED FEEDBACK & ENDORSEMENTS</h4>
+            <h1>Client Telemetry</h1>
           </div>
-          <div className='slide'>
-            {/*{TestimonialApi.map((val, index) => {
-              return <Slide key={index} image={val.image} design={val.design} name={val.name} offcer={val.offcer} post={val.post} date={val.date} desc={val.desc} />
-            })}*/}
+          
+          <div className='slide-wrapper' data-aos="fade-up">
+            <div className='slide-container'>
+              {data.map((value, valueIndex) => {
+                return <Slide key={value.id} {...value} valueIndex={valueIndex} index={index} />
+              })}
+            </div>
 
-            {data.map((value, valueIndex) => {
-              return <Slide key={value.id} {...value} valueIndex={valueIndex} index={index} />
-            })}
-
+            {/* Tech Slider Controls */}
             <div className='slide_button'>
-              <button className='btn_shadow prev_btn' onClick={() => setIndex(index - 1)}>
-                <i class='fas fa-arrow-left'></i>
+              <button className='pro-btn icon-btn' onClick={() => setIndex(index - 1)} aria-label="Previous Review">
+                <i className='fas fa-chevron-left'></i>
               </button>
-              <button className='btn_shadow next_btn' onClick={() => setIndex(index + 1)}>
-                <i class='fas fa-arrow-right'></i>
+              <button className='pro-btn icon-btn' onClick={() => setIndex(index + 1)} aria-label="Next Review">
+                <i className='fas fa-chevron-right'></i>
               </button>
             </div>
           </div>
+
         </div>
       </section>
     </>

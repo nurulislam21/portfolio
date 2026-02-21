@@ -5,59 +5,89 @@
 }
 
 .Contact .left {
-  width: 35%;
-  padding: 30px;
+  width: 40%;
+  padding: 35px;
   display: flex;
   flex-direction: column;
 }
 
 .Contact .right {
-  width: 65%;
+  width: 60%;
   padding: 40px;
+}
+
+/* --- Tech Panels (The Glassmorphism Boxes) --- */
+.tech-panel {
+  background: rgba(0, 255, 136, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  transition: all 0.4s ease;
+}
+
+.tech-panel:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+  box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.02), 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* --- Left Profile Card --- */
 .Contact .img {
   width: 100%;
-  border-radius: 10px;
+  border-radius: 4px;
   overflow: hidden;
   margin-bottom: 25px;
-  border: 1px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
 }
 
 .Contact .img img {
   width: 100%;
   height: auto;
   display: block;
-  transition: var(--transition);
+  filter: grayscale(30%);
+  transition: 0.4s ease;
 }
 
-.Contact .img:hover img {
-  transform: scale(1.05);
+.Contact .left:hover .img img {
+  filter: grayscale(0%);
+  transform: scale(1.03);
+}
+
+.scanline {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  opacity: 0.5;
 }
 
 .Contact .details h1 {
-  font-size: 30px;
+  font-family: 'Inter', sans-serif;
+  font-size: 28px;
   color: var(--text-main);
-  margin-bottom: 5px;
+  margin-bottom: 8px;
+  letter-spacing: -1px;
 }
 
 .title-tag {
   color: var(--accent-green);
   font-family: "Fira Code", monospace;
-  font-size: 14px;
+  font-size: 13px;
   margin-bottom: 20px;
+  letter-spacing: 0.5px;
 }
 
 .Contact .desc {
   color: var(--text-muted);
-  line-height: 1.6;
+  line-height: 1.7;
+  font-size: 15px;
   margin-bottom: 30px;
 }
 
 .contact-info p {
   color: var(--text-main);
-  font-size: 16px;
+  font-size: 14px;
+  font-family: "Fira Code", monospace;
   margin-bottom: 15px;
   display: flex;
   align-items: center;
@@ -66,42 +96,54 @@
 
 .contact-info p i {
   color: var(--accent-green);
-  font-size: 20px;
+  font-size: 18px;
 }
 
 /* --- Social Connect Area --- */
 .social-connect span {
   font-family: "Fira Code", monospace;
-  font-size: 12px;
+  font-size: 11px;
   letter-spacing: 2px;
-  color: var(--text-muted);
+  color: var(--accent-green);
   display: block;
   margin-bottom: 15px;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+  padding-bottom: 8px;
 }
 
 .social-connect .button {
   gap: 15px;
 }
 
-.social-btn {
-  width: 50px;
-  height: 50px;
+.icon-btn {
+  width: 45px;
+  height: 45px;
   padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
 }
 
-/* --- Contact Form (Right Panel) --- */
+.icon-btn:hover {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: var(--accent-green);
+  color: var(--accent-green);
+  transform: translateY(-3px);
+}
+
+/* --- Tech Form (Right Panel) --- */
 .contact-form {
   display: flex;
   flex-direction: column;
-  gap: 25px;
+  gap: 20px;
 }
 
 .input-row {
-  gap: 25px;
+  gap: 20px;
 }
 
 .input-group {
@@ -112,52 +154,51 @@
 
 .input-group label {
   font-family: "Fira Code", monospace;
-  font-size: 12px;
-  color: var(--text-muted);
+  font-size: 11px;
+  color: var(--accent-green);
   letter-spacing: 1px;
-  margin-bottom: 10px;
+  margin-bottom: 8px;
 }
 
-/* Standardizing the inputs with our global variables */
-.Contact input,
-.Contact textarea {
+/* Terminal Input Styling */
+.tech-input {
   width: 100%;
-  background: var(--bg-dark);
-  border: 1px solid var(--border-color);
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-main);
-  padding: 15px;
-  border-radius: 6px;
-  font-size: 15px;
-  font-family: "Poppins", sans-serif;
-  transition: var(--transition);
+  padding: 14px 15px;
+  border-radius: 2px;
+  font-size: 14px;
+  font-family: "Fira Code", monospace;
+  transition: all 0.3s ease;
 }
 
-.Contact textarea {
-  resize: vertical; /* Allows the user to only resize up and down */
-}
-
-.Contact input:focus,
-.Contact textarea:focus {
+.tech-input:focus {
+  background: rgba(0, 255, 136, 0.02);
   border-color: var(--accent-green);
-  box-shadow: 0 0 10px rgba(50, 205, 50, 0.1);
+  box-shadow: 0 0 10px rgba(0, 255, 136, 0.1);
   outline: none;
+}
+
+.tech-input::placeholder {
+  color: rgba(255, 255, 255, 0.2);
 }
 
 /* --- Submit Button --- */
 .submit-btn {
   width: 100%;
-  padding: 20px;
-  font-size: 16px;
-  margin-top: 10px;
+  padding: 18px;
+  font-size: 14px;
+  margin-top: 15px;
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
 .submit-btn:disabled {
-  background: var(--bg-dark);
+  background: rgba(255, 255, 255, 0.05);
   color: var(--text-muted);
-  border-color: var(--border-color);
+  border-color: rgba(255, 255, 255, 0.1);
   cursor: not-allowed;
   box-shadow: none;
   transform: none;
@@ -165,21 +206,12 @@
 
 /* --- Responsive Layout --- */
 @media (max-width: 992px) {
-  .contact-grid {
-    flex-direction: column;
-  }
-  .Contact .left,
-  .Contact .right {
-    width: 100%;
-  }
+  .contact-grid { flex-direction: column; }
+  .Contact .left, .Contact .right { width: 100%; }
 }
 
 @media (max-width: 768px) {
-  .input-row {
-    flex-direction: column;
-    gap: 25px;
-  }
-  .Contact .right {
-    padding: 25px 20px;
-  }
+  .input-row { flex-direction: column; gap: 20px; }
+  .Contact .right { padding: 30px 20px; }
+  .Contact .left { padding: 25px 20px; }
 }

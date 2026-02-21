@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom"; // PRO UPGRADE: Required for Portals
+import ReactDOM from "react-dom"; 
 
 const Card = (props) => {
   const [modal, setModal] = useState(false);
@@ -8,7 +8,6 @@ const Card = (props) => {
     setModal(!modal);
   };
 
-  // Lock body scroll when modal is open
   useEffect(() => {
     if (modal) {
       document.body.style.overflow = "hidden";
@@ -20,49 +19,52 @@ const Card = (props) => {
 
   return (
     <>
-      {/* The Main Plaque Card - Now handles its own AOS animation! */}
       <div 
-        className="box box_shodow achievement-card" 
+        className="achievement-card" 
         onClick={toggleModal}
         data-aos="fade-up"
         data-aos-delay={props.aosDelay}
       >
         <div className="img">
           <img src={props.image} alt={props.title_one} />
+          <div className="img-overlay gold-overlay">
+            <span>VERIFY_RECORD //</span>
+          </div>
         </div>
         <div className="category d_flex">
-          <span className="date-badge">{props.date}</span>
+          <span className="date-badge"><i className="far fa-clock"></i> {props.date}</span>
         </div>
         <div className="title">
           <h2>{props.title_one}</h2>
-          <button className="arrow-btn" aria-label="View Certificate">
-            <i className="fas fa-search-plus"></i>
+          <button className="arrow-btn gold-arrow" aria-label="View Certificate">
+            <i className="fas fa-certificate"></i>
           </button>
         </div>
       </div>
 
-      {/* PRO UPGRADE: React Portal teleports the modal to the body to prevent grid/transform bugs */}
       {modal && ReactDOM.createPortal(
         <div className="modal-wrapper">
           <div onClick={toggleModal} className="overlay"></div>
-          <div className="modal-content box_shodow achievement-modal">
+          <div className="modal-content achievement-modal">
             
-            <button className="close-modal btn_shadow" onClick={toggleModal}>
+            <button className="close-modal gold-close" onClick={toggleModal}>
               <i className="fas fa-times"></i>
             </button>
 
-            <div className="modal-body">
-              <span className="date-badge">Event Date // {props.date}</span>
+            <div className="modal-body text-center">
+              <span className="date-badge badge-large">RECORD TIMESTAMP // {props.date}</span>
               <h1 className="modal-title">{props.title_one}</h1>
               
               <div className="modal-img-full">
+                <div className="tech-corner gold-corner top-left"></div>
+                <div className="tech-corner gold-corner bottom-right"></div>
                 <img src={props.ppimage} alt={props.title_one} />
               </div>
             </div>
             
           </div>
         </div>,
-        document.body // This is where the portal drops the HTML
+        document.body 
       )}
     </>
   );

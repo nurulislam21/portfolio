@@ -1,10 +1,7 @@
 .preloader {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: #050505; /* Pitch black for terminal */
+  top: 0; left: 0; width: 100vw; height: 100vh;
+  background-color: #050806; /* Pitch black with a micro tint of green */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -12,26 +9,47 @@
   overflow: hidden;
 }
 
+/* Authentic CRT Monitor Scanline Effect */
+.scanlines {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+  background-size: 100% 4px, 6px 100%;
+  z-index: 10;
+  pointer-events: none;
+}
+
 .terminal-box {
-  width: 80%;
-  max-width: 600px;
+  width: 85%;
+  max-width: 700px;
   text-align: left;
+  z-index: 20;
+  padding: 20px;
 }
 
 .terminal-text {
   font-family: "Fira Code", monospace;
-  color: #32cd32; /* Neon green */
-  font-size: 18px;
-  line-height: 1.8;
-  white-space: pre-wrap; /* Keeps the line breaks from the JS string */
-  text-shadow: 0 0 5px rgba(50, 205, 50, 0.5);
+  color: var(--accent-green, #00ff88); /* Cyber green */
+  font-size: 16px;
+  line-height: 1.6;
+  white-space: pre-wrap; 
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.6); /* Phosphor glow */
 }
 
 .cursor {
   animation: blink 1s step-end infinite;
+  display: inline-block;
+  margin-left: 2px;
+  vertical-align: bottom;
 }
 
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50% { opacity: 0; }
+}
+
+@media (max-width: 768px) {
+  .terminal-text {
+    font-size: 13px; /* Ensure it fits nicely on mobile */
+  }
 }

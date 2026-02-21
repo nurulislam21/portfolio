@@ -1,66 +1,175 @@
-/* --- Hero General Layout --- */
+/* --- Hero Layout & Typography --- */
 .hero {
-  padding-top: 100px; /* Space for the fixed header */
+  padding-top: 20px; 
   min-height: 100vh;
   display: flex;
   align-items: center;
 }
 
-.hero-subtitle {
-  font-family: "Fira Code", monospace;
-  color: var(--text-muted);
-  letter-spacing: 2px;
-  font-size: 14px;
-  font-weight: 500;
-  margin-bottom: 10px;
+.hero .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 50px;
+}
+
+.left {
+  width: 55%;
+}
+
+.right {
+  width: 45%;
 }
 
 .hero-title {
-  font-size: 60px;
-  font-weight: 700;
+  font-size: 50px;
+  font-weight: 800;
   color: var(--text-main);
   line-height: 1.1;
   margin-bottom: 20px;
+  letter-spacing: -1px;
 }
 
+/* --- System Status Badge --- */
+.system-status {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  padding: 6px 15px;
+  border-radius: 50px;
+  margin-bottom: 20px;
+}
+
+.pulse-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--accent-green);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-green);
+  animation: pulse 1.5s infinite;
+}
+
+.status-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  color: var(--accent-green);
+  letter-spacing: 1px;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
+  70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
+}
+
+/* --- THE ULTIMATE ANTI-BOUNCE TERMINAL TYPING --- */
 .hero-typing {
-  font-size: 28px;
+  font-family: 'Fira Code', 'Courier New', monospace;
+  font-size: 22px;
   font-weight: 600;
+  background: rgba(0, 255, 136, 0.03); 
+  padding: 15px 20px;
+  border-left: 3px solid var(--accent-green);
+  
+  /* The Fix: Lock height strictly so it never expands */
+  display: block; 
+  height: 90px; 
+  overflow: hidden; 
   margin-bottom: 30px;
 }
 
-.hero-typing .static-text {
+.terminal-prefix {
+  color: #666; 
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+.static-text {
   color: var(--text-main);
 }
 
-/* Applying neon green to the typing text to make it stand out */
-.hero-typing .typing-text {
+.typing-text {
   color: var(--accent-green);
-  text-shadow: 0 0 8px var(--accent-glow);
+  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
+}
+/* --- Glitch Name Effect --- */
+.primary_color {
+  position: relative;
+  display: inline-block;
+  color: var(--accent-green);
 }
 
+.primary_color::before,
+.primary_color::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--bg-main); 
+  opacity: 0;
+}
+
+.primary_color:hover::before {
+  left: 2px;
+  text-shadow: -2px 0 red;
+  animation: glitch-anim-1 0.2s infinite linear alternate-reverse;
+  opacity: 1;
+}
+
+.primary_color:hover::after {
+  left: -2px;
+  text-shadow: 2px 0 blue;
+  animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
+  opacity: 1;
+}
+
+@keyframes glitch-anim-1 {
+  0% { clip-path: inset(20% 0 80% 0); }
+  100% { clip-path: inset(60% 0 10% 0); }
+}
+@keyframes glitch-anim-2 {
+  0% { clip-path: inset(10% 0 60% 0); }
+  100% { clip-path: inset(80% 0 5% 0); }
+}
+
+/* --- Bio & Buttons --- */
 .hero-description {
   font-size: 16px;
   color: var(--text-muted);
   line-height: 1.8;
-  max-width: 90%;
-  margin-bottom: 40px;
-}
-
-/* --- Buttons --- */
-.hero_btn_main {
-  margin-bottom: 50px;
+  margin-bottom: 35px;
+  max-width: 95%;
 }
 
 .download-btn {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 10px;
-  font-size: 16px;
-  padding: 16px 35px;
+  gap: 12px;
+  background: rgba(0, 255, 136, 0.05);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  font-family: 'Fira Code', monospace;
+  font-size: 14px;
+  padding: 12px 25px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-bottom: 40px;
+  text-decoration: none;
 }
 
-/* --- Bottom Grids (Socials & Tools) --- */
+.download-btn:hover {
+  background: var(--accent-green);
+  color: #000;
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-2px);
+}
+
+/* --- Socials & Tools Grid --- */
 .hero_bottom {
   gap: 50px;
   align-items: flex-start;
@@ -71,64 +180,58 @@
   font-size: 12px;
   letter-spacing: 2px;
   color: var(--text-muted);
-  margin-bottom: 20px;
+  margin-bottom: 15px;
 }
 
-/* Using CSS Grid to perfectly align the buttons */
 .social-grid,
 .tools-grid {
   display: grid;
   gap: 15px;
 }
 
-.social-grid {
-  grid-template-columns: repeat(4, 1fr);
-}
+.social-grid { grid-template-columns: repeat(4, 1fr); }
+.tools-grid { grid-template-columns: repeat(6, 1fr); }
 
-.tools-grid {
-  grid-template-columns: repeat(6, 1fr);
-}
-
-/* Specific styling for the small square buttons */
 .icon-btn, .tool-btn {
-  padding: 12px;
   width: 50px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   border-radius: 8px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .icon-btn i {
   font-size: 20px;
+  color: var(--text-muted);
+  transition: 0.3s ease;
 }
 
-/* Ensure the button allows the image to be visible */
-.tool-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px; /* Adjust padding as needed */
-  overflow: hidden;
-}
-
-
-/* This makes your tool icons green to match the theme */
 .tool-btn img {
   width: 25px;
   height: 25px;
-  filter: grayscale(0%);
-}
-.tool-btn:hover img {
-  filter: grayscale(0%); /* Brings the color back on hover */
+  filter: grayscale(100%) opacity(0.7);
+  transition: all 0.3s ease;
 }
 
-/* --- Hero Image & Tech Frame --- */
+.icon-btn:hover, .tool-btn:hover {
+  background: rgba(0, 255, 136, 0.1);
+  border-color: var(--accent-green);
+  transform: translateY(-5px);
+}
+
+.icon-btn:hover i { color: var(--accent-green); }
+.tool-btn:hover img { filter: grayscale(0%) opacity(1); }
+
+/* --- Hero Image & Targeting HUD --- */
 .right_img_wrapper {
   position: relative;
   width: 100%;
-  max-width: 500px;
+  max-width: 450px;
   margin: 0 auto;
   padding: 20px;
 }
@@ -136,9 +239,10 @@
 .right_img {
   position: relative;
   z-index: 2;
-  border-radius: 12px;
+  border-radius: 4px; /* Sharper edges for tech look */
   overflow: hidden;
-  box-shadow: 0 10px 30px rgba(0,0,0,0.8);
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.6);
 }
 
 .right_img img {
@@ -147,51 +251,35 @@
   display: block;
 }
 
-/* Adding a cool PCB/HUD style frame around your photo */
+/* Targeting Bracket Corners */
 .tech-corner {
   position: absolute;
-  width: 40px;
-  height: 40px;
-  border: 3px solid var(--accent-green);
-  z-index: 1;
-  box-shadow: 0 0 10px var(--accent-glow);
+  width: 30px;
+  height: 30px;
+  border: 2px solid var(--accent-green);
+  z-index: 3;
 }
 
-.tech-corner.top-left {
-  top: 0;
-  left: 0;
-  border-right: none;
-  border-bottom: none;
-}
+.tech-corner.top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
+.tech-corner.top-right { top: 10px; right: 10px; border-left: none; border-bottom: none; }
+.tech-corner.bottom-left { bottom: 10px; left: 10px; border-right: none; border-top: none; }
+.tech-corner.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
 
-.tech-corner.bottom-right {
-  bottom: 0;
-  right: 0;
-  border-left: none;
-  border-top: none;
-}
-
-/* --- Responsive Layout --- */
-@media (max-width: 992px) {
-  .hero .container.f_flex {
-    flex-direction: column-reverse; /* Puts image above text on mobile */
-  }
-  
-  .hero-description {
-    max-width: 100%;
-  }
-
-  .hero_bottom {
-    flex-direction: column;
-    gap: 30px;
-  }
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .hero .container { flex-direction: column-reverse; }
+  .left, .right { width: 100%; }
+  .right_img_wrapper { max-width: 350px; margin-bottom: 40px; }
+  .hero-title { font-size: 40px; }
 }
 
 @media (max-width: 768px) {
-  .hero-title { font-size: 40px; }
-  .hero-typing { font-size: 20px; }
+  .hero { padding-top: 100px; }
   
-  .tools-grid {
-    grid-template-columns: repeat(3, 1fr); /* Stacks tools nicely on small phones */
-  }
+  /* Slightly taller on mobile in case terminal text takes 3 lines */
+  .hero-typing { height: 110px; font-size: 16px; padding: 12px; }
+  .terminal-prefix { display: block; margin-bottom: 5px; font-size: 12px; }
+  
+  .hero_bottom { flex-direction: column; gap: 30px; }
+  .tools-grid { grid-template-columns: repeat(4, 1fr); }
 }

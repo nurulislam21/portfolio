@@ -7,6 +7,9 @@ const Portfolio = () => {
   const [showAll, setShowAll] = useState(false);
   const initialItems = 6;
 
+  // Reverse the data so recent entries appear first
+  const reversedData = [...Portfolio_data].reverse();
+
   return (
     <section className="Portfolio top" id="portfolio">
       <div className="container">
@@ -17,7 +20,7 @@ const Portfolio = () => {
         </div>
 
         <div className="content grid">
-          {Portfolio_data.slice(0, showAll ? Portfolio_data.length : initialItems).map(
+          {reversedData.slice(0, showAll ? reversedData.length : initialItems).map(
             (item, index) => (
               <Card 
                 key={index}
@@ -26,7 +29,7 @@ const Portfolio = () => {
                 totalLike={item.totalLike}
                 title={item.title}
                 description={item.description}
-                aosDelay={index * 100} /* Passing the delay as a prop! */
+                aosDelay={index * 100} 
               />
             )
           )}

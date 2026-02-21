@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
 
-import Preloader from "./component/Preloader"; // Adjust path if needed based on your folder structure
+import Preloader from "./component/Preloader"; 
 import Header from "./component/Head/Header";
 import Home from "./component/Hero/Home"; 
 import Features from "./component/Features/Features";
@@ -12,21 +12,24 @@ import Skill from './component/Skill/Skill';
 import Blog from "./component/Blog/Blog";
 import Contact from "./component/Contact/Contact";
 import Footer from "./component/Footer";
+
+// Global styling imported last to apply root overrides
+import "./index.css";
 import "./App.css";
+import Testimonial from "./component/Testimonial/Testimonial";
 
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
-  // PRO FIX: We use a dependency array [isLoading] to watch the preloader.
   useEffect(() => {
-    // Only initialize animations AFTER the preloader is completely done
     if (!isLoading) {
+      // PRO FIX: Upgraded easing function for premium bouncy/smooth scroll animations
       AOS.init({
-        duration: 1000,
+        duration: 800,
+        easing: "ease-out-cubic", 
         once: true,
         offset: 50,
       });
-      // Force AOS to recalculate the page layout now that the DOM is visible
       AOS.refresh(); 
     }
   }, [isLoading]);
@@ -42,10 +45,11 @@ const App = () => {
           <main className="main-content">
             <Home />
             <Features />
-            <Portfolio />
             <Resume />
             <Skill />
+            <Portfolio />
             <Blog />
+            <Testimonial/>
             <Contact />
           </main>
 

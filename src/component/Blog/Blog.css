@@ -1,24 +1,4 @@
-/* --- Strict 3-Column Grid Layout (PRO FIX) --- */
-section.Portfolio .content.grid {
-  display: grid !important;
-  grid-template-columns: repeat(3, 1fr) !important; /* Forces 3 equal columns */
-  gap: 35px !important; 
-  padding-top: 20px;
-}
-
-/* Make sure it drops to 2 columns on tablets, and 1 column on phones */
-@media (max-width: 992px) {
-  section.Portfolio .content.grid {
-    grid-template-columns: repeat(2, 1fr) !important;
-  }
-}
-
-@media (max-width: 768px) {
-  section.Portfolio .content.grid {
-    grid-template-columns: 1fr !important;
-  }
-}
-/* --- Strict 3-Column Grid for Achievements --- */
+/* --- Strict 3-Column Grid Layout --- */
 .Blog .content.grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -28,112 +8,179 @@ section.Portfolio .content.grid {
 
 /* --- Achievement Plaque Design --- */
 .achievement-card {
-  background: var(--bg-card);
-  border-radius: 10px;
+  background: rgba(255, 215, 0, 0.02); /* Subtle gold tint */
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
   padding: 15px;
   cursor: pointer;
   display: flex;
   flex-direction: column;
   position: relative;
-  border: 1px solid var(--border-color);
   transition: all 0.4s ease;
   height: 100%;
+  overflow: hidden;
 }
 
-/* Hover Physics for Awards */
 .achievement-card:hover {
   transform: translateY(-8px);
-  border-color: #ffb400; /* Gold border for achievements */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), 0 0 20px rgba(255, 180, 0, 0.15);
+  border-color: rgba(255, 215, 0, 0.5); 
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 0 20px rgba(255, 215, 0, 0.05);
 }
 
-/* --- Certificate Image Cropping --- */
+/* --- Certificate Image --- */
 .achievement-card .img {
   width: 100%;
-  height: 200px; /* Slightly shorter than projects */
-  border-radius: 6px;
+  height: 200px;
+  border-radius: 2px;
   overflow: hidden;
   margin-bottom: 20px;
   position: relative;
-  background-color: #000; /* Behind the image */
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .achievement-card .img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Keeps certificates uniform */
-  object-position: top; /* Focuses on the top of the certificate */
-  transition: transform 0.5s ease;
-  opacity: 0.9;
+  object-fit: cover;
+  object-position: top;
+  transition: transform 0.6s ease, filter 0.3s ease;
+  filter: grayscale(30%);
 }
 
 .achievement-card:hover .img img {
   transform: scale(1.05);
-  opacity: 1;
+  filter: grayscale(0%);
+}
+
+/* Gold Image Overlay */
+.gold-overlay {
+  background: rgba(255, 215, 0, 0.2);
+}
+
+.gold-overlay span {
+  color: #ffd700;
+  text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
 }
 
 /* --- Typography --- */
 .date-badge {
-  color: #ffb400; /* Gold text */
+  color: #ffd700;
   font-family: "Fira Code", monospace;
-  font-size: 12px;
-  letter-spacing: 1px;
+  font-size: 11px;
+  letter-spacing: 1.5px;
   text-transform: uppercase;
   margin-bottom: 12px;
   display: inline-block;
-  background: rgba(255, 180, 0, 0.1);
-  padding: 4px 8px;
-  border-radius: 4px;
+  background: rgba(255, 215, 0, 0.1);
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  padding: 4px 10px;
+  border-radius: 2px;
+}
+
+.badge-large {
+  font-size: 13px;
+  margin-bottom: 20px;
 }
 
 .achievement-card h2 {
+  font-family: 'Inter', sans-serif;
   font-size: 18px;
+  font-weight: 600;
   color: var(--text-main);
-  transition: var(--transition);
+  transition: 0.3s ease;
   line-height: 1.4;
 }
 
 .achievement-card:hover h2 {
-  color: #ffb400;
+  color: #ffd700;
 }
 
-/* --- Achievement Modal (The Certificate Viewer) --- */
+/* The Gold Arrow Icon */
+.gold-arrow {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  font-size: 20px;
+  color: #ffd700;
+  opacity: 0;
+  transform: scale(0.5);
+  transition: all 0.4s ease;
+}
+
+.achievement-card:hover .gold-arrow {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* --- Achievement Modal Viewer --- */
 .achievement-modal {
   width: 90%;
-  max-width: 750px;
+  max-width: 800px;
   padding: 40px;
-  text-align: center;
-  background: var(--bg-card);
-  border: 1px solid #ffb400; /* Gold Modal Border */
-  border-radius: 12px;
-  box-shadow: 0 0 50px rgba(255, 180, 0, 0.2);
+  background: #0f1115;
+  border: 1px solid #ffd700; 
+  border-radius: 4px;
+  box-shadow: 0 0 50px rgba(255, 215, 0, 0.15), inset 0 0 20px rgba(255, 215, 0, 0.05);
+}
+
+.gold-close {
+  border-color: #ffd700;
+  color: #ffd700;
+}
+
+.gold-close:hover {
+  background: #ffd700;
+  color: #000;
 }
 
 .achievement-modal .modal-title {
-  font-size: 28px;
+  font-size: 26px;
   color: var(--text-main);
   margin-bottom: 30px;
+  letter-spacing: -0.5px;
 }
 
 .modal-img-full {
   width: 100%;
-  border-radius: 8px;
+  border-radius: 4px;
   overflow: hidden;
-  border: 2px solid var(--border-color);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  position: relative;
+  padding: 10px;
 }
 
 .modal-img-full img {
   width: 100%;
   height: auto;
   display: block;
+  border-radius: 2px;
 }
 
-/* --- Responsive Layout Fixes --- */
+/* Gold Tech Corners for Modal Image */
+.gold-corner {
+  border-color: #ffd700;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+}
+
+/* Custom Gold Button */
+.gold-btn {
+  color: var(--text-main);
+  border: 1px solid rgba(255, 215, 0, 0.3);
+}
+
+.gold-btn:hover {
+  border-color: #ffd700;
+  color: #ffd700;
+  box-shadow: 0 0 15px rgba(255, 215, 0, 0.2);
+}
+
+/* --- Responsive Layout --- */
 @media (max-width: 1024px) {
   .Blog .content.grid { grid-template-columns: repeat(2, 1fr); }
 }
+
 @media (max-width: 768px) {
   .Blog .content.grid { grid-template-columns: 1fr; }
-  .achievement-modal { padding: 25px 15px; }
-  .achievement-modal .modal-title { font-size: 22px; }
+  .achievement-modal { padding: 30px 20px; }
+  .achievement-modal .modal-title { font-size: 20px; }
 }

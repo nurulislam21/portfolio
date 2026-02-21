@@ -1,31 +1,41 @@
 /* --- Core Layout --- */
 .skill-grid {
-  gap: 50px;
+  gap: 40px;
   align-items: stretch;
 }
 
 .container1 {
   width: 50%;
-  padding: 50px;
-  border-radius: 12px;
+  padding: 40px;
+  border-radius: 6px;
+  background: rgba(0, 255, 136, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s ease;
+}
+
+.container1:hover {
+  border-color: rgba(0, 255, 136, 0.3);
+  box-shadow: inset 0 0 20px rgba(0, 255, 136, 0.02), 0 10px 30px rgba(0,0,0,0.5);
 }
 
 .heading1 {
   text-align: left;
-  font-size: 24px;
-  color: var(--text-main);
-  margin-bottom: 40px;
+  font-size: 20px;
+  color: var(--accent-green);
+  margin-bottom: 35px;
   font-family: "Fira Code", monospace;
   letter-spacing: 1px;
+  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
+  padding-bottom: 10px;
 }
 
-/* --- Technical Linear Bars --- */
+/* --- Linear Progress Bars (Hardware Panel) --- */
 .Technical-bars .bar {
-  margin: 30px 0;
+  margin: 25px 0;
 }
 
 .Technical-bars .info {
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   display: flex;
   align-items: center;
 }
@@ -36,88 +46,78 @@
   gap: 15px;
 }
 
+/* Grayscale SVGs until hovered for a sleek tech look */
 .skill-title svg {
-  width: 30px;
-  height: 30px;
-  filter: grayscale(80%) brightness(1.5);
-  transition: var(--transition);
+  width: 25px;
+  height: 25px;
+  filter: grayscale(100%) opacity(0.7);
+  transition: 0.4s ease;
 }
 
 .container1:hover .skill-title svg {
-  filter: grayscale(0%) brightness(1);
+  filter: grayscale(0%) opacity(1);
 }
 
 .Technical-bars .info span {
-  font-size: 16px;
-  font-weight: 500;
+  font-family: 'Inter', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
   color: var(--text-main);
-  opacity: 0; /* Hidden by default */
+  opacity: 0;
 }
 
-/* Trigger animation ONLY when AOS adds the aos-animate class */
 .container1.aos-animate .Technical-bars .info span {
-  animation: showText 0.5s 0.5s linear forwards;
+  animation: showText 0.5s 0.2s linear forwards;
 }
 
-/* The Progress Track */
+/* The Background Track */
 .Technical-bars .progress-line {
   position: relative;
-  border-radius: 10px;
+  border-radius: 2px;
   width: 100%;
-  height: 8px;
-  background-color: var(--bg-dark);
-  border: 1px solid var(--border-color);
+  height: 6px;
+  background-color: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  overflow: visible;
 }
 
-/* The Animated Progress Fill */
+/* The Glowing Fill */
 .Technical-bars .progress-line span {
   position: absolute;
   height: 100%;
   background-color: var(--accent-green);
-  border-radius: 10px;
   box-shadow: 0 0 10px var(--accent-glow);
   transform: scaleX(0);
   transform-origin: left;
+  border-radius: 2px;
 }
 
-/* Trigger filling animation when scrolled into view */
 .container1.aos-animate .Technical-bars .progress-line span {
-  animation: animateLinear 1s 0.5s cubic-bezier(1, 0, 0.5, 1) forwards;
+  animation: animateLinear 1s 0.4s cubic-bezier(1, 0, 0.5, 1) forwards;
 }
 
-/* The Percentage Tooltip */
+/* The Hover Percentages */
 .Technical-bars .progress-line span::after {
   content: attr(data-percent);
   position: absolute;
-  padding: 2px 8px;
-  background-color: var(--accent-green);
-  color: var(--bg-dark);
-  font-weight: 700;
-  font-size: 12px;
-  border-radius: 3px;
-  top: -30px;
-  right: -15px;
+  padding: 4px 8px;
+  background-color: rgba(0, 0, 0, 0.8);
+  border: 1px solid var(--accent-green);
+  color: var(--accent-green);
+  font-family: 'Fira Code', monospace;
+  font-weight: 600;
+  font-size: 11px;
+  border-radius: 4px;
+  top: -35px;
+  right: -20px;
   opacity: 0;
 }
 
-.Technical-bars .progress-line span::before {
-  content: "";
-  position: absolute;
-  width: 0;
-  height: 0;
-  border: 6px solid transparent;
-  border-top-color: var(--accent-green);
-  top: -10px;
-  right: -5px;
-  opacity: 0;
-}
-
-.container1.aos-animate .Technical-bars .progress-line span::after,
-.container1.aos-animate .Technical-bars .progress-line span::before {
+.container1.aos-animate .Technical-bars .progress-line span::after {
   animation: showText 0.5s 1.2s linear forwards;
 }
 
-/* --- Professional Radial Bars --- */
+/* --- Radial Dials (Software Panel) --- */
 .radial-bars {
   display: flex;
   flex-wrap: wrap;
@@ -126,8 +126,8 @@
 
 .radial-bar {
   width: 45%;
-  height: 180px;
-  margin-bottom: 30px;
+  height: 160px;
+  margin-bottom: 25px;
   position: relative;
 }
 
@@ -136,27 +136,26 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);
-  width: 130px;
-  height: 130px;
+  width: 110px;
+  height: 110px;
 }
 
 .progress-bg {
-  stroke-width: 12;
-  stroke: var(--bg-dark);
+  stroke-width: 8;
+  stroke: rgba(255, 255, 255, 0.05);
   fill: transparent;
 }
 
 .path {
-  stroke-width: 12;
+  stroke-width: 8;
   stroke: var(--accent-green);
   fill: transparent;
   stroke-dasharray: 502;
-  stroke-dashoffset: 502; /* Hidden by default */
-  stroke-linecap: round;
-  filter: drop-shadow(0 0 3px var(--accent-glow));
+  stroke-dashoffset: 502;
+  stroke-linecap: square; /* Square caps look more technical than round */
+  filter: drop-shadow(0 0 4px var(--accent-glow));
 }
 
-/* Trigger circular animations when scrolled into view */
 .container1.aos-animate .path-1 { animation: animate-path1 1s 0.5s linear forwards; }
 .container1.aos-animate .path-2 { animation: animate-path2 1s 0.5s linear forwards; }
 .container1.aos-animate .path-3 { animation: animate-path3 1s 0.5s linear forwards; }
@@ -167,9 +166,10 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 22px;
-  font-weight: 700;
-  color: var(--text-main);
+  font-family: 'Fira Code', monospace;
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--accent-green);
   opacity: 0;
 }
 
@@ -180,8 +180,8 @@
   left: 50%;
   bottom: 0px;
   transform: translateX(-50%);
-  font-size: 16px;
-  color: var(--text-muted);
+  font-size: 14px;
+  color: var(--text-main);
   font-weight: 500;
   opacity: 0;
 }
@@ -191,32 +191,35 @@
   animation: showText 0.5s 1s linear forwards;
 }
 
-/* --- Call to Action Container --- */
+/* --- Terminal Call to Action --- */
 .call-to-action {
   text-align: center;
-  padding: 50px;
-  border: 1px dashed var(--accent-green);
+  padding: 40px;
+  border: 1px dashed rgba(0, 255, 136, 0.4);
+  background: rgba(0, 255, 136, 0.02);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+
+.call-to-action::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; width: 4px; height: 100%;
+  background: var(--accent-green);
 }
 
 .call-to-action h2 {
   font-family: "Fira Code", monospace;
-  font-size: 28px;
+  font-size: 20px;
   color: var(--text-main);
   margin-bottom: 10px;
 }
 
 .call-to-action p {
   color: var(--text-muted);
-  margin-bottom: 30px;
-  font-size: 16px;
-}
-
-#resume-button {
-  font-size: 16px;
-  padding: 15px 40px;
-  display: inline-flex;
-  align-items: center;
-  gap: 10px;
+  margin-bottom: 25px;
+  font-size: 15px;
 }
 
 /* --- Animations --- */
@@ -229,24 +232,12 @@
 
 /* --- Responsive Layout --- */
 @media (max-width: 992px) {
-  .skill-grid {
-    flex-direction: column;
-  }
-  .container1 {
-    width: 100%;
-    padding: 30px;
-  }
-  .radial-bar {
-    width: 50%;
-  }
+  .skill-grid { flex-direction: column; }
+  .container1 { width: 100%; padding: 30px; }
 }
 
 @media (max-width: 768px) {
-  .radial-bar {
-    width: 100%;
-    margin-bottom: 40px;
-  }
-  .call-to-action h2 {
-    font-size: 20px;
-  }
+  .radial-bar { width: 100%; margin-bottom: 40px; }
+  .call-to-action h2 { font-size: 16px; }
+  .call-to-action p { font-size: 14px; }
 }

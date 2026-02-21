@@ -1,57 +1,38 @@
 import pimg4 from '../pic/pimg1.jpg'
 import pimg5 from '../pic/pimg2.jpg'
 import pimg6 from '../pic/pimg3.webp'
+
 const TestimonialApi = [
   {
-    id: 1,
-    image: pimg5,
-    design: "NCD - DESIGN",
-    name: "Mevine Thoda",
-    offcer: "Marketing Officer",
-    post: "CEO - Marketing",
-    date: "Thoda Department - Mar 4, 2018 - Aug 30, 2021",
-    desc: "Marcent Of Vanice and treatment. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris",
-  },
-  {
     id: 2,
-    image: pimg5,
-    design: "Default name",
-    name: "Davei Luace",
-    offcer: "Chief Operating Manager",
-    post: "Android App Development",
-    date: "via Upwork - Mar 4, 2015 - Aug 30, 2021",
-    desc: "When managment is so important. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris.",
+    image: pimg6,
+    design: "AEROSPACE KINEMATICS",
+    name: "WRO Evaluation Panel",
+    offcer: "World Robot Olympiad Judges",
+    post: "Autonomous Navigation Systems",
+    date: "WRO International Final - Singapore",
+    desc: "Team Echo Drift presented one of the most mechanically sound autonomous systems in the division. Noman's approach to custom PCB routing and aerodynamic frame design demonstrated an engineering maturity far beyond standard university-level projects.",
   },
   {
     id: 3,
-    image: pimg6,
-    design: "Rainbow-Themes",
-    name: "Nevine Acotanza",
-    offcer: "Chief Operating Officer",
-    post: "Android App Development",
-    date: "via Upwork - Mar 4, 2015 - Aug 30, 2021",
-    desc: "Maecenas finibus nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris.",
+    image: pimg4,
+    design: "ACADEMIC EXCELLENCE",
+    name: "Faculty Member, EEE",
+    offcer: "Int. University of Scholars",
+    post: "Electrical & Electronics Engineering",
+    date: "Academic Endorsement",
+    desc: "As an EEE student, Noman consistently bridges the gap between theoretical physics and deployable hardware. His capacity to absorb complex control algorithms and translate them into functional embedded systems sets a new benchmark for our department.",
   },
   {
     id: 4,
-    image: pimg4,
-    design: "Bound - Trolola",
-    name: "Jone Duone Joe",
-    offcer: "Operating Officer",
-    post: "Web App Development",
-    date: "Upwork - Mar 4, 2016 - Aug 30, 2021",
-    desc: "Important fact to nec sem ut imperdiet. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris.",
-  },
-  {
-    id: 5,
-    image: pimg6,
-    design: "Glassfisom",
-    name: "Nevine Dhawan",
-    offcer: "CEO Of Officer",
-    post: "Android App Design",
-    date: "Fiver - Mar 4, 2015 - Aug 30, 2021",
-    desc: "No more question for design. Ut tincidunt est ac dolor aliquam sodales. Phasellus sed mauris hendrerit, laoreet sem in, lobortis mauris hendrerit ante. Ut tincidunt est ac dolor aliquam sodales phasellus smauris	.",
-  },
+    image: pimg5,
+    design: "FIRMWARE & SYSTEMS",
+    name: "Mohoshi Haque",
+    offcer: "Project Collaborator",
+    post: "Embedded Systems Integration",
+    date: "Hardware R&D Projects",
+    desc: "Working alongside Noman on embedded architectures is always a seamless experience. His deep understanding of STM32 microcontrollers, coupled with his agile leadership style, ensures that even the most complex robotic challenges are solved efficiently.",
+  }
 ]
 
-export default TestimonialApi
+export default TestimonialApi;

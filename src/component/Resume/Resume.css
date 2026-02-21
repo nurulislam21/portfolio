@@ -4,147 +4,152 @@
   align-items: flex-start;
 }
 
-.Resume .heading h1 {
-  font-size: 36px;
+.timeline-title {
+  font-family: 'Fira Code', monospace;
+  font-size: 24px;
+  color: var(--text-main);
   margin-bottom: 30px;
+  letter-spacing: -0.5px;
 }
 
-/* --- The Tech Timeline Structure --- */
+/* --- The PCB Trace Timeline --- */
 .resume-timeline {
-  border-left: 3px solid var(--border-color); /* The main circuit line */
-  padding-left: 35px;
   position: relative;
+  padding-left: 20px; /* Space between the line and the cards */
+  margin-left: 0; 
 }
 
-/* --- The Resume Card --- */
+/* --- Hardware Module Card --- */
 .resume-card {
   position: relative;
-  padding: 35px;
+  padding: 30px;
   margin-bottom: 40px;
-  background: var(--bg-card);
-  border: 1px solid transparent;
+  background: rgba(0, 255, 136, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+  transition: all 0.4s ease;
 }
-
-/* The Glowing Timeline Node (The Dot) */
+.resume-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0; /* Locks the line to the absolute left edge */
+  width: 2px;
+  height: 100%;
+  background: rgba(0, 255, 136, 0.3);
+}
+/* The Glowing Circuit Node (The Dot) */
 .resume-card::before {
   content: "";
   position: absolute;
-  top: 40px; /* Aligns with the title */
-  left: -44px; /* Pulls the dot perfectly onto the timeline border */
-  width: 15px;
-  height: 15px;
+  top: 35px; 
+  left: -27px; /* Mathematically locked: 20px padding + 7px dot radius */
+  width: 14px;
+  height: 14px;
   border-radius: 50%;
-  background: var(--bg-dark);
-  border: 3px solid var(--border-color);
-  transition: var(--transition);
+  background: var(--bg-main);
+  border: 2px solid var(--accent-green);
   z-index: 2;
+  transition: all 0.4s ease;
 }
 
 /* Hover Dynamics */
 .resume-card:hover {
-  border-color: var(--accent-green);
-  transform: translateY(-5px);
+  border-color: rgba(0, 255, 136, 0.4);
+  transform: translateX(5px); /* Slides right slightly like pulling out a drive */
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 136, 0.03);
 }
 
 .resume-card:hover::before {
   background: var(--accent-green);
-  border-color: var(--accent-green);
   box-shadow: 0 0 15px var(--accent-glow);
+  transform: scale(1.3);
 }
 
 /* --- Card Content --- */
 .resume-card .title_content {
   align-items: flex-start;
+  justify-content: space-between;
 }
 
 .resume-card .title h2 {
-  font-size: 22px;
+  font-family: 'Inter', sans-serif;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--text-main);
-  margin-bottom: 10px;
-  transition: var(--transition);
+  margin-bottom: 8px;
+  transition: 0.3s ease;
 }
 
-.resume-card:hover .title h2 {
-  color: var(--accent-green);
-}
+.resume-card:hover .title h2 { color: var(--accent-green); }
 
 .resume-card .title span {
-  display: block;
+  display: inline-block;
   font-family: "Fira Code", monospace;
-  font-size: 14px;
+  font-size: 12px;
   color: var(--text-muted);
-  letter-spacing: 1px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 4px 10px;
+  border-radius: 2px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* --- The Icon Badge --- */
 .icon-badge {
-  background: rgba(50, 205, 50, 0.1);
+  background: rgba(0, 255, 136, 0.05);
   color: var(--accent-green);
-  width: 50px;
-  height: 50px;
-  border-radius: 8px;
+  width: 45px;
+  height: 45px;
+  border-radius: 4px;
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  transition: var(--transition);
+  font-size: 18px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
+  transition: all 0.4s ease;
 }
 
 .resume-card:hover .icon-badge {
   background: var(--accent-green);
-  color: var(--bg-dark);
+  color: #000;
   box-shadow: 0 0 15px var(--accent-glow);
+  transform: rotate(10deg);
 }
 
-/* --- Card Description --- */
-.resume-card hr {
-  margin: 25px 0;
-  border: none;
-  border-top: 1px solid var(--border-color);
-  transition: var(--transition);
+/* --- Tech Divider & Description --- */
+.tech-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, rgba(0, 255, 136, 0.5) 0%, rgba(255,255,255,0.05) 50%);
+  margin: 20px 0;
+  opacity: 0.5;
+  transition: 0.4s ease;
 }
 
-.resume-card:hover hr {
-  border-top-color: rgba(50, 205, 50, 0.3);
+.resume-card:hover .tech-divider {
+  opacity: 1;
+  width: 100%;
 }
 
 .resume-card p {
-  font-size: 16px;
+  font-size: 15px;
   color: var(--text-muted);
-  line-height: 1.7;
+  line-height: 1.8;
+  transition: 0.3s ease;
 }
 
-.resume-card:hover p {
-  color: var(--text-main);
-}
+.resume-card:hover p { color: #d1d1d1; }
 
 /* --- Responsive Layout --- */
 @media (max-width: 992px) {
-  .Resume .content-section {
-    flex-direction: column;
-    gap: 0;
-  }
-  .Resume .left {
-    width: 100%;
-    margin-bottom: 50px;
-  }
+  .Resume .content-section { flex-direction: column; gap: 0; }
+  .Resume .left { width: 100%; margin-bottom: 50px; }
 }
 
 @media (max-width: 768px) {
-  .resume-timeline {
-    padding-left: 20px;
-  }
-  .resume-card {
-    padding: 25px 20px;
-  }
-  .resume-card::before {
-    left: -29px; /* Adjust dot position for smaller padding */
-  }
-  .resume-card .title_content {
-    flex-direction: column-reverse;
-  }
-  .resume-card .rate {
-    margin-bottom: 15px;
-  }
+  .resume-timeline { padding-left: 20px; }
+  .resume-card { padding: 20px; }
+  .resume-card::before { left: -27px; }
+  .resume-card .title_content { flex-direction: column-reverse; gap: 15px; }
+  .resume-card .title h2 { font-size: 18px; }
 }
