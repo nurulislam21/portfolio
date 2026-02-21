@@ -35,12 +35,12 @@ const Header = () => {
               className={isMobile ? "nav-links-mobile active" : "link f_flex uppercase"} 
               onClick={() => setIsMobile(false)}
             >
-              <li><a href="#home"><span className="nav-num">00.</span> Home</a></li>
-              <li><a href="#features"><span className="nav-num">01.</span> Expertise</a></li>
-              <li><a href="#portfolio"><span className="nav-num">02.</span> Projects</a></li>
-              <li><a href="#resume"><span className="nav-num">03.</span> Resume</a></li>
-              <li><a href="#blog"><span className="nav-num">04.</span> Milestones</a></li>
-              <li><a href="#contact"><span className="nav-num">05.</span> Contact</a></li>
+              <li><a href="#Home"><span className="nav-num">00.</span> Home</a></li>
+              <li><a href="#Expertise"><span className="nav-num">01.</span> Expertise</a></li>
+              <li><a href="#Resume"><span className="nav-num">02.</span> Resume</a></li>
+              <li><a href="#Projects"><span className="nav-num">03.</span> Projects</a></li>
+              <li><a href="#Milestones"><span className="nav-num">04.</span> Milestones</a></li>
+              <li><a href="#Contact"><span className="nav-num">05.</span> Contact</a></li>
               
               {/* Pro LinkedIn Connect Button */}
               <li className="hire-btn-container">

@@ -42,7 +42,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="Contact top" id="contact">
+    <section className="Contact top" id="Contact">
       <div className="container">
         
         <div className="heading text-center" data-aos="fade-up">
@@ -56,7 +56,7 @@ const Contact = () => {
           <div className="left tech-panel" data-aos="fade-right">
             <div className="img">
               <img src={contact1} alt="Nurul Islam Noman" />
-              <div className="img-overlay scanline"></div>
+              {/* <div className="img-overlay scanline"></div> */}
             </div>
             <div className="details">
               <h1>Nurul Islam Noman</h1>

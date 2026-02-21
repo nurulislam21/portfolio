@@ -11,7 +11,7 @@ const Blog = () => {
   const reversedBlog = [...BlogApi].reverse();
 
   return (
-    <section className="Blog top" id="blog">
+    <section className="Blog top" id="Milestones">
       <div className="container">
         
         <div className="heading text-center" data-aos="fade-up">

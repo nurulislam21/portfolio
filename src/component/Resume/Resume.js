@@ -18,7 +18,7 @@ const Resume = () => {
   };
 
   return (
-    <section className="Resume top" id="resume">
+    <section className="Resume top" id="Resume">
       <div className="container">
         
         <div className="heading text-center" data-aos="fade-up">

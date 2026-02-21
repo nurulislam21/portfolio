@@ -1,11 +1,19 @@
-import pimg4 from '../pic/pimg1.jpg'
 import pimg5 from '../pic/pimg2.jpg'
-import pimg6 from '../pic/pimg3.webp'
 
 const TestimonialApi = [
   {
+    id: 1,
+    image: pimg5, 
+    design: "PROFESSIONAL GROWTH",
+    name: "Sofia Neherin",
+    offcer: "",
+    post: "",
+    date: "Constructive Feedback",
+    desc: "Noman is an enthusiastic individual navigating the early stages of his tech career. An important part of growing as an engineer is learning to master professional etiquette, navigate online networking, and respect personal boundaries. He still has a long way to go in his journey, but I wish him the absolute best of luck in his future engineering endeavors.",
+  },
+  {
     id: 2,
-    image: pimg6,
+    image: pimg5,
     design: "AEROSPACE KINEMATICS",
     name: "WRO Evaluation Panel",
     offcer: "World Robot Olympiad Judges",
@@ -15,7 +23,7 @@ const TestimonialApi = [
   },
   {
     id: 3,
-    image: pimg4,
+    image: pimg5,
     design: "ACADEMIC EXCELLENCE",
     name: "Faculty Member, EEE",
     offcer: "Int. University of Scholars",
@@ -27,7 +35,7 @@ const TestimonialApi = [
     id: 4,
     image: pimg5,
     design: "FIRMWARE & SYSTEMS",
-    name: "Mohoshi Haque",
+    name: "",
     offcer: "Project Collaborator",
     post: "Embedded Systems Integration",
     date: "Hardware R&D Projects",

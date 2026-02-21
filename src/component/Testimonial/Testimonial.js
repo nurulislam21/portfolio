@@ -32,7 +32,7 @@ const Testimonial = () => {
           
           <div className='heading text-center' data-aos="fade-up">
             <h4>VERIFIED FEEDBACK & ENDORSEMENTS</h4>
-            <h1>Client Telemetry</h1>
+            <h1>Testimonial</h1>
           </div>
           
           <div className='slide-wrapper' data-aos="fade-up">

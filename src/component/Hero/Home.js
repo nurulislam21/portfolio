@@ -7,30 +7,26 @@ import skill3 from "../pic/skill3.png";
 import skill4 from "../pic/skill4.png";
 import skill5 from "../pic/skill5.png";
 import skill6 from "../pic/skill6.png";
-// import mypdf from '../pic/Nurul-Islam-Resume-30-7-2024.pdf';
+import mypdf from '../pic/Nurul-Islam-Resume-30-7-2024.pdf';
 import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
   return (
-    <section className="hero" id="home">
+    <section className="hero" id="Home">
       <div className="container f_flex top">
 
-        {/* Left Content Area */}
         <div className="left top">
           <div className="hero-main-header">
             
-            {/* Live Telemetry Status */}
             <div className="system-status" data-aos="fade-in">
               <span className="pulse-dot"></span>
               <span className="status-text">SYS_ACTIVE // R&D: SN21 VTOL & TRANSIENT RESPONSE v1</span>
             </div>
             
-            {/* Cyber-Glitch Name */}
             <h1 className="hero-title">
               Nurul Islam <span className="primary_color" data-text="Noman">Noman</span>
             </h1>
 
-            {/* The Console (Bounce-Free) */}
             <div className="hero-typing">
               <span className="terminal-prefix">root@noman:~$</span>
               <span className="static-text"> EXECUTE --task </span>
@@ -59,14 +55,12 @@ const Home = () => {
             A versatile Robotics Engineer and Embedded Developer with a focus on the UAV and aerospace industries. I specialize in the full development lifecycle—from PCB design and mechanical modeling to software architecture and algorithm optimization. Holding a degree in Electrical and Electronics Engineering, I am committed to delivering robust, innovative solutions for the next generation of autonomous aerial systems.
           </p>
           
-          {/* Pro-Level Resume Download Button */}
           <div className="hero_btn_main">
-            <a href="#resume" download className="download-btn">
+            <a href={mypdf} className="download-btn">
               <i className="fas fa-terminal"></i> GET_FIRMWARE // Resume.pdf
             </a>
           </div>
 
-          {/* Social and Tools Grid */}
           <div className="hero_bottom d_flex">
             <div className="col_1">
               <h4>CONNECT //</h4>
@@ -112,13 +106,15 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Image Area */}
+        {/* Right Image Area with Pro Effects */}
         <div className="right">
           <div className="right_img_wrapper">
+            <div className="holographic-glow"></div> {/* New: Background Glow */}
             <div className="tech-corner top-left"></div>
             <div className="tech-corner top-right"></div>
             <div className="right_img">
-              <img src={hero} alt="Nurul Islam Noman" />
+              <img src={hero} alt="Nurul Islam Noman" className="pro-hero-img" />
+              <div className="scanline"></div> {/* New: Scanning Line */}
             </div>
             <div className="tech-corner bottom-left"></div>
             <div className="tech-corner bottom-right"></div>

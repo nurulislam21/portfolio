@@ -5,7 +5,7 @@ import Card from "./Card";
 
 const Features = () => {
   return (
-    <section className="features top" id="features">
+    <section className="features top" id="Expertise">
       <div className="container">
 
         <div className="heading" data-aos="fade-up">

@@ -77,7 +77,7 @@ const Skill = () => {
           <div className="cta-content">
             <h2>SYSTEM.READY // Looking to build the next generation of robotics?</h2>
             <p>I am available for freelance PCB design, embedded systems consulting, and R&D prototyping.</p>
-            <a href={mypdf} download="Nurul_Islam_Noman_Resume.pdf">
+            <a href={mypdf}>
               <button className="pro-btn active-btn">
                 <i className="fas fa-terminal"></i> EXECUTE // GET_RESUME
               </button>

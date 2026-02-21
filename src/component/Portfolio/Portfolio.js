@@ -11,7 +11,7 @@ const Portfolio = () => {
   const reversedData = [...Portfolio_data].reverse();
 
   return (
-    <section className="Portfolio top" id="portfolio">
+    <section className="Portfolio top" id="Projects">
       <div className="container">
         
         <div className="heading text-center" data-aos="fade-up">
