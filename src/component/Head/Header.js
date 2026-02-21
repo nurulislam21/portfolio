@@ -21,7 +21,7 @@ const Header = () => {
         
         {/* Terminal-Inspired Logo */}
         <div className="logo">
-          <a href="#home">
+          <a href="#Home">
             <h1 className="sub-title">
               NOMAN<span className="cursor-blink">_</span>
             </h1>
