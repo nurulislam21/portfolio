@@ -67,9 +67,11 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
                 <p>{description || "Detailed project specifications and telemetry data are currently being updated in the central repository."}</p>
                 
                 <div className="modal-actions mtop">
-                  <button className="pro-btn outline-btn">
-                    <i className="fas fa-code-branch"></i> REPOSITORY
-                  </button>
+                  <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer">
+                    <button className="pro-btn outline-btn">
+                      <i className="fas fa-code-branch"></i> REPOSITORY
+                    </button>
+                  </a>
                   <button className="pro-btn active-btn">
                     <i className="fas fa-file-pdf"></i> SCHEMATICS
                   </button>

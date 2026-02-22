@@ -1,0 +1,118 @@
+/* --- Global Hide Default OS Cursor --- */
+* {
+  cursor: none !important;
+}
+
+.cursor-container {
+  pointer-events: none;
+  z-index: 999999;
+}
+
+/* --- The Core Sensor Dot --- */
+.custom-cursor-dot {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 4px; 
+  height: 4px;
+  background-color: var(--accent-green);
+  box-shadow: 0 0 10px var(--accent-green);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 999999;
+  margin: -2px 0 0 -2px; /* Centers the dot */
+  transition: width 0.2s, height 0.2s, background-color 0.2s, opacity 0.2s, border 0.2s;
+}
+
+/* --- The Outer Radar Ring (Position handled by JS) --- */
+.custom-cursor-ring {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 36px;
+  height: 36px;
+  pointer-events: none;
+  z-index: 999998;
+  margin: -18px 0 0 -18px; /* Centers the ring */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* --- The Spinning Radar Element --- */
+.radar-spinner {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed rgba(0, 255, 136, 0.5); 
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: slow-spin 10s linear infinite; 
+  transition: width 0.3s cubic-bezier(0.23, 1, 0.32, 1), 
+              height 0.3s cubic-bezier(0.23, 1, 0.32, 1), 
+              background-color 0.3s, border 0.3s, box-shadow 0.2s;
+}
+
+/* --- Radar Crosshairs Inside the Spinner --- */
+.crosshair-x, .crosshair-y {
+  position: absolute;
+  background: rgba(0, 255, 136, 0.5);
+}
+.crosshair-x { width: 12px; height: 1px; }
+.crosshair-y { width: 1px; height: 12px; }
+
+/* --- 1. HOVER PHYSICS (Lock-On Target) --- */
+.custom-cursor-dot.hovering {
+  width: 8px;
+  height: 8px;
+  margin: -4px 0 0 -4px;
+  background-color: transparent;
+  border: 2px solid var(--accent-green);
+}
+
+.custom-cursor-ring.hovering .radar-spinner {
+  width: 55px;
+  height: 55px;
+  border: 1px solid var(--accent-green); 
+  background-color: rgba(0, 255, 136, 0.05);
+  backdrop-filter: blur(2px);
+  animation: fast-spin 3s linear infinite; 
+}
+
+/* --- 2. CLICK PHYSICS (Trigger Recoil) --- */
+.custom-cursor-dot.clicking {
+  width: 2px;
+  height: 2px;
+  margin: -1px 0 0 -1px;
+}
+
+.custom-cursor-ring.clicking .radar-spinner {
+  width: 20px;
+  height: 20px;
+  border: 2px solid var(--accent-green);
+  background-color: rgba(0, 255, 136, 0.2);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transition: width 0.1s, height 0.1s; 
+}
+
+/* --- Rotational Keyframes --- */
+@keyframes slow-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+@keyframes fast-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(-360deg); } 
+}
+
+/* --- Mobile Fallback --- */
+@media (max-width: 992px) {
+  .cursor-container {
+    display: none;
+  }
+  * {
+    cursor: auto !important;
+  }
+}

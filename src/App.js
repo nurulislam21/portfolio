@@ -17,7 +17,7 @@ import Footer from "./component/Footer";
 import "./index.css";
 import "./App.css";
 import Testimonial from "./component/Testimonial/Testimonial";
-
+import CustomCursor from "./component/CustomCursor"; // Adjust path if needed
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
@@ -41,7 +41,7 @@ const App = () => {
       ) : (
         <div className="app-wrapper">
           <Header />
-          
+          <CustomCursor />
           <main className="main-content">
             <Home />
             <Features />

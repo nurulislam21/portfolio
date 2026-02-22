@@ -1,38 +1,96 @@
 import React, { useState, useEffect } from "react";
 import "./Preloader.css";
 
-const fullText = `[BOOT] SYSTEM STATUS: ONLINE
-[AUTH] USER: NURUL ISLAM NOMAN // ACCESS GRANTED
-
-> WELCOME TO THE PORTFOLIO ENGINE v002`;
-
 const Preloader = ({ onComplete }) => {
-  const [text, setText] = useState("");
+  const [lines, setLines] = useState([]);
+  const [progress, setProgress] = useState(0);
 
   useEffect(() => {
-    let i = 0;
-    const typing = setInterval(() => {
-      setText(fullText.slice(0, i));
-      i++;
-      if (i > fullText.length) {
-        clearInterval(typing);
-        // Wait slightly longer after it finishes so the user can read the final line
-        setTimeout(onComplete, 1200); 
-      }
-    }, 20); // Snappier typing speed
+    // Highly personalized engineering boot sequence
+    const bootSequence = [
+      "INIT_KERNEL: Custom BIOS v.2.4.1",
+      "MOUNTING SYSTEM DRIVES... [OK]",
+      "LOADING MODULE: UAV_Kinematics_Engine.dll",
+      "LOADING MODULE: STM32_Firmware_Interface.sys",
+      "SYS_WARN: HIGH VOLTAGE DETECTED ON PIN 4",
+      "OVERRIDING LIMITS... [BYPASS SUCCESS]",
+      "MEM_CHECK: Verifying routing tables...",
+      "ESTABLISHING SECURE TELEMETRY LINK",
+      "DECRYPTING USER PROFILE...",
+      "USER IDENTIFIED: NURUL ISLAM NOMAN",
+      "SYSTEM GRANTED. INITIALIZING UI..."
+    ];
 
-    return () => clearInterval(typing);
+    let currentLine = 0;
+    let currentProgress = 0;
+
+    // 1. Prints the terminal lines one by one
+    const lineInterval = setInterval(() => {
+      if (currentLine < bootSequence.length) {
+        setLines((prev) => [...prev, bootSequence[currentLine]]);
+        currentLine++;
+      }
+    }, 250); // Speed of new lines appearing
+
+    // 2. Randomly jumps the progress bar to simulate processing
+    const progressInterval = setInterval(() => {
+      // Jump by random amounts between 2 and 15
+      currentProgress += Math.floor(Math.random() * 15) + 2; 
+      
+      if (currentProgress >= 100) {
+        currentProgress = 100;
+        clearInterval(progressInterval);
+        clearInterval(lineInterval);
+        
+        // Wait 1 second at 100% before fading out
+        setTimeout(onComplete, 1000); 
+      }
+      setProgress(currentProgress);
+    }, 120); 
+
+    return () => {
+      clearInterval(lineInterval);
+      clearInterval(progressInterval);
+    };
   }, [onComplete]);
+
+  // Generates random HEX codes for the memory scan visual
+  const randomHex = () => "0x" + Math.random().toString(16).slice(2, 10).toUpperCase();
+
+  // Generates the [████░░░] style progress bar
+  const renderProgressBar = () => {
+    const filledBlocks = Math.floor(progress / 4); // 25 blocks total
+    const emptyBlocks = 25 - filledBlocks;
+    return `[${'█'.repeat(filledBlocks)}${'░'.repeat(emptyBlocks)}] ${progress}%`;
+  };
 
   return (
     <div className="preloader">
-      {/* Adds a retro monitor overlay effect */}
-      <div className="scanlines"></div> 
+      <div className="scanlines"></div>
+      
       <div className="terminal-box">
-        <p className="terminal-text">
-          {text}
-          <span className="cursor">█</span>
-        </p>
+        {/* Render Boot Lines */}
+        {lines.map((line, index) => (
+          <div key={index} className="terminal-line">
+            <span className="timestamp">[{new Date().toISOString().split('T')[1].slice(0, 8)}]</span>
+            <span className="log-text"> {line}</span>
+          </div>
+        ))}
+
+        {/* Render Active Memory Scan while loading */}
+        {progress < 100 && (
+          <div className="terminal-line memory-scan">
+            <span className="timestamp">[{new Date().toISOString().split('T')[1].slice(0, 8)}]</span>
+            <span className="log-text"> SCANNING RAM: {randomHex()} {randomHex()}</span>
+          </div>
+        )}
+
+        {/* Render Progress Bar */}
+        <div className="terminal-progress">
+          <br />
+          <div className="progress-bar">{renderProgressBar()}</div>
+          {progress === 100 && <div className="blink-cursor">_</div>}
+        </div>
       </div>
     </div>
   );

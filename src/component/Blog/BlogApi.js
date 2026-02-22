@@ -16,6 +16,18 @@ import awd12 from '../pic/IUBAT.jpg'
 import awd13 from '../pic/KUET.jpg'
 import awd14 from '../pic/UIU.jpg'
 
+// --- AUST & WRO ACHIEVEMENTS ---
+import aust_osc from '../pic/AUST_OSC.jpg'
+import aust_rc from '../pic/AUST_RC.jpg'
+import wro_team from '../pic/WRO_team.jpg'
+
+// --- NEW 2025 NATIONAL ACHIEVEMENTS ---
+import cuet_ht from '../pic/CUET_HT1.jpg'
+import cuet_mie from '../pic/CUET_MIE.jpg'
+import duet_lfr from '../pic/DUET1.jpg'
+import du_lfr from '../pic/DU_LFR.jpg'
+import du_mm from '../pic/DU_MM.jpg'
+
 const BlogApi = [
   {
     id: 1,
@@ -103,10 +115,73 @@ const BlogApi = [
   },
   {
     id: 13,
+    image: aust_osc,
+    ppimage: aust_osc,
+    date: "LFR Champion",
+    title_one: "IEEE AUST OSCILLON - Team RoboMore",
+  },
+  {
+    id: 14,
+    image: aust_rc,
+    ppimage: aust_rc,
+    date: "ARC 2.0 Runner-Up",
+    title_one: "AUST Rover Challenge - LFR Challenge",
+  },
+  {
+    id: 15,
+    image: du_lfr,
+    ppimage: du_lfr,
+    date: "August 2025",
+    title_one: "DU Robotronics Fest 2025 - Runner Up LFR | Dynamic Spark",
+  },
+  {
+    id: 16,
+    image: cuet_ht,
+    ppimage: cuet_ht,
+    date: "July 2025",
+    title_one: "Southern IoT Tech Carnival (CUET) - Champion | Team Hyper Thread",
+  },
+  {
+    id: 17,
+    image: cuet_mie,
+    ppimage: cuet_mie,
+    date: "May 2025",
+    title_one: "MIE 1.0 Robolution (CUET) - Champion LFR | Team Solvewere",
+  },
+  {
+    id: 18,
+    image: awd6, // Using BUET 2022 placeholder until you upload the BUET 2026 photo!
+    ppimage: awd6,
+    date: "February 2026",
+    title_one: "BUET Robocarnival - 2nd & 3rd Place | RoboMore Nex & Dynamic Spark",
+  },
+  {
+    id: 19,
+    image: du_mm,
+    ppimage: du_mm,
+    date: "August 2025",
+    title_one: "DU Robotronics Fest 2025 - Runner Up Micromouse | Team Indur",
+  },
+  {
+    id: 20,
     image: awd14,
     ppimage: awd14,
     date: "20 January, 2025",
-    title_one: "United International University",
+    title_one: "United International University - Champion | Team RoboMore",
+  },
+  {
+    id: 21,
+    image: wro_team,
+    ppimage: wro_team,
+    date: "November 2025",
+    title_one: "WRO International Final (Singapore) - 29th Place | Team Echo Drift",
+  },
+  {
+    id: 22,
+    image: duet_lfr,
+    ppimage: duet_lfr,
+    date: "2025 Season",
+    title_one: "DUET Techfest 2025 - 1st Runner Up LFR",
   }
 ];
 
