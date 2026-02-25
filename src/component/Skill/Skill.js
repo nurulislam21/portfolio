@@ -1,5 +1,5 @@
 import React from "react";
-import mypdf from '../pic/Nurul-Islam-Resume-30-7-2024.pdf';
+import mypdf from '../pic/Nurul-Islam-Resume-12-2025.pdf';
 import "./Skill.css";
 
 // Your exact techSkills array goes here (I kept your SVGs!)

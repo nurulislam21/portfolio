@@ -1,13 +1,15 @@
 import React from "react";
 import "./Home.css";
-import hero from "../pic/realhero.jpg";
+// import noman from "../pic/noman.jpg"
+import noman1 from "../pic/noman1.jpg"
+// import hero from "../pic/realhero.jpg";
 import skill1 from "../pic/skill1.png";
 import skill2 from "../pic/skill2.png";
 import skill3 from "../pic/skill3.png";
 import skill4 from "../pic/skill4.png";
 import skill5 from "../pic/skill5.png";
 import skill6 from "../pic/skill6.png";
-import mypdf from '../pic/Nurul-Islam-Resume-30-7-2024.pdf';
+import mypdf from '../pic/Nurul-Islam-Resume-12-2025.pdf';
 import { Typewriter } from "react-simple-typewriter";
 
 const Home = () => {
@@ -113,7 +115,7 @@ const Home = () => {
             <div className="tech-corner top-left"></div>
             <div className="tech-corner top-right"></div>
             <div className="right_img">
-              <img src={hero} alt="Nurul Islam Noman" className="pro-hero-img" />
+              <img src={noman1} alt="Nurul Islam Noman" className="pro-hero-img" />
               <div className="scanline"></div> {/* New: Scanning Line */}
             </div>
             <div className="tech-corner bottom-left"></div>

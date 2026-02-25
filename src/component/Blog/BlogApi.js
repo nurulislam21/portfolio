@@ -20,6 +20,7 @@ import awd14 from '../pic/UIU.jpg'
 import aust_osc from '../pic/AUST_OSC.jpg'
 import aust_rc from '../pic/AUST_RC.jpg'
 import wro_team from '../pic/WRO_team.jpg'
+import wro_teaminit from '../pic/WRO_team_INIT.jpg'
 
 // --- NEW 2025 NATIONAL ACHIEVEMENTS ---
 import cuet_ht from '../pic/CUET_HT1.jpg'
@@ -172,7 +173,7 @@ const BlogApi = [
   {
     id: 21,
     image: wro_team,
-    ppimage: wro_team,
+    ppimage: wro_teaminit,
     date: "November 2025",
     title_one: "WRO International Final (Singapore) - 29th Place | Team Echo Drift",
   },
