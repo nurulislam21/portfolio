@@ -1,19 +1,37 @@
-/* --- Professional Variables --- */
-:root {
-  --glass-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --accent-glow: rgba(0, 255, 136, 0.4); /* Neon Green Glow */
-}
-
+/* --- Professional Variables Aligned with App.css --- */
 .feature-card {
   position: relative;
-  background: var(--glass-bg);
-  backdrop-filter: blur(10px);
-  border: 1px solid var(--glass-border);
+  background: var(--bg-card); /* Using your global glass variable */
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
   border-radius: 20px;
   padding: 50px 35px;
   overflow: hidden;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+  transition: var(--transition);
+  z-index: 1;
+}
+
+/* --- PRO UPGRADE: Monochrome Tech Icons --- */
+.card-icon img {
+  width: 60px; /* Keep size consistent */
+  /* Washes out the random colors to look like sleek metal/glass */
+  filter: grayscale(100%) brightness(1.5) opacity(0.6);
+  transition: var(--transition);
+}
+
+/* Hover State */
+.feature-card:hover {
+  transform: translateY(-8px); /* Smoother, less jumpy float */
+  background: rgba(13, 18, 28, 0.6);
+  border-color: rgba(0, 229, 255, 0.4); /* Electric Cyan */
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15);
+}
+
+/* Reveal original icon color on hover */
+.feature-card:hover .card-icon img {
+  filter: grayscale(0%) brightness(1) opacity(1);
+  transform: scale(1.1);
 }
 
 /* Background Number Effect */
@@ -21,24 +39,17 @@
   position: absolute;
   top: -10px;
   right: -10px;
+  font-family: 'Inter', sans-serif;
   font-size: 120px;
   font-weight: 900;
-  color: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.02);
   z-index: -1;
-  transition: 0.5s ease;
-}
-
-/* Hover State */
-.feature-card:hover {
-  transform: translateY(-10px);
-  background: rgba(255, 255, 255, 0.07);
-  border-color: var(--accent-green);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 20px var(--accent-glow);
+  transition: var(--transition);
 }
 
 .feature-card:hover .card-number {
-  color: rgba(0, 255, 136, 0.08);
-  transform: scale(1.1) rotate(-5deg);
+  color: rgba(0, 229, 255, 0.05); /* Cyan tint */
+  transform: scale(1.05) rotate(-5deg);
 }
 
 /* Improved Typography */
@@ -47,17 +58,23 @@
   letter-spacing: 1px;
   text-transform: uppercase;
   font-size: 20px;
-  margin: 20px 0;
+  margin: 25px 0 15px 0;
+  color: var(--text-main);
+  transition: var(--transition);
+}
+
+.feature-card:hover h2 {
+  color: var(--accent-primary);
 }
 
 .card-desc {
-  font-weight: 300;
+  font-weight: 400;
+  line-height: 1.7;
+  color: var(--text-muted);
   letter-spacing: 0.5px;
-  opacity: 0.8;
-  -webkit-line-clamp: 4; /* Slightly tighter text */
 }
 
-/* Glowing Border Bottom */
+/* Glowing Border Bottom (Sweep Effect) */
 .feature-card::after {
   content: '';
   position: absolute;
@@ -65,49 +82,59 @@
   left: 0;
   width: 0;
   height: 3px;
-  background: var(--accent-green);
-  transition: 0.5s ease;
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 .feature-card:hover::after {
   width: 100%;
 }
+
 /* --- Tech Stack Badges --- */
 .card-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
-  margin-top: 20px;
-  margin-bottom: 15px;
+  margin-top: 25px;
+  margin-bottom: 20px;
 }
 
 .tech-tag {
   font-family: 'Fira Code', monospace;
   font-size: 11px;
-  color: var(--accent-green);
-  background: rgba(0, 255, 136, 0.05);
-  padding: 4px 10px;
+  font-weight: 600;
+  color: var(--accent-primary);
+  background: rgba(0, 229, 255, 0.05);
+  padding: 6px 12px;
   border-radius: 4px;
-  border: 1px solid rgba(0, 255, 136, 0.2);
-  transition: all 0.3s ease;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  transition: var(--transition);
 }
 
 .feature-card:hover .tech-tag {
-  background: rgba(0, 255, 136, 0.1);
-  border-color: rgba(0, 255, 136, 0.5);
-  box-shadow: 0 0 8px rgba(0, 255, 136, 0.2);
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.5);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
+  color: #fff;
 }
 
-/* Adjust the arrow position since we added tags */
+/* Adjust the arrow position */
 .card-arrow {
-  margin-top: 10px;
-  display: inline-block;
-  color: var(--accent-green);
-  opacity: 0.7;
-  transition: 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.03);
+  color: var(--text-muted);
+  transition: var(--transition);
 }
 
 .feature-card:hover .card-arrow {
-  opacity: 1;
+  color: #05080f; /* Dark icon */
+  background: var(--accent-primary); /* Cyan background */
   transform: translateX(5px);
+  box-shadow: 0 0 15px var(--accent-glow);
 }

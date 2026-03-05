@@ -15,6 +15,9 @@ import { Typewriter } from "react-simple-typewriter";
 const Home = () => {
   return (
     <section className="hero" id="Home">
+      {/* Noise overlay added here for that subtle Apple/Stripe texture */}
+      <div className="noise-overlay"></div>
+      
       {/* Premium Ambient Background Glows */}
       <div className="ambient-glow glow-1"></div>
       <div className="ambient-glow glow-2"></div>
@@ -35,23 +38,25 @@ const Home = () => {
             {/* Upgraded IDE-Style Terminal */}
             <div className="hero-typing premium-glass">
               <div className="ide-header">
-                <span className="mac-btn close"></span>
-                <span className="mac-btn minimize"></span>
-                <span className="mac-btn expand"></span>
+                <div className="mac-btns">
+                  <span className="mac-btn close"></span>
+                  <span className="mac-btn minimize"></span>
+                  <span className="mac-btn expand"></span>
+                </div>
                 <span className="ide-title">execute_task.sh</span>
               </div>
               <div className="ide-body">
-                <span className="terminal-prefix">root@noman:~$</span>
-                <span className="static-text"> EXECUTE --task </span>
+                <span className="terminal-prefix">noman@robotics:~$</span>
+                <span className="static-text"> ./initialize --focus </span>
                 <span className="typing-text">
                   <Typewriter
                     words={[
                       "UAV & VTOL Flight Dynamics",        
-                      "High-Speed PCB Architecture",       
-                      "Kinematic Control Systems",         
-                      "Embedded Firmware (STM32/RTOS)",    
-                      "Precision Mechanical Modeling",     
-                      "R&D Systems Engineering"            
+                      "STM32 Embedded Firmware",       
+                      "Altium High-Speed PCB Design",         
+                      "SolidWorks Kinematic Modeling",    
+                      "Autonomous Navigation Systems",     
+                      "R&D Systems Architecture"            
                     ]}
                     loop={0}
                     cursor
@@ -65,12 +70,13 @@ const Home = () => {
             </div>
           </div>
           
+          {/* Refined and professional bio text */}
           <p className="hero-description">
-            A versatile Robotics Engineer and Embedded Developer with a focus on the UAV and aerospace industries. I specialize in the full development lifecycle—from PCB design and mechanical modeling to software architecture and algorithm optimization. Holding a degree in Electrical and Electronics Engineering, I am committed to delivering robust, innovative solutions for the next generation of autonomous aerial systems.
+            Currently pursuing my B.Sc. in Electrical and Electronics Engineering at the International University of Scholars, I am a versatile Robotics Engineer specializing in autonomous aerial systems. Serving as Engineering Head for Team RoboMore and leading projects on international stages, I manage the full development lifecycle—from precision PCB and mechanical design to embedded architecture. I am committed to delivering robust, high-performance R&D solutions.
           </p>
           
           <div className="hero_btn_main">
-            <a href={mypdf} className="download-btn premium-btn">
+            <a href={mypdf} className="download-btn premium-btn" target="_blank" rel="noopener noreferrer">
               <i className="fas fa-terminal"></i> <span>GET_FIRMWARE // Resume.pdf</span>
             </a>
           </div>
@@ -78,18 +84,19 @@ const Home = () => {
           <div className="hero_bottom d_flex">
             <div className="col_1">
               <h4>CONNECT //</h4>
+              {/* Semantic Fix: Removed nested buttons, applied classes directly to anchors */}
               <div className="social-grid">
-                <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer">
-                  <button className="icon-btn premium-glass"><i className="fab fa-linkedin-in"></i></button>
+                <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer" className="icon-btn premium-glass">
+                  <i className="fab fa-linkedin-in"></i>
                 </a>
-                <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer">
-                  <button className="icon-btn premium-glass"><i className="fab fa-facebook-f"></i></button>
+                <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer" className="icon-btn premium-glass">
+                  <i className="fab fa-facebook-f"></i>
                 </a>
-                <a href="https://www.instagram.com/nurul_islam.noman/" target="_blank" rel="noopener noreferrer">
-                  <button className="icon-btn premium-glass"><i className="fab fa-instagram"></i></button>
+                <a href="https://www.instagram.com/nurul_islam.noman/" target="_blank" rel="noopener noreferrer" className="icon-btn premium-glass">
+                  <i className="fab fa-instagram"></i>
                 </a>
-                <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer">
-                  <button className="icon-btn premium-glass"><i className="fa-brands fa-github"></i></button>
+                <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer" className="icon-btn premium-glass">
+                  <i className="fa-brands fa-github"></i>
                 </a>
               </div>
             </div>
@@ -97,23 +104,23 @@ const Home = () => {
             <div className="col_1">
               <h4>TECH_STACK //</h4>
               <div className="tools-grid">
-                <a href="https://www.altium.com/" target="_blank" rel="noopener noreferrer" title="Altium Designer">
-                  <button className="tool-btn premium-glass"><img src={skill3} alt="Altium" /></button>
+                <a href="https://www.altium.com/" target="_blank" rel="noopener noreferrer" title="Altium Designer" className="tool-btn premium-glass">
+                  <img src={skill3} alt="Altium" />
                 </a>
-                <a href="https://www.solidworks.com/" target="_blank" rel="noopener noreferrer" title="SOLIDWORKS">
-                  <button className="tool-btn premium-glass"><img src={skill2} alt="SolidWorks" /></button>
+                <a href="https://www.solidworks.com/" target="_blank" rel="noopener noreferrer" title="SOLIDWORKS" className="tool-btn premium-glass">
+                  <img src={skill2} alt="SolidWorks" />
                 </a>
-                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" title="Python">
-                  <button className="tool-btn premium-glass"><img src={skill6} alt="Python" /></button>
+                <a href="https://www.python.org/" target="_blank" rel="noopener noreferrer" title="Python" className="tool-btn premium-glass">
+                  <img src={skill6} alt="Python" />
                 </a>
-                <a href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noopener noreferrer" title="MATLAB">
-                  <button className="tool-btn premium-glass"><img src={skill5} alt="MATLAB" /></button>
+                <a href="https://www.mathworks.com/products/matlab.html" target="_blank" rel="noopener noreferrer" title="MATLAB" className="tool-btn premium-glass">
+                  <img src={skill5} alt="MATLAB" />
                 </a>
-                <a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer" title="TensorFlow">
-                  <button className="tool-btn premium-glass"><img src={skill1} alt="TensorFlow" /></button>
+                <a href="https://www.tensorflow.org/" target="_blank" rel="noopener noreferrer" title="TensorFlow" className="tool-btn premium-glass">
+                  <img src={skill1} alt="TensorFlow" />
                 </a>
-                <a href="https://www.arduino.cc/" target="_blank" rel="noopener noreferrer" title="Microcontrollers">
-                  <button className="tool-btn premium-glass"><img src={skill4} alt="Arduino" /></button>
+                <a href="https://www.arduino.cc/" target="_blank" rel="noopener noreferrer" title="Microcontrollers" className="tool-btn premium-glass">
+                  <img src={skill4} alt="Arduino" />
                 </a>
               </div>
             </div>
@@ -125,7 +132,6 @@ const Home = () => {
           <div className="right_img_wrapper floating-anim">
             <div className="premium-holographic-glow"></div>
             
-            {/* Corner Brackets */}
             <div className="tech-corner top-left"></div>
             <div className="tech-corner top-right"></div>
             <div className="tech-corner bottom-left"></div>

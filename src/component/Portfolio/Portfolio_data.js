@@ -36,7 +36,6 @@ import espcam from '../pic/ESP CAM.jpg'
 import printer3d from '../pic/3D_printer.jpg'
 
 const Portfolio_data = [
-  // --- EARLY PROTOTYPES & ROBOTICS ---
   {
     id: 1,
     category: "Robotic",
@@ -114,10 +113,9 @@ const Portfolio_data = [
     category: "Robotic",
     totalLike: "450",
     title: "WRO Vehicle: Early Chassis Concept",
-    description: "Early-stage prototype of an autonomous robot featuring a striking red 3D-printed chassis structure, custom white wheel hubs, and an exposed ribbon cable for the overhead vision system.",
+    description: "Early-stage prototype of the autonomous vehicle engineered for the World Robot Olympiad (WRO). Features a striking red 3D-printed chassis structure and an exposed ribbon cable for the overhead vision system.",
     image: WRO_V1,
   },
-
   {
     id: 11,
     category: "Prototype",
@@ -190,7 +188,6 @@ const Portfolio_data = [
     description: "Extremely delicate micro-level soldering executed directly onto the fragile traces of a camera ribbon cable, demonstrating advanced fine-pitch rework skills for compact machine vision.",
     image: espcamr,
   },
-
   {
     id: 20,
     category: "Prototype",
@@ -203,8 +200,8 @@ const Portfolio_data = [
     id: 21,
     category: "Robotic",
     totalLike: "750",
-    title: "Champion: Team Dynamic Spark LFR",
-    description: "Front-profile view of the Champion high-speed Line Follower Robot for Team AUST Dynamic Spark, featuring dual ultrasonic sensors, a custom green logic board, and optimized mechanical weight distribution.",
+    title: "Dynamic Spark Champion LFR",
+    description: "Front-profile view of the Champion high-speed Line Follower Robot. Engineered as the Project Lead for Team Dynamic Spark, this system features dual ultrasonic sensors, a custom logic board, and optimized mechanical weight distribution.",
     image: id8,
   },
   {
@@ -212,7 +209,7 @@ const Portfolio_data = [
     category: "Hardware Design",
     totalLike: "850",
     title: "High-Density IR Sensor Array",
-    description: "Engineered a custom, horseshoe-shaped black PCB housing a high-density array of infrared emitters and receivers (blue LEDs). Designed specifically to maximize track detection resolution for elite LFRs.",
+    description: "Engineered a custom, horseshoe-shaped black PCB housing a high-density array of infrared emitters and receivers. Designed specifically to maximize track detection resolution for elite LFRs.",
     image: sensor,
   },
   {
@@ -227,19 +224,18 @@ const Portfolio_data = [
     id: 24,
     category: "3D Design",
     totalLike: "540",
-    title: "WRO Vehicle: SOLIDWORKS Assembly",
-    description: "Complete 3D mechanical CAD assembly of an autonomous vehicle chassis using SOLIDWORKS. Demonstrates precise component placement, including the Raspberry Pi and an upright camera gantry, before physical fabrication.",
+    title: "WRO Echo Drift: SOLIDWORKS Assembly",
+    description: "Complete 3D mechanical CAD assembly of the Team Echo Drift autonomous vehicle chassis. Demonstrates precise component placement, including the Raspberry Pi and an upright camera gantry, utilized for international competition preparation.",
     image: WRO_V11,
   },
   {
     id: 25,
     category: "Robotic",
     totalLike: "610",
-    title: "WRO Vehicle: Prototype Side Profile",
-    description: "Physical prototype of an autonomous rover featuring a custom 3D-printed white camera gantry, stacked logic boards, an accessible LiPo battery mount, and high-traction yellow-rimmed wheels.",
+    title: "WRO Echo Drift: Prototype Profile",
+    description: "Physical prototype of the Team Echo Drift rover featuring a custom 3D-printed white camera gantry, stacked logic boards, an accessible LiPo battery mount, and high-traction yellow-rimmed wheels.",
     image: WRO_V2,
   },
-
   {
     id: 26,
     category: "AVIATION",
@@ -261,7 +257,7 @@ const Portfolio_data = [
     category: "AVIATION",
     totalLike: "890",
     title: "SN-21 VTOL Structural Design",
-    description: "Further aerodynamic and structural design iterations for the SN-21 VTOL project, optimizing the transition mechanisms between hover and forward flight.",
+    description: "Advanced aerodynamic and structural design iterations for the sn21 VTOL project. Led by Team RoboMore, this initiative optimizes the complex transition mechanisms between vertical hover and forward flight.",
     image: sn210,
   },
   {
@@ -285,7 +281,7 @@ const Portfolio_data = [
     category: "Robotic",
     totalLike: "380",
     title: "High-Speed LFR: Internal Architecture",
-    description: "Internal teardown view of a high-speed line follower robot, revealing a custom copper-etched mainboard, an Arduino Nano, a central LiPo battery, and specialized high-grip foam tires.",
+    description: "Internal teardown view of a high-speed line follower robot. Led to podium finishes at the BUET Robocarnival, revealing a custom copper-etched mainboard, an Arduino Nano, and specialized high-grip foam tires.",
     image: lfr,
   },
   {
@@ -300,16 +296,16 @@ const Portfolio_data = [
     id: 33,
     category: "Robotic",
     totalLike: "820",
-    title: "WRO Future Engineers: Optical Testing",
-    description: "Advanced iteration of an autonomous vehicle navigating a competition track. This physical test features a large red optical filter mounted over the camera module to enhance the detection of specific colored obstacles.",
+    title: "WRO Singapore: Optical Testing",
+    description: "Advanced iteration of the autonomous vehicle navigated at the World Robot Olympiad (WRO) International Final in Singapore. Engineered by Team Echo Drift to secure a 29th place global finish, utilizing custom optical filters to enhance obstacle detection.",
     image: WRO_V3,
   },
   {
     id: 34,
     category: "AVIATION",
     totalLike: "1.2k",
-    title: "DynamicSpark SN-21 VTOL Render",
-    description: "High-fidelity 3D render of the DynamicSpark SN-21, an advanced Vertical Take-Off and Landing (VTOL) aircraft featuring a sophisticated tilt-rotor mechanism and a sleek, aerodynamic green fuselage.",
+    title: "Team RoboMore: SN-21 VTOL",
+    description: "High-fidelity 3D render of the SN-21, an advanced Vertical Take-Off and Landing (VTOL) aircraft. Spearheaded as part of Team RoboMore's R&D initiatives, it features a sophisticated Transwing-style tilt-rotor mechanism and aerodynamic fuselage.",
     image: sn21,
   },
   {
@@ -317,7 +313,7 @@ const Portfolio_data = [
     category: "PCB",
     totalLike: "950",
     title: "TRANSIENT RESPONSE V1 PCB",
-    description: "A highly complex, multi-layer custom red printed circuit board designed for advanced control systems, showcasing highly intricate trace routing and dense surface-mount component placement around a central MCU.",
+    description: "A highly complex, multi-layer custom printed circuit board designed for advanced control systems, showcasing highly intricate Altium trace routing and dense STM32 surface-mount component placement.",
     image: V002,
   }
 ];

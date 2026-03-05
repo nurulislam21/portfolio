@@ -1,30 +1,30 @@
-/* --- SYSTEM VARIABLES --- */
+/* --- PREMIUM SYSTEM VARIABLES --- */
 :root {
-  --bg-dark: #07090c;         
-  --bg-card: rgba(15, 18, 22, 0.65); /* Frosted glass look for all cards */
-  --text-main: #e2e8f0;       
-  --text-muted: #94a3b8;      
-  --accent-green: #00ff88;    /* Pure cyber green */
-  --accent-glow: rgba(0, 255, 136, 0.4); 
+  --bg-dark: #05080f;         /* Deep space background */
+  --bg-card: rgba(13, 18, 28, 0.45); /* Frosted titanium glass - UPDATED for better blur */
+  --text-main: #f8fafc;       /* Crisp white for high contrast */
+  --text-muted: #8b9bb4;      /* Cool slate grey */
+  --accent-primary: #00e5ff;  /* Electric Cyan */
+  --accent-secondary: #0077ff; /* Tech Blue */
+  --accent-glow: rgba(0, 229, 255, 0.35); 
   --border-color: rgba(255, 255, 255, 0.08);    
-  --transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+  --transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
 }
 
 /* --- PRO UPGRADE: HUD Terminal Scrollbar --- */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px; /* Slimmer, sleeker scrollbar */
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-dark); 
-  border-left: 1px solid var(--border-color);
 }
 ::-webkit-scrollbar-thumb {
-  background: rgba(0, 255, 136, 0.3); 
-  border-radius: 4px;
+  background: rgba(0, 229, 255, 0.2); 
+  border-radius: 10px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-green); 
-  box-shadow: 0 0 10px var(--accent-glow);
+  background: var(--accent-primary); 
+  box-shadow: 0 0 12px var(--accent-glow);
 }
 
 /* --- LAYOUT UTILITIES --- */
@@ -44,79 +44,114 @@
 .d_flex { display: flex; justify-content: space-between; align-items: center; }
 .f_flex { display: flex; }
 
-a { text-decoration: none; color: var(--accent-green); transition: var(--transition); }
-a:hover { text-shadow: 0 0 10px var(--accent-glow); }
+a { text-decoration: none; color: var(--accent-primary); transition: var(--transition); }
+a:hover { text-shadow: 0 0 12px var(--accent-glow); }
 li { list-style: none; }
 
 /* --- GLOBAL COMPONENT STYLING --- */
 
-/* Automatically updates all your legacy cards to the new Glassmorphism style */
+/* Premium Glassmorphism: Multi-layered shadows and top-edge lighting */
 .box_shodow {
   background: var(--bg-card);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid var(--border-color);
-  border-radius: 6px; /* Sharper tech edges */
+  backdrop-filter: blur(24px); /* UPDATED: Increased for smoother glass */
+  -webkit-backdrop-filter: blur(24px);
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+  border-left: 1px solid var(--border-color);
+  border-right: 1px solid var(--border-color);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.02);
+  border-radius: 12px; 
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
   transition: var(--transition);
   position: relative;
   overflow: hidden;
 }
 
-.box_shodow:hover {
-  border-color: rgba(0, 255, 136, 0.4);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(0, 255, 136, 0.05);
-  transform: translateY(-5px);
+.box_shodow::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: linear-gradient(135deg, rgba(255,255,255,0.05) 0%, transparent 100%);
+  opacity: 0;
+  transition: var(--transition);
 }
 
-/* Base Pro Button Styling */
+.box_shodow:hover {
+  border-color: rgba(0, 229, 255, 0.4);
+  /* UPDATED: Softer, wider shadow glow */
+  box-shadow: 0 20px 40px rgba(0,0,0,0.8), inset 0 0 30px rgba(0, 229, 255, 0.03);
+  transform: translateY(-4px); 
+}
+
+.box_shodow:hover::before {
+  opacity: 1;
+}
+
+/* Base Pro Button Styling: Kinetic Sweep */
 .btn_shadow {
   font-family: 'Fira Code', monospace;
   font-size: 13px;
   font-weight: 600;
   letter-spacing: 1px;
-  color: var(--accent-green);
-  background: rgba(0, 255, 136, 0.05);
-  border: 1px solid var(--accent-green);
-  border-radius: 4px;
-  padding: 12px 25px;
+  color: var(--accent-primary);
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid var(--accent-primary);
+  border-radius: 6px;
+  padding: 12px 28px;
   transition: var(--transition);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 10px;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn_shadow::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 0%; height: 100%;
+  background: linear-gradient(90deg, var(--accent-secondary), var(--accent-primary));
+  transition: var(--transition);
+  z-index: -1;
 }
 
 .btn_shadow:hover {
-  background: var(--accent-green);
-  color: #000;
-  box-shadow: 0 0 20px var(--accent-glow);
+  color: #ffffff; /* UPDATED: Better contrast on hover */
+  border-color: transparent;
+  box-shadow: 0 8px 30px var(--accent-glow);
   transform: translateY(-2px);
+}
+
+.btn_shadow:hover::after {
+  width: 100%;
 }
 
 /* Global Spacing */
 .top { margin-top: 100px; }
 .mtop { margin-top: 50px; }
 .text-center { text-align: center; }
-.primary_color { color: var(--accent-green); }
+.primary_color { color: var(--accent-primary); }
 
 /* Global Headers */
 .heading { margin-bottom: 50px; }
 .heading h4 {
-  color: var(--accent-green);
+  color: var(--accent-primary);
   font-family: "Fira Code", monospace;
-  letter-spacing: 2px;
+  letter-spacing: 3px;
   font-size: 13px;
   text-transform: uppercase;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 .heading h1 {
   font-family: 'Inter', sans-serif;
-  font-size: 46px;
+  font-size: 48px;
   color: var(--text-main);
   font-weight: 800;
-  letter-spacing: -1px;
-  line-height: 1.2;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+  text-shadow: 0 10px 30px rgba(0,0,0,0.5);
 }
 
 /* Mobile Adjustments */

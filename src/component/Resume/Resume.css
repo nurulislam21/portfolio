@@ -15,54 +15,63 @@
 /* --- The PCB Trace Timeline --- */
 .resume-timeline {
   position: relative;
-  padding-left: 20px; /* Space between the line and the cards */
+  padding-left: 20px; 
   margin-left: 0; 
 }
 
-/* --- Hardware Module Card --- */
+/* --- Premium Hardware Module Card --- */
 .resume-card {
   position: relative;
   padding: 30px;
   margin-bottom: 40px;
-  background: rgba(0, 255, 136, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 4px;
-  transition: all 0.4s ease;
+  /* Upgraded to Global Glass Variables */
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px; /* Smoother premium corners */
+  transition: var(--transition);
+  z-index: 1;
 }
+
 .resume-timeline::before {
   content: "";
   position: absolute;
   top: 0;
-  left: 0; /* Locks the line to the absolute left edge */
+  left: 0; 
   width: 2px;
   height: 100%;
-  background: rgba(0, 255, 136, 0.3);
+  /* Upgraded to Electric Cyan */
+  background: linear-gradient(to bottom, rgba(0, 229, 255, 0.8), rgba(0, 229, 255, 0.1));
 }
+
 /* The Glowing Circuit Node (The Dot) */
 .resume-card::before {
   content: "";
   position: absolute;
   top: 35px; 
-  left: -27px; /* Mathematically locked: 20px padding + 7px dot radius */
+  left: -27px; 
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--bg-main);
-  border: 2px solid var(--accent-green);
+  background: var(--bg-dark); /* Using global dark bg */
+  border: 2px solid var(--accent-primary);
   z-index: 2;
-  transition: all 0.4s ease;
+  transition: var(--transition);
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
 }
 
 /* Hover Dynamics */
 .resume-card:hover {
-  border-color: rgba(0, 255, 136, 0.4);
-  transform: translateX(5px); /* Slides right slightly like pulling out a drive */
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(0, 255, 136, 0.03);
+  border-color: rgba(0, 229, 255, 0.4);
+  background: rgba(13, 18, 28, 0.6);
+  transform: translateX(8px); /* Smooth slide out */
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 229, 255, 0.05);
 }
 
 .resume-card:hover::before {
-  background: var(--accent-green);
-  box-shadow: 0 0 15px var(--accent-glow);
+  background: var(--accent-primary);
+  box-shadow: 0 0 20px var(--accent-glow);
   transform: scale(1.3);
 }
 
@@ -78,10 +87,10 @@
   font-weight: 600;
   color: var(--text-main);
   margin-bottom: 8px;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
-.resume-card:hover .title h2 { color: var(--accent-green); }
+.resume-card:hover .title h2 { color: var(--accent-primary); }
 
 .resume-card .title span {
   display: inline-block;
@@ -90,55 +99,56 @@
   color: var(--text-muted);
   background: rgba(255, 255, 255, 0.03);
   padding: 4px 10px;
-  border-radius: 2px;
+  border-radius: 4px;
   border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 /* --- The Icon Badge --- */
 .icon-badge {
-  background: rgba(0, 255, 136, 0.05);
-  color: var(--accent-green);
+  background: rgba(0, 229, 255, 0.05);
+  color: var(--accent-primary);
   width: 45px;
   height: 45px;
-  border-radius: 4px;
+  border-radius: 8px; /* Slightly softer corners */
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 18px;
-  border: 1px solid rgba(0, 255, 136, 0.2);
-  transition: all 0.4s ease;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  transition: var(--transition);
 }
 
 .resume-card:hover .icon-badge {
-  background: var(--accent-green);
-  color: #000;
-  box-shadow: 0 0 15px var(--accent-glow);
-  transform: rotate(10deg);
+  background: var(--accent-primary);
+  color: var(--bg-dark);
+  box-shadow: 0 0 20px var(--accent-glow);
+  transform: rotate(10deg) scale(1.1);
 }
 
 /* --- Tech Divider & Description --- */
 .tech-divider {
   width: 100%;
   height: 1px;
-  background: linear-gradient(90deg, rgba(0, 255, 136, 0.5) 0%, rgba(255,255,255,0.05) 50%);
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.4) 0%, transparent 80%);
   margin: 20px 0;
   opacity: 0.5;
-  transition: 0.4s ease;
+  transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1), opacity 0.4s ease;
 }
 
 .resume-card:hover .tech-divider {
   opacity: 1;
   width: 100%;
+  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
 }
 
 .resume-card p {
   font-size: 15px;
   color: var(--text-muted);
   line-height: 1.8;
-  transition: 0.3s ease;
+  transition: var(--transition);
 }
 
-.resume-card:hover p { color: #d1d1d1; }
+.resume-card:hover p { color: #f8fafc; }
 
 /* --- Responsive Layout --- */
 @media (max-width: 992px) {

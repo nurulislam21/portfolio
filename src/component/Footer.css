@@ -1,22 +1,20 @@
-/* --- Footer Core Layout --- */
 .footer-area {
-  background-color: var(--bg-main, #0a0c10); 
-  border-top: 1px solid rgba(0, 255, 136, 0.2);
+  background-color: transparent; 
+  border-top: 1px solid rgba(0, 229, 255, 0.15);
   padding: 50px 0 30px 0;
   margin-top: 50px;
   position: relative;
   overflow: hidden;
 }
 
-/* Ambient Glow at the absolute bottom of the page */
 .footer-area::before {
   content: "";
   position: absolute;
   bottom: -50px; left: 50%;
   transform: translateX(-50%);
-  width: 50%; height: 100px;
-  background: rgba(0, 255, 136, 0.05);
-  filter: blur(50px);
+  width: 60%; height: 100px;
+  background: rgba(0, 229, 255, 0.05);
+  filter: blur(60px);
   pointer-events: none;
 }
 
@@ -27,140 +25,102 @@
   margin-bottom: 40px;
 }
 
-/* --- Telemetry Text (Left) --- */
 .footer-telemetry {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 8px;
+  display: flex; flex-direction: column;
+  align-items: flex-start; gap: 8px;
 }
 
 .footer-telemetry span {
   font-family: 'Fira Code', monospace;
   font-size: 11px;
   color: var(--text-muted);
-  letter-spacing: 1px;
+  letter-spacing: 1.5px;
 }
 
-/* --- Cyber Logo (Center) --- */
 .footer-logo-wrapper {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  position: relative; display: flex;
+  justify-content: center; align-items: center;
 }
 
 .footer-logo {
   position: relative;
-  width: 60px; height: 60px;
-  z-index: 5;
+  width: 60px; height: 60px; z-index: 5;
 }
 
 .footer-logo img {
   width: 100%; height: 100%;
   border-radius: 50%;
-  border: 2px solid var(--accent-green);
+  border: 2px solid var(--accent-primary);
   object-fit: cover;
-  filter: grayscale(20%);
+  filter: grayscale(30%);
   transition: 0.4s ease;
 }
 
 .footer-logo:hover img {
   filter: grayscale(0%);
-  box-shadow: 0 0 20px var(--accent-glow);
+  box-shadow: 0 0 25px var(--accent-glow);
 }
 
-/* Rotating Radar Rings around Logo */
 .ring-1, .ring-2 {
   position: absolute;
   top: 50%; left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 50%;
-  border: 1px dashed rgba(0, 255, 136, 0.5);
+  border: 1px dashed rgba(0, 229, 255, 0.5);
   pointer-events: none;
 }
 
-.ring-1 {
-  width: 80px; height: 80px;
-  animation: spin 10s linear infinite;
-}
+.ring-1 { width: 85px; height: 85px; animation: spin 10s linear infinite; }
+.ring-2 { width: 105px; height: 105px; border-style: dotted; border-color: rgba(0, 119, 255, 0.4); animation: spin 15s linear infinite reverse; }
 
-.ring-2 {
-  width: 100px; height: 100px;
-  border-style: dotted;
-  animation: spin 15s linear infinite reverse;
-}
+@keyframes spin { 100% { transform: translate(-50%, -50%) rotate(360deg); } }
 
-@keyframes spin { 
-  100% { transform: translate(-50%, -50%) rotate(360deg); } 
-}
-
-/* --- Uplink Channels (Right) --- */
 .footer-social {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-  gap: 10px;
+  display: flex; flex-direction: column;
+  align-items: flex-end; gap: 10px;
 }
 
 .uplink-text {
   font-family: 'Fira Code', monospace;
   font-size: 11px;
-  color: var(--accent-green);
+  color: var(--accent-primary);
   letter-spacing: 2px;
 }
 
-.social-flex {
-  display: flex;
-  gap: 15px;
-}
+.social-flex { display: flex; gap: 15px; }
 
 .social-icon {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 40px; height: 40px;
-  border-radius: 4px;
+  display: flex; justify-content: center; align-items: center;
+  width: 40px; height: 40px; border-radius: 6px;
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-muted);
-  font-size: 16px;
+  color: var(--text-muted); font-size: 16px;
   transition: all 0.3s ease;
 }
 
 .social-icon:hover {
-  background: rgba(0, 255, 136, 0.1);
-  border-color: var(--accent-green);
-  color: var(--accent-green);
+  background: rgba(0, 229, 255, 0.1);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
   transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(0, 255, 136, 0.2);
+  box-shadow: 0 5px 20px rgba(0, 229, 255, 0.2);
 }
 
-/* --- Footer Bottom Copyright --- */
 .footer-divider {
-  width: 100%;
-  height: 1px;
-  background: linear-gradient(90deg, transparent 0%, rgba(0, 255, 136, 0.2) 50%, transparent 100%);
+  width: 100%; height: 1px;
+  background: linear-gradient(90deg, transparent 0%, rgba(0, 229, 255, 0.2) 50%, transparent 100%);
   margin-bottom: 25px;
 }
 
 .footer-text {
   font-family: "Fira Code", monospace;
-  color: var(--text-muted);
-  font-size: 13px;
+  color: var(--text-muted); font-size: 13px;
   letter-spacing: 1px;
 }
 
-.sys-offline {
-  color: #666; /* Dimmer text for the offline tag */
-}
+.sys-offline { color: #475569; }
 
-/* --- Responsive Layout --- */
 @media (max-width: 768px) {
-  .footer-system-grid {
-    flex-direction: column;
-    gap: 30px;
-  }
-  .footer-telemetry { align-items: center; }
-  .footer-social { align-items: center; }
+  .footer-system-grid { flex-direction: column; gap: 30px; }
+  .footer-telemetry, .footer-social { align-items: center; }
 }

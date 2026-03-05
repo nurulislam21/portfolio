@@ -1,7 +1,18 @@
+:root {
+  /* Unified with App.css */
+  --bg-main: #05080f;
+  --text-main: #f8fafc;
+  --text-muted: #8b9bb4;
+  --accent-primary: #00e5ff; /* Replaced Green with Cyan */
+  --accent-glow: rgba(0, 229, 255, 0.4);
+  --font-mono: 'Fira Code', 'Courier New', monospace;
+  --font-sans: 'Inter', system-ui, sans-serif;
+  --transition-snappy: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
 /* --- Core Header Structure --- */
 .header {
-  height: 80px;
-  line-height: 80px;
+  height: 90px;
   position: fixed;
   top: 0;
   left: 0;
@@ -9,6 +20,12 @@
   z-index: 999;
   transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
   background-color: transparent;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 24px;
 }
 
 .header-container {
@@ -20,13 +37,12 @@
 
 /* --- Scrolled Header (Frosted Tech Glass) --- */
 .header.scrolled {
-  background: rgba(10, 12, 16, 0.85); /* Slightly deeper dark */
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border-bottom: 1px solid rgba(0, 255, 136, 0.2);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  height: 70px;
-  line-height: 70px;
+  background: rgba(13, 18, 28, 0.65); /* UPDATED */
+  backdrop-filter: blur(24px); /* UPDATED */
+  -webkit-backdrop-filter: blur(24px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* UPDATED */
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* UPDATED */
+  height: 75px;
 }
 
 /* --- Terminal Logo --- */
@@ -35,28 +51,26 @@
 }
 
 .header .logo h1 {
-  font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 26px;
+  font-family: var(--font-mono);
+  font-size: 28px;
   font-weight: 700;
   color: var(--text-main);
   letter-spacing: 2px;
   margin: 0;
 }
 
-/* Blinking Cursor Effect on Logo */
 .cursor-blink {
-  color: var(--accent-green);
-  animation: blink 1s step-end infinite;
-  text-shadow: 0 0 10px var(--accent-glow);
+  color: var(--accent-primary);
+  animation: blink 1.2s step-end infinite;
+  text-shadow: 0 0 12px var(--accent-glow);
 }
-@keyframes blink { 50% { opacity: 0; } }
+
+@keyframes blink { 
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; } 
+}
 
 /* --- Desktop Nav Links --- */
-.header .navlink {
-  display: flex;
-  align-items: center;
-}
-
 .header .link {
   display: flex;
   align-items: center;
@@ -65,71 +79,79 @@
 }
 
 .header .link li {
-  margin-left: 30px;
+  margin-left: 35px;
   list-style: none;
 }
 
 .header .link li a {
-  font-family: 'Inter', sans-serif;
+  font-family: var(--font-sans);
   color: var(--text-muted);
-  font-size: 13px;
+  font-size: 14px;
   font-weight: 500;
-  letter-spacing: 1.5px;
-  transition: all 0.3s ease;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
   display: flex;
   align-items: center;
   gap: 6px;
-  position: relative; /* Required for the animated underline */
-  padding-bottom: 4px;
+  position: relative;
+  padding-bottom: 6px;
+  text-decoration: none;
 }
 
-/* Tech-style numbering (00. 01. etc) */
 .nav-num {
-  color: var(--accent-green);
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
-  opacity: 0.8;
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  opacity: 0.9;
 }
 
-/* Hover Effect: Animated Underline */
+/* Magnetic Hover Effect: Underline (UPDATED FOR SWEEP EFFECT) */
 .header .link li a::after {
   content: '';
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 0%;
+  width: 100%;
   height: 2px;
-  background: var(--accent-green);
-  transition: width 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
-  box-shadow: 0 0 8px var(--accent-glow);
+  background: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-glow);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
 
 .header .link li a:hover {
-  color: #fff;
-  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
+  color: var(--text-main);
 }
 
 .header .link li a:hover::after {
-  width: 100%;
+  transform: scaleX(1);
+  transform-origin: left;
 }
 
-/* --- Pro LinkedIn Button --- */
+/* --- Pro Connect Button --- */
 .pro-btn {
   position: relative;
-  overflow: hidden; /* Contains the sweeping glare */
-  background: rgba(0, 255, 136, 0.05);
-  border: 1px solid var(--accent-green);
-  color: var(--accent-green);
-  font-family: 'Fira Code', monospace;
-  font-size: 12px;
-  padding: 10px 22px;
+  overflow: hidden;
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid var(--accent-primary);
+  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 600;
+  padding: 10px 24px;
   border-radius: 4px;
   cursor: pointer;
-  transition: all 0.4s ease;
+  transition: var(--transition-snappy);
   letter-spacing: 1.5px;
   display: inline-flex;
   align-items: center;
   z-index: 1;
+}
+
+.icon-spacing {
+  margin-right: 8px;
+  font-size: 14px;
 }
 
 /* Sweeping Glare Animation */
@@ -140,8 +162,8 @@
   left: -100%;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, transparent, rgba(0, 255, 136, 0.2), transparent);
-  transition: all 0.5s ease;
+  background: linear-gradient(120deg, transparent, rgba(0, 229, 255, 0.3), transparent);
+  transition: left 0.6s ease;
   z-index: -1;
 }
 
@@ -149,24 +171,49 @@
   left: 100%;
 }
 
-.pro-btn:hover {
-  background: var(--accent-green);
-  color: #000;
-  box-shadow: 0 0 20px var(--accent-glow);
+/* .pro-btn:hover {
+  background: var(--accent-primary);
+  color: var(--bg-main);
+  box-shadow: 0 0 20px var(--accent-primary);
   transform: translateY(-2px);
-}
+} */
 
-/* --- Mobile Toggle Icon --- */
+/* --- Mobile Menu Configuration --- */
 .toggle {
   display: none;
-  font-size: 24px;
-  color: var(--accent-green);
+  font-size: 26px;
+  color: var(--accent-primary);
   background: none;
   border: none;
   cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-/* --- Mobile Menu Configuration --- */
+.toggle:hover {
+  transform: scale(1.1);
+}
+
+/* Overlay for Mobile Menu */
+.mobile-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 997;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
 @media (max-width: 992px) {
   .toggle {
     display: block;
@@ -174,48 +221,54 @@
   }
 
   .header .link {
-    display: none;
-  }
-
-  /* Sliding Glassmorphism Side-Panel */
-  .nav-links-mobile {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 70%;
-    max-width: 350px;
+    width: 75%;
+    max-width: 320px;
     height: 100vh;
-    background: rgba(15, 20, 18, 0.95);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(10, 12, 16, 0.98);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 40px;
-    z-index: 999;
-    gap: 25px;
-    transition: right 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-left: 1px solid rgba(0, 255, 136, 0.2);
-    box-shadow: -10px 0 40px rgba(0,0,0,0.8);
+    padding-left: 10%;
+    z-index: 998;
+    gap: 35px;
+    transition: right 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border-left: 1px solid rgba(0, 229, 255, 0.15);
+    box-shadow: -15px 0 50px rgba(0,0,0,0.9);
   }
 
-  .nav-links-mobile.active {
+  .header .link.active {
     right: 0;
   }
 
-  .nav-links-mobile li {
-    list-style: none;
+  .header .link li {
+    margin-left: 0;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
   }
 
-  .nav-links-mobile li a {
-    font-size: 16px;
-    color: var(--text-main);
-    letter-spacing: 3px;
-    font-family: 'Fira Code', monospace;
+  .header .link.active li {
+    opacity: 1;
+    transform: translateX(0);
   }
-  
-  .hire-btn-container {
-    margin-top: 20px;
+
+  /* Staggered animation for mobile links */
+  .header .link.active li:nth-child(1) { transition-delay: 0.1s; }
+  .header .link.active li:nth-child(2) { transition-delay: 0.15s; }
+  .header .link.active li:nth-child(3) { transition-delay: 0.2s; }
+  .header .link.active li:nth-child(4) { transition-delay: 0.25s; }
+  .header .link.active li:nth-child(5) { transition-delay: 0.3s; }
+  .header .link.active li:nth-child(6) { transition-delay: 0.35s; }
+  .header .link.active li:nth-child(7) { transition-delay: 0.4s; }
+
+  .header .link li a {
+    font-size: 18px;
+    letter-spacing: 2px;
   }
 }

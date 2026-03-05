@@ -27,7 +27,6 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
       >
         <div className="img">
           <img src={image} alt={title} />
-          {/* Tech Overlay on image hover */}
           <div className="img-overlay">
             <span>INSPECT_MODULE //</span>
           </div>
@@ -40,9 +39,10 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
         </div>
         <div className="title">
           <h2>{title}</h2>
-          <button className="arrow-btn" aria-label="View Specs">
-            <i className="fas fa-arrow-right"></i>
-          </button>
+          {/* Replaced button with a sleeker span for the arrow indicator */}
+          <span className="arrow-btn" aria-label="View Specs">
+            <i className="fas fa-arrow-right" style={{color: "var(--accent-primary)"}}></i>
+          </span>
         </div>
       </div>
 
@@ -67,10 +67,14 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
                 <p>{description || "Detailed project specifications and telemetry data are currently being updated in the central repository."}</p>
                 
                 <div className="modal-actions mtop">
-                  <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer">
-                    <button className="pro-btn outline-btn">
-                      <i className="fas fa-code-branch"></i> REPOSITORY
-                    </button>
+                  {/* Semantic Fix: Applied outline-btn directly to the anchor tag */}
+                  <a 
+                    href="https://github.com/nurulislam21" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="pro-btn outline-btn"
+                  >
+                    <i className="fas fa-code-branch"></i> REPOSITORY
                   </a>
                   <button className="pro-btn active-btn">
                     <i className="fas fa-file-pdf"></i> SCHEMATICS
