@@ -1,199 +1,234 @@
-/* --- Hero Layout & Typography --- */
+/* --- Hero Layout & Ambient Effects --- */
 .hero {
+  position: relative;
   padding-top: 20px; 
   min-height: 100vh;
   display: flex;
   align-items: center;
+  overflow: hidden; /* Contains ambient glows */
+}
+
+/* Premium Ambient Glowing Background Orbs */
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  opacity: 0.15;
+  z-index: 0;
+  pointer-events: none;
+}
+.glow-1 {
+  width: 400px;
+  height: 400px;
+  background: var(--accent-green, #00ff88);
+  top: -10%;
+  left: -5%;
+  animation: float 10s ease-in-out infinite alternate;
+}
+.glow-2 {
+  width: 500px;
+  height: 500px;
+  background: #00a2ff; /* Secondary tech blue */
+  bottom: -10%;
+  right: -5%;
+  animation: float 12s ease-in-out infinite alternate-reverse;
 }
 
 .hero .container {
+  position: relative;
+  z-index: 1;
   display: flex;
   justify-content: space-between;
   align-items: center;
   gap: 50px;
+  width: 100%;
 }
 
-.left {
-  width: 55%;
+.left { width: 55%; }
+.right { 
+  width: 45%; 
+  perspective: 1200px; 
 }
 
-.right {
-  width: 45%;
-  /* Add perspective for 3D effect on children */
-  perspective: 1000px;
-}
-
+/* --- Typography & Gradients --- */
 .hero-title {
-  font-size: 50px;
+  font-size: 55px;
   font-weight: 800;
   color: var(--text-main);
   line-height: 1.1;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
   letter-spacing: -1px;
+}
+
+/* Upgraded from Glitch to Premium Animated Gradient */
+.premium-gradient-text {
+  background: linear-gradient(to right, var(--accent-green, #00ff88), #00a2ff, var(--accent-green, #00ff88));
+  background-size: 200% auto;
+  color: transparent;
+  -webkit-background-clip: text;
+  background-clip: text;
+  animation: shine 4s linear infinite;
+  display: inline-block;
+  text-shadow: 0 0 20px rgba(0, 255, 136, 0.2);
+}
+
+@keyframes shine {
+  to { background-position: 200% center; }
+}
+
+/* --- Premium Glassmorphism Utility --- */
+.premium-glass {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 }
 
 /* --- System Status Badge --- */
 .system-status {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  background: rgba(0, 255, 136, 0.05);
-  border: 1px solid rgba(0, 255, 136, 0.2);
-  padding: 6px 15px;
+  gap: 12px;
+  padding: 8px 18px;
   border-radius: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 25px;
+  border: 1px solid rgba(0, 255, 136, 0.2);
 }
 
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--accent-green);
+  background-color: var(--accent-green, #00ff88);
   border-radius: 50%;
-  box-shadow: 0 0 8px var(--accent-green);
-  animation: pulse 1.5s infinite;
+  box-shadow: 0 0 10px var(--accent-green, #00ff88);
+  animation: pulse-premium 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .status-text {
   font-family: 'Fira Code', monospace;
   font-size: 11px;
-  color: var(--accent-green);
-  letter-spacing: 1px;
+  color: #a0aec0;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
 }
 
-@keyframes pulse {
-  0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.7); }
-  70% { box-shadow: 0 0 0 10px rgba(0, 255, 136, 0); }
+@keyframes pulse-premium {
+  0% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0.4); }
+  70% { box-shadow: 0 0 0 8px rgba(0, 255, 136, 0); }
   100% { box-shadow: 0 0 0 0 rgba(0, 255, 136, 0); }
 }
 
-/* --- THE ULTIMATE ANTI-BOUNCE TERMINAL TYPING --- */
+/* --- Premium IDE Terminal --- */
 .hero-typing {
+  border-radius: 12px;
+  margin-bottom: 35px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+}
+
+.ide-header {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 10px 15px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mac-btn {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+.close { background: #ff5f56; }
+.minimize { background: #ffbd2e; }
+.expand { background: #27c93f; }
+
+.ide-title {
+  margin-left: auto;
+  margin-right: auto;
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: #888;
+}
+
+.ide-body {
+  padding: 20px;
   font-family: 'Fira Code', 'Courier New', monospace;
-  font-size: 22px;
-  font-weight: 600;
-  background: rgba(0, 255, 136, 0.03); 
-  padding: 15px 20px;
-  border-left: 3px solid var(--accent-green);
-  
-  /* The Fix: Lock height strictly so it never expands */
-  display: block; 
-  height: 90px; 
-  overflow: hidden; 
-  margin-bottom: 30px;
+  font-size: 18px;
+  font-weight: 500;
+  height: 70px; /* Locked height */
+  display: flex;
+  align-items: center;
 }
 
-.terminal-prefix {
-  color: #666; 
-  font-size: 16px;
-  margin-right: 10px;
-}
-
-.static-text {
-  color: var(--text-main);
-}
-
+.terminal-prefix { color: #888; margin-right: 12px; }
+.static-text { color: #cbd5e1; }
 .typing-text {
-  color: var(--accent-green);
-  text-shadow: 0 0 8px rgba(0, 255, 136, 0.4);
-}
-
-/* --- Glitch Name Effect --- */
-.primary_color {
-  position: relative;
-  display: inline-block;
-  color: var(--accent-green);
-}
-
-.primary_color::before,
-.primary_color::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: var(--bg-main); 
-  opacity: 0;
-}
-
-.primary_color:hover::before {
-  left: 2px;
-  text-shadow: -2px 0 red;
-  animation: glitch-anim-1 0.2s infinite linear alternate-reverse;
-  opacity: 1;
-}
-
-.primary_color:hover::after {
-  left: -2px;
-  text-shadow: 2px 0 blue;
-  animation: glitch-anim-2 0.3s infinite linear alternate-reverse;
-  opacity: 1;
-}
-
-@keyframes glitch-anim-1 {
-  0% { clip-path: inset(20% 0 80% 0); }
-  100% { clip-path: inset(60% 0 10% 0); }
-}
-@keyframes glitch-anim-2 {
-  0% { clip-path: inset(10% 0 60% 0); }
-  100% { clip-path: inset(80% 0 5% 0); }
+  color: var(--accent-green, #00ff88);
+  text-shadow: 0 0 10px rgba(0, 255, 136, 0.3);
 }
 
 /* --- Bio & Buttons --- */
 .hero-description {
   font-size: 16px;
-  color: var(--text-muted);
+  color: var(--text-muted, #94a3b8);
   line-height: 1.8;
-  margin-bottom: 35px;
+  margin-bottom: 40px;
   max-width: 95%;
 }
 
-.download-btn {
+.premium-btn {
   display: inline-flex;
   align-items: center;
   gap: 12px;
-  background: rgba(0, 255, 136, 0.05);
-  border: 1px solid var(--accent-green);
-  color: var(--accent-green);
+  background: linear-gradient(135deg, rgba(0, 255, 136, 0.1) 0%, rgba(0, 162, 255, 0.05) 100%);
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  color: var(--accent-green, #00ff88);
   font-family: 'Fira Code', monospace;
   font-size: 14px;
-  padding: 12px 25px;
-  border-radius: 4px;
+  padding: 14px 28px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s ease;
-  margin-bottom: 40px;
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
-.download-btn:hover {
-  background: var(--accent-green);
-  color: #000;
-  box-shadow: 0 0 15px var(--accent-glow);
-  transform: translateY(-2px);
+.premium-btn::before {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+  transition: all 0.5s ease;
+}
+
+.premium-btn:hover {
+  background: rgba(0, 255, 136, 0.15);
+  transform: translateY(-3px);
+  box-shadow: 0 10px 25px rgba(0, 255, 136, 0.2);
+  border-color: var(--accent-green, #00ff88);
+}
+
+.premium-btn:hover::before {
+  left: 100%;
 }
 
 /* --- Socials & Tools Grid --- */
-.hero_bottom {
-  gap: 50px;
-  align-items: flex-start;
-}
-
+.hero_bottom { gap: 50px; align-items: flex-start; }
 .hero_bottom h4 {
   font-family: "Fira Code", monospace;
   font-size: 12px;
   letter-spacing: 2px;
-  color: var(--text-muted);
+  color: #64748b;
   margin-bottom: 15px;
 }
 
-.social-grid,
-.tools-grid {
-  display: grid;
-  gap: 15px;
-}
-
-.social-grid { grid-template-columns: repeat(4, 1fr); }
-.tools-grid { grid-template-columns: repeat(6, 1fr); }
+.social-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 15px; }
+.tools-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 15px; }
 
 .icon-btn, .tool-btn {
   width: 50px;
@@ -201,255 +236,141 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px; /* Smoother premium corners */
   transition: all 0.3s ease;
   cursor: pointer;
 }
 
-.icon-btn i {
-  font-size: 20px;
-  color: var(--text-muted);
-  transition: 0.3s ease;
-}
-
+.icon-btn i { font-size: 20px; color: #94a3b8; transition: 0.3s ease; }
 .tool-btn img {
-  width: 25px;
-  height: 25px;
-  filter: grayscale(100%) opacity(0.7);
+  width: 25px; height: 25px;
+  filter: grayscale(100%) opacity(0.6);
   transition: all 0.3s ease;
 }
 
 .icon-btn:hover, .tool-btn:hover {
-  background: rgba(0, 255, 136, 0.1);
-  border-color: var(--accent-green);
   transform: translateY(-5px);
+  border-color: rgba(0, 255, 136, 0.5);
+  background: rgba(0, 255, 136, 0.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.2), 0 0 15px rgba(0, 255, 136, 0.1);
 }
 
-.icon-btn:hover i { color: var(--accent-green); }
+.icon-btn:hover i { color: var(--accent-green, #00ff88); }
 .tool-btn:hover img { filter: grayscale(0%) opacity(1); }
 
-/* --- Hero Image & Targeting HUD with Pro Effects --- */
+/* --- Premium Hero Image & Hologram Effects --- */
+.floating-anim {
+  animation: float-img 6s ease-in-out infinite;
+}
+
 .right_img_wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 450px;
-  margin: 0 auto;
-  padding: 20px;
-  /* 3D Tilt Effect on wrapper */
-  transform: rotateX(2deg) rotateY(-3deg);
-  transition: all 0.5s ease;
-}
-
-.right_img_wrapper:hover {
-  transform: rotateX(0deg) rotateY(0deg) scale(1.02);
-}
-
-/* New Holographic Glow behind the image */
-.holographic-glow {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 120%;
-  height: 120%;
-  background: radial-gradient(circle, rgba(0, 255, 136, 0.15) 0%, transparent 70%);
-  filter: blur(20px);
-  z-index: 0;
-  animation: pulse-glow 4s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-/* --- TACTICAL HUD CONTAINER --- */
-.tactical-hud-container {
   position: relative;
   width: 100%;
   max-width: 480px;
   margin: 0 auto;
-  padding: 30px;
-  perspective: 1200px; /* Strong depth for perspective shift */
-  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+  padding: 20px;
+  transform-style: preserve-3d;
 }
 
-/* 3D Perspective Tilt on Hover */
-.tactical-hud-container:hover {
-  transform: rotateX(6deg) rotateY(-8deg) scale(1.05);
+.premium-holographic-glow {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  width: 110%; height: 110%;
+  background: radial-gradient(circle, rgba(0, 255, 136, 0.1) 0%, rgba(0, 162, 255, 0.05) 40%, transparent 70%);
+  filter: blur(25px);
+  z-index: 0;
+  animation: pulse-glow-premium 5s ease-in-out infinite alternate;
+  pointer-events: none;
 }
 
-/* --- THE IMAGE FILTER & EFFECTS --- */
-.hero-sensor-feed {
+.premium-glass-panel {
   position: relative;
   z-index: 2;
-  border-radius: 4px;
+  border-radius: 16px;
   overflow: hidden;
-  border: 1px solid rgba(0, 255, 136, 0.4);
-  background: #000;
-  box-shadow: 0 0 40px rgba(0, 255, 136, 0.15);
+  padding: 6px;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
 }
 
-/* Green "Night Vision" Color Burn Overlay */
-.hero-sensor-feed::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: rgba(0, 255, 136, 0.35);
-  mix-blend-mode: multiply; /* Forces the green into the shadows */
-  z-index: 3;
-  pointer-events: none;
-  transition: all 0.5s ease;
-}
-
-.sensor-img {
+.pro-hero-img {
   width: 100%;
   height: auto;
   display: block;
-  /* Strips the city colors and dramatically boosts contrast */
-  filter: grayscale(100%) contrast(1.4) brightness(1);
-  transition: all 0.5s ease;
+  border-radius: 10px;
+  filter: contrast(1.05) brightness(1.05) saturate(1.1);
 }
 
-/* Holographic Grid Overlay */
-.cyber-grid-overlay {
+/* Premium Scanline - Softer, wider, gradient-based */
+.premium-scanline {
   position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background-image: 
-    linear-gradient(rgba(0, 255, 136, 0.15) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 255, 136, 0.15) 1px, transparent 1px);
-  background-size: 25px 25px; /* Size of the targeting squares */
-  z-index: 4;
-  pointer-events: none;
-  opacity: .7;
-}
-
-/* --- HOVER PHYSICS: SYSTEM LOCK-ON (NO VIBRATION) --- */
-.tactical-hud-container:hover .sensor-img {
-  filter: grayscale(50%) contrast(1.5) brightness(1.0); /* Brings some life back on hover */
-}
-
-.tactical-hud-container:hover .hero-sensor-feed::before {
-  background: rgba(0, 255, 136, 0.1); /* Reduces the heavy green on hover */
-  mix-blend-mode: overlay; 
-}
-
-/* --- HUD BRACKETS --- */
-.hud-corner {
-  position: absolute;
-  width: 50px;
-  height: 50px;
-  border: 3px solid var(--accent-green);
+  top: 0; left: 0; width: 100%; height: 50px;
+  background: linear-gradient(to bottom, transparent, rgba(0, 255, 136, 0.2), transparent);
   z-index: 3;
-  /* Soft breathing animation when static */
-  animation: bracketBreath 4s ease-in-out infinite alternate;
-  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
-}
-
-/* LOCK-ON: Brackets shrink and lock tightly to you on hover */
-.tactical-hud-container:hover .hud-corner {
-  width: 20px;
-  height: 20px;
-  border-width: 4px;
-  box-shadow: 0 0 25px var(--accent-glow);
-}
-
-.hud-corner.top-left { top: -5px; left: -5px; border-right: none; border-bottom: none; }
-.hud-corner.top-right { top: -5px; right: -5px; border-left: none; border-bottom: none; }
-.hud-corner.bottom-left { bottom: -5px; left: -5px; border-right: none; border-top: none; }
-.hud-corner.bottom-right { bottom: -5px; right: -5px; border-left: none; border-top: none; }
-
-/* --- FLOATING DATA LABELS --- */
-.hud-label {
-  position: absolute;
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--accent-green);
-  opacity: 0.6;
-  z-index: 4;
-  letter-spacing: 1px;
-  pointer-events: none;
-  transition: opacity 0.4s ease, text-shadow 0.4s ease;
-}
-
-.hud-top-left { top: 5px; left: 20px; }
-.hud-top-right { top: 5px; right: 20px; }
-.hud-bottom-left { bottom: 5px; left: 20px; }
-.hud-bottom-right { bottom: 5px; right: 20px; }
-
-.tactical-hud-container:hover .hud-label {
-  opacity: 1;
-  text-shadow: 0 0 10px var(--accent-glow);
-}
-
-/* --- TACTICAL ANIMATIONS --- */
-@keyframes bracketBreath {
-  from { opacity: 0.5; filter: drop-shadow(0 0 2px var(--accent-green)); }
-  to { opacity: 1; filter: drop-shadow(0 0 15px var(--accent-green)); }
-}
-
-.vignette-overlay {
-  position: absolute;
-  top: 0; left: 0; width: 100%; height: 100%;
-  background: radial-gradient(circle, transparent 55%, rgba(0,0,0,0.8) 100%);
-  pointer-events: none; z-index: 3;
-}
-
-/* Scanning Line Effect */
-.scanline {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 3px;
-  background: rgba(0, 255, 136, 0.8);
-  box-shadow: 0 0 15px rgba(0, 255, 136, 0.9);
-  z-index: 3;
-  animation: scan 3s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
-  opacity: 0.6;
+  animation: scan-premium 4s cubic-bezier(0.4, 0.0, 0.2, 1) infinite;
   pointer-events: none;
 }
 
-/* Targeting Bracket Corners - Update for better visibility */
+/* Subtler, more structural brackets */
 .tech-corner {
   position: absolute;
-  width: 30px;
-  height: 30px;
-  border: 2px solid var(--accent-green);
+  width: 40px; height: 40px;
+  border: 2px solid rgba(0, 255, 136, 0.4);
   z-index: 3;
-  box-shadow: 0 0 8px var(--accent-glow);
+  transition: all 0.5s ease;
   pointer-events: none;
 }
 
-.tech-corner.top-left { top: 10px; left: 10px; border-right: none; border-bottom: none; }
-.tech-corner.top-right { top: 10px; right: 10px; border-left: none; border-bottom: none; }
-.tech-corner.bottom-left { bottom: 10px; left: 10px; border-right: none; border-top: none; }
-.tech-corner.bottom-right { bottom: 10px; right: 10px; border-left: none; border-top: none; }
-
-/* --- Animations --- */
-@keyframes scan {
-  0% { top: -10%; opacity: 0; }
-  20% { opacity: 1; }
-  80% { opacity: 1; }
-  100% { top: 110%; opacity: 0; }
+.right_img_wrapper:hover .tech-corner {
+  border-color: var(--accent-green, #00ff88);
+  width: 50px; height: 50px;
 }
 
-@keyframes pulse-glow {
-  0% { opacity: 0.4; transform: translate(-50%, -50%) scale(0.95); }
-  100% { opacity: 0.8; transform: translate(-50%, -50%) scale(1.05); }
+.tech-corner.top-left { top: 0; left: 0; border-right: none; border-bottom: none; border-top-left-radius: 12px; }
+.tech-corner.top-right { top: 0; right: 0; border-left: none; border-bottom: none; border-top-right-radius: 12px; }
+.tech-corner.bottom-left { bottom: 0; left: 0; border-right: none; border-top: none; border-bottom-left-radius: 12px; }
+.tech-corner.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; border-bottom-right-radius: 12px; }
+
+/* --- Animations --- */
+@keyframes float {
+  0% { transform: translateY(0px) scale(1); }
+  100% { transform: translateY(-30px) scale(1.05); }
+}
+
+@keyframes float-img {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-15px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes scan-premium {
+  0% { top: -20%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 120%; opacity: 0; }
+}
+
+@keyframes pulse-glow-premium {
+  0% { opacity: 0.5; transform: translate(-50%, -50%) scale(0.9); }
+  100% { opacity: 1; transform: translate(-50%, -50%) scale(1.1); }
 }
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
   .hero .container { flex-direction: column-reverse; }
   .left, .right { width: 100%; }
-  .right_img_wrapper { max-width: 350px; margin-bottom: 40px; transform: rotateX(0) rotateY(0); }
-  .hero-title { font-size: 40px; }
+  .right_img_wrapper { max-width: 400px; margin-bottom: 40px; }
+  .hero-title { font-size: 45px; }
 }
 
 @media (max-width: 768px) {
   .hero { padding-top: 100px; }
-  .hero-typing { height: 110px; font-size: 16px; padding: 12px; }
-  .terminal-prefix { display: block; margin-bottom: 5px; font-size: 12px; }
+  .ide-body { height: auto; min-height: 80px; font-size: 14px; padding: 15px; flex-wrap: wrap; }
+  .terminal-prefix { display: block; width: 100%; margin-bottom: 5px; }
   .hero_bottom { flex-direction: column; gap: 30px; }
   .tools-grid { grid-template-columns: repeat(4, 1fr); }
+  .social-grid { grid-template-columns: repeat(4, 1fr); }
 }
