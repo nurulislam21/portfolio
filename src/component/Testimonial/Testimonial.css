@@ -190,12 +190,12 @@
   transition: var(--transition);
 }
 
-.icon-btn:hover {
+/* .icon-btn:hover {
   background: var(--accent-primary);
   color: var(--bg-dark);
   box-shadow: 0 0 15px var(--accent-glow);
   transform: scale(1.1);
-}
+} */
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 992px) {

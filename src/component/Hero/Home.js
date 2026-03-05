@@ -1,7 +1,5 @@
 import React from "react";
 import "./Home.css";
-// import noman from "../pic/noman.jpg"
-// import noman1 from "../pic/noman1.jpg"
 import noman1 from "../pic/isnoman.jpg";
 import skill1 from "../pic/skill1.png";
 import skill2 from "../pic/skill2.png";
@@ -15,15 +13,15 @@ import { Typewriter } from "react-simple-typewriter";
 const Home = () => {
   return (
     <section className="hero" id="Home">
-      {/* Noise overlay added here for that subtle Apple/Stripe texture */}
       <div className="noise-overlay"></div>
       
       {/* Premium Ambient Background Glows */}
       <div className="ambient-glow glow-1"></div>
       <div className="ambient-glow glow-2"></div>
 
-      <div className="container f_flex top">
-        <div className="left top">
+      {/* FIXED SPACING: Removed redundant '.top' classes to stop compounding margins */}
+      <div className="container f_flex hero-layout">
+        <div className="left">
           <div className="hero-main-header">
             
             <div className="system-status premium-glass" data-aos="fade-in">
@@ -56,7 +54,7 @@ const Home = () => {
                       "Altium High-Speed PCB Design",         
                       "SolidWorks Kinematic Modeling",    
                       "Autonomous Navigation Systems",     
-                      "R&D Systems Architecture"            
+                      "Hardware Systems Architecture"            
                     ]}
                     loop={0}
                     cursor
@@ -70,9 +68,9 @@ const Home = () => {
             </div>
           </div>
           
-          {/* Refined and professional bio text */}
+          {/* PRO ENGINEER REWRITE: Stronger, systems-level vocabulary */}
           <p className="hero-description">
-            Currently pursuing my B.Sc. in Electrical and Electronics Engineering at the International University of Scholars, I am a versatile Robotics Engineer specializing in autonomous aerial systems. Serving as Engineering Head for Team RoboMore and leading projects on international stages, I manage the full development lifecycle—from precision PCB and mechanical design to embedded architecture. I am committed to delivering robust, high-performance R&D solutions.
+            As a Systems & Robotics Engineer, I specialize in the architecture and deployment of autonomous aerial and ground vehicles. I manage the complete hardware lifecycle—from high-speed Altium PCB routing and multi-axis kinematic modeling to developing bare-metal embedded firmware. Leading R&D for international robotics competitions, my focus is bridging complex control theory with robust, production-ready physical systems.
           </p>
           
           <div className="hero_btn_main">
@@ -84,7 +82,6 @@ const Home = () => {
           <div className="hero_bottom d_flex">
             <div className="col_1">
               <h4>CONNECT //</h4>
-              {/* Semantic Fix: Removed nested buttons, applied classes directly to anchors */}
               <div className="social-grid">
                 <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer" className="icon-btn premium-glass">
                   <i className="fab fa-linkedin-in"></i>
@@ -127,7 +124,7 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Image Area with Premium Tech Effects */}
+        {/* Right Image Area */}
         <div className="right">
           <div className="right_img_wrapper floating-anim">
             <div className="premium-holographic-glow"></div>

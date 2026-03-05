@@ -4,16 +4,23 @@
   pointer-events: none;
   z-index: 0;
   opacity: 0.03;
+  /* Uncomment below if you have the noise SVG */
   /* background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E"); */
 }
 
+/* --- PERFECTED TOP SPACING --- */
 .hero {
   position: relative;
-  padding-top: 0px; 
+  padding-top: 130px; /* Exact height to clear header + natural breathing room */
+  padding-bottom: 60px;
   min-height: 100vh;
   display: flex;
   align-items: center;
   overflow: hidden; 
+}
+
+.hero-layout {
+  gap: 60px;
 }
 
 .ambient-glow {
@@ -32,25 +39,6 @@
   top: -10%;
   left: -5%;
   animation: float 12s ease-in-out infinite alternate;
-}
-
-/* .glow-2 {
-  width: 550px;
-  height: 550px;
-  background: var(--accent-secondary); 
-  bottom: -10%;
-  right: -5%;
-  animation: float 15s ease-in-out infinite alternate-reverse;
-} */
-
-.hero .container {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 50px;
-  width: 100%;
 }
 
 .left { width: 55%; }
@@ -93,10 +81,11 @@
 .system-status {
   display: inline-flex;
   align-items: center;
-  gap: 12px;
-  padding: 8px 18px;
+  gap: 10px;
+  padding: 6px 16px;
   border-radius: 50px;
-  margin-bottom: 25px;
+  margin-bottom: 20px;
+  background: rgba(0, 229, 255, 0.05); /* Sleeker inner fill */
   border: 1px solid rgba(0, 229, 255, 0.2);
 }
 
@@ -112,7 +101,7 @@
 .status-text {
   font-family: 'Fira Code', monospace;
   font-size: 11px;
-  color: var(--text-muted);
+  color: var(--accent-primary); /* Changed to primary for better pop */
   letter-spacing: 1.5px;
   text-transform: uppercase;
 }
@@ -123,20 +112,20 @@
   100% { box-shadow: 0 0 0 0 rgba(0, 229, 255, 0); }
 }
 
-/* --- FIXED: IDE Terminal --- */
+/* --- IDE Terminal --- */
 .hero-typing {
   border-radius: 12px;
-  margin-bottom: 35px;
+  margin-bottom: 30px; /* Tightened from 35px */
   overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 15px 35px rgba(0,0,0,0.4);
   width: 100%;
-  max-width: 700px; /* Makes the terminal "Big" */
-  background: rgba(5, 8, 15, 0);
+  max-width: 700px; 
+  background: rgba(5, 8, 15, 0.4); /* Added slight tint */
 }
 
 .ide-header {
-  background: rgba(5, 8, 15, 0.652);
+  background: rgba(5, 8, 15, 0.8);
   padding: 10px 15px;
   display: flex;
   align-items: center;
@@ -163,10 +152,8 @@
   font-family: 'Fira Code', 'Courier New', monospace;
   font-size: 18px;
   font-weight: 500;
-  line-height: 1.6; /* Adds breathing room between wrapped lines */
-  min-height: 100px; /* Prevents the whole page from jumping when text appears */
-  
-  /* CRITICAL FIX: Switch from flex to block */
+  line-height: 1.6; 
+  min-height: 90px; /* Reduced slightly to fit better */
   display: block; 
   text-align: left;
   word-wrap: break-word;
@@ -176,18 +163,14 @@
 .terminal-prefix { 
   color: var(--accent-secondary); 
   margin-right: 10px;
-  /* Keeps prefix and command together */
   display: inline-block; 
 }
 
-.static-text { 
-  color: #cbd5e1; 
-}
+.static-text { color: #cbd5e1; }
 
 .typing-text {
   color: var(--accent-primary);
   text-shadow: 0 0 10px var(--accent-glow);
-  /* Allows the typewriter to wrap like normal text */
   display: inline; 
 }
 
@@ -196,8 +179,12 @@
   font-size: 16px;
   color: var(--text-muted);
   line-height: 1.8;
-  margin-bottom: 40px;
+  margin-bottom: 35px; /* Tightened space to button */
   max-width: 95%;
+}
+
+.hero_btn_main {
+  margin-bottom: 45px; /* Space between button and bottom grid */
 }
 
 .premium-btn {
@@ -237,7 +224,7 @@
 .premium-btn:hover::before { left: 100%; }
 
 /* --- Socials & Tools Grid --- */
-.hero_bottom { gap: 50px; align-items: flex-start; margin-top: 40px; }
+.hero_bottom { gap: 50px; align-items: flex-start; }
 .hero_bottom h4 {
   font-family: "Fira Code", monospace;
   font-size: 12px;
@@ -377,6 +364,7 @@
 
 /* --- Responsive Adjustments --- */
 @media (max-width: 1024px) {
+  .hero { padding-top: 150px; }
   .hero .container { flex-direction: column-reverse; }
   .left, .right { width: 100%; }
   .right_img_wrapper { max-width: 400px; margin-bottom: 40px; }
@@ -384,15 +372,14 @@
 }
 
 @media (max-width: 768px) {
-  .hero { padding-top: 100px; }
+  .hero { padding-top: 120px; }
+  .hero-layout { gap: 30px; }
   .ide-body {
     font-size: 15px;
     padding: 15px;
-    min-height: 140px; /* More height for mobile wrapping */
+    min-height: 120px; /* Better fit for mobile wrapping */
   }
-  .hero-typing {
-    max-width: 100%;
-  }
+  .hero-typing { max-width: 100%; }
   .hero_bottom { flex-direction: column; gap: 30px; }
   .tools-grid { grid-template-columns: repeat(4, 1fr); }
   .social-grid { grid-template-columns: repeat(4, 1fr); }

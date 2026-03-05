@@ -19,14 +19,15 @@ const Features = () => {
               <div
                 key={index}
                 data-aos="fade-up"
-                data-aos-delay={index * 150}
+                data-aos-delay={index * 100} /* Slightly faster stagger */
               >
                 <Card
                   index={index}
-                  image={val.image}
+                  iconClass={val.iconClass}
                   title={val.title}
                   desc={val.desc}
-                  tags={val.tags} // <-- PASS THE TAGS HERE
+                  specs={val.specs} 
+                  tags={val.tags} 
                 />
               </div>
             );

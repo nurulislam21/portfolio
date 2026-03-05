@@ -8,7 +8,6 @@
   width: 50%;
   padding: 40px;
   border-radius: 12px; /* Smoother premium corners */
-  /* Upgraded to Global Glass Variables */
   background: var(--bg-card);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
@@ -50,38 +49,39 @@
   gap: 15px;
 }
 
-/* Grayscale SVGs until hovered for a sleek tech look */
+/* SLEEK MONOCHROME ICONS: Grayscale until hovered for a pro tech look */
 .skill-title svg {
   width: 25px;
   height: 25px;
-  filter: grayscale(100%) opacity(0.5);
+  filter: grayscale(100%) brightness(2) opacity(0.3);
   transition: var(--transition);
 }
 
 .container1:hover .skill-title svg {
-  filter: grayscale(0%) opacity(1);
+  filter: grayscale(0%) brightness(1) opacity(1);
+  transform: scale(1.1);
 }
 
 .Technical-bars .info span {
   font-family: 'Inter', sans-serif;
-  font-size: 15px;
-  font-weight: 600;
+  font-size: 14px; /* Slightly smaller, more refined */
+  font-weight: 500;
   color: var(--text-main);
   opacity: 0;
+  letter-spacing: 0.5px;
 }
 
 .container1.aos-animate .Technical-bars .info span {
   animation: showText 0.5s 0.2s linear forwards;
 }
 
-/* The Background Track */
+/* THIN HUD TRACK */
 .Technical-bars .progress-line {
   position: relative;
   border-radius: 4px;
   width: 100%;
-  height: 6px;
+  height: 4px; /* THINNER FOR A PREMIUM HUD FEEL */
   background-color: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.05);
   overflow: visible;
 }
 
@@ -90,7 +90,7 @@
   position: absolute;
   height: 100%;
   background-color: var(--accent-primary);
-  box-shadow: 0 0 12px var(--accent-glow);
+  box-shadow: 0 0 10px var(--accent-glow);
   transform: scaleX(0);
   transform-origin: left;
   border-radius: 4px;
@@ -110,9 +110,9 @@
   color: var(--accent-primary);
   font-family: 'Fira Code', monospace;
   font-weight: 600;
-  font-size: 11px;
+  font-size: 10px;
   border-radius: 4px;
-  top: -35px;
+  top: -30px;
   right: -20px;
   opacity: 0;
   box-shadow: 0 5px 15px rgba(0,0,0,0.5);
@@ -145,22 +145,25 @@
   height: 110px;
 }
 
+/* TELEMETRY RADAR UPGRADE */
 .progress-bg {
-  stroke-width: 6; /* Slightly thinner for elegance */
-  stroke: rgba(255, 255, 255, 0.05);
+  stroke-width: 2; /* Thinner background */
+  stroke: rgba(255, 255, 255, 0.15);
   fill: transparent;
+  stroke-dasharray: 4 4; /* Creates a dotted/radar look */
 }
 
 .path {
-  stroke-width: 6;
+  stroke-width: 4; /* Flat technical stroke */
   stroke: var(--accent-primary);
   fill: transparent;
   stroke-dasharray: 502;
   stroke-dashoffset: 502;
-  stroke-linecap: square; 
-  filter: drop-shadow(0 0 6px var(--accent-glow)); /* Enhanced glow */
+  stroke-linecap: butt; /* Flat edges rather than rounded */
+  filter: drop-shadow(0 0 6px var(--accent-glow)); 
 }
 
+/* Adjusted animation offsets based on new pro data */
 .container1.aos-animate .path-1 { animation: animate-path1 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
 .container1.aos-animate .path-2 { animation: animate-path2 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
 .container1.aos-animate .path-3 { animation: animate-path3 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
@@ -172,7 +175,7 @@
   left: 50%;
   transform: translate(-50%, -50%);
   font-family: 'Fira Code', monospace;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 600;
   color: var(--accent-primary);
   opacity: 0;
@@ -185,7 +188,7 @@
   left: 50%;
   bottom: 0px;
   transform: translateX(-50%);
-  font-size: 14px;
+  font-size: 13px;
   color: var(--text-main);
   font-weight: 500;
   opacity: 0;
@@ -224,9 +227,9 @@
 
 .call-to-action h2 {
   font-family: "Fira Code", monospace;
-  font-size: 20px;
+  font-size: 18px;
   color: var(--text-main);
-  margin-bottom: 10px;
+  margin-bottom: 12px;
 }
 
 .call-to-action p {
@@ -238,10 +241,10 @@
 /* --- Animations --- */
 @keyframes showText { 100% { opacity: 1; } }
 @keyframes animateLinear { 100% { transform: scaleX(1); } }
-@keyframes animate-path1 { 100% { stroke-dashoffset: 50; } }
-@keyframes animate-path2 { 100% { stroke-dashoffset: 175; } }
-@keyframes animate-path3 { 100% { stroke-dashoffset: 100; } }
-@keyframes animate-path4 { 100% { stroke-dashoffset: 75; } }
+@keyframes animate-path1 { 100% { stroke-dashoffset: 25; } } /* 95% */
+@keyframes animate-path2 { 100% { stroke-dashoffset: 100; } } /* 80% */
+@keyframes animate-path3 { 100% { stroke-dashoffset: 75; } }  /* 85% */
+@keyframes animate-path4 { 100% { stroke-dashoffset: 50; } }  /* 90% */
 
 /* --- Responsive Layout --- */
 @media (max-width: 992px) {
@@ -251,6 +254,6 @@
 
 @media (max-width: 768px) {
   .radial-bar { width: 100%; margin-bottom: 40px; }
-  .call-to-action h2 { font-size: 16px; }
+  .call-to-action h2 { font-size: 15px; line-height: 1.4; }
   .call-to-action p { font-size: 14px; }
 }

@@ -45,9 +45,9 @@ const App = () => {
           <main className="main-content">
             <Home />
             <Features />
+            <Portfolio />
             <Resume />
             <Skill />
-            <Portfolio />
             <Blog />
             <Testimonial/>
             <Contact />

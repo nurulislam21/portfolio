@@ -1,64 +1,115 @@
-/* --- Professional Variables Aligned with App.css --- */
+/* --- Core Grid Layout --- */
+.features .content.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px; /* Wider gap for a cleaner, breathable look */
+  padding-top: 20px;
+}
+
+/* --- Premium Glass Module --- */
 .feature-card {
   position: relative;
-  background: var(--bg-card); /* Using your global glass variable */
+  background: var(--bg-card); 
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid var(--border-color);
-  border-radius: 20px;
-  padding: 50px 35px;
+  border-radius: 12px;
+  padding: 40px 35px;
   overflow: hidden;
   transition: var(--transition);
   z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
 }
 
-/* --- PRO UPGRADE: Monochrome Tech Icons --- */
-.card-icon img {
-  width: 60px; /* Keep size consistent */
-  /* Washes out the random colors to look like sleek metal/glass */
-  filter: grayscale(100%) brightness(1.5) opacity(0.6);
+/* Top System Status Bar */
+.card-status-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 25px;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+
+.status-dot {
+  width: 6px;
+  height: 6px;
+  background: var(--accent-primary);
+  border-radius: 50%;
+  box-shadow: 0 0 8px var(--accent-glow);
+  animation: blink 2s infinite;
+}
+
+.status-text {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  color: var(--text-muted);
+  letter-spacing: 1.5px;
+}
+
+/* Header & Icons */
+.card-header {
+  margin-bottom: 20px;
+  align-items: flex-end;
+}
+
+.card-icon {
+  width: 55px;
+  height: 55px;
+  background: rgba(0, 229, 255, 0.05);
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: var(--transition);
 }
 
-/* Hover State */
-.feature-card:hover {
-  transform: translateY(-8px); /* Smoother, less jumpy float */
-  background: rgba(13, 18, 28, 0.6);
-  border-color: rgba(0, 229, 255, 0.4); /* Electric Cyan */
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), 0 0 25px rgba(0, 229, 255, 0.15);
+.card-icon i {
+  font-size: 24px;
+  color: var(--accent-primary);
+  transition: var(--transition);
 }
 
-/* Reveal original icon color on hover */
-.feature-card:hover .card-icon img {
-  filter: grayscale(0%) brightness(1) opacity(1);
-  transform: scale(1.1);
-}
-
-/* Background Number Effect */
 .card-number {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  font-family: 'Inter', sans-serif;
-  font-size: 120px;
-  font-weight: 900;
-  color: rgba(255, 255, 255, 0.02);
-  z-index: -1;
+  font-family: 'Fira Code', monospace;
+  font-size: 45px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.03);
+  line-height: 0.8;
   transition: var(--transition);
+}
+
+/* Hover Dynamics */
+.feature-card:hover {
+  transform: translateY(-8px); 
+  background: rgba(13, 18, 28, 0.8);
+  border-color: rgba(0, 229, 255, 0.4); 
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6), inset 0 0 25px rgba(0, 229, 255, 0.05);
+}
+
+.feature-card:hover .card-icon {
+  background: var(--accent-primary);
+  transform: scale(1.1) rotate(-5deg);
+  box-shadow: 0 0 20px var(--accent-glow);
+}
+
+.feature-card:hover .card-icon i {
+  color: var(--bg-dark);
 }
 
 .feature-card:hover .card-number {
-  color: rgba(0, 229, 255, 0.05); /* Cyan tint */
-  transform: scale(1.05) rotate(-5deg);
+  color: rgba(0, 229, 255, 0.08);
 }
 
-/* Improved Typography */
+/* Typography */
 .feature-card h2 {
   font-family: 'Inter', sans-serif;
-  letter-spacing: 1px;
-  text-transform: uppercase;
+  letter-spacing: -0.5px;
   font-size: 20px;
-  margin: 25px 0 15px 0;
+  margin-bottom: 12px;
   color: var(--text-main);
   transition: var(--transition);
 }
@@ -68,13 +119,61 @@
 }
 
 .card-desc {
-  font-weight: 400;
+  font-size: 14px;
   line-height: 1.7;
   color: var(--text-muted);
-  letter-spacing: 0.5px;
+  margin-bottom: 20px;
 }
 
-/* Glowing Border Bottom (Sweep Effect) */
+/* --- Tech Specs List --- */
+.tech-specs-list {
+  margin-bottom: 25px;
+  flex-grow: 1; /* Pushes tags to the bottom */
+}
+
+.tech-specs-list li {
+  font-family: 'Fira Code', monospace;
+  font-size: 11.5px;
+  color: #cbd5e1;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.tech-specs-list li i {
+  color: var(--accent-primary);
+  margin-top: 3px;
+  font-size: 10px;
+}
+
+/* --- Tech Stack Badges --- */
+.card-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.tech-tag {
+  font-family: 'Fira Code', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.03);
+  padding: 6px 10px;
+  border-radius: 4px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition);
+}
+
+.feature-card:hover .tech-tag {
+  background: rgba(0, 229, 255, 0.1);
+  border-color: rgba(0, 229, 255, 0.4);
+  color: var(--accent-primary);
+}
+
+/* Bottom Sweep Effect */
 .feature-card::after {
   content: '';
   position: absolute;
@@ -84,57 +183,50 @@
   height: 3px;
   background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
   transition: width 0.6s cubic-bezier(0.23, 1, 0.32, 1);
-  box-shadow: 0 0 10px var(--accent-glow);
+  box-shadow: 0 0 15px var(--accent-glow);
 }
 
 .feature-card:hover::after {
   width: 100%;
 }
 
-/* --- Tech Stack Badges --- */
-.card-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  margin-top: 25px;
-  margin-bottom: 20px;
-}
-
-.tech-tag {
-  font-family: 'Fira Code', monospace;
-  font-size: 11px;
-  font-weight: 600;
-  color: var(--accent-primary);
-  background: rgba(0, 229, 255, 0.05);
-  padding: 6px 12px;
-  border-radius: 4px;
-  border: 1px solid rgba(0, 229, 255, 0.2);
-  transition: var(--transition);
-}
-
-.feature-card:hover .tech-tag {
-  background: rgba(0, 229, 255, 0.1);
-  border-color: rgba(0, 229, 255, 0.5);
-  box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
-  color: #fff;
-}
-
-/* Adjust the arrow position */
+/* Link Arrow */
 .card-arrow {
+  position: absolute;
+  bottom: 35px;
+  right: 35px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 40px;
-  height: 40px;
+  width: 35px;
+  height: 35px;
   border-radius: 50%;
-  background: rgba(255, 255, 255, 0.03);
+  background: transparent;
   color: var(--text-muted);
   transition: var(--transition);
+  opacity: 0; /* Hidden until hover */
 }
 
 .feature-card:hover .card-arrow {
-  color: #05080f; /* Dark icon */
-  background: var(--accent-primary); /* Cyan background */
+  opacity: 1;
+  color: var(--bg-dark); 
+  background: var(--accent-primary);
   transform: translateX(5px);
   box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* --- Responsive Adjustments --- */
+@media (max-width: 1024px) {
+  .features .content.grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .features .content.grid {
+    grid-template-columns: 1fr;
+  }
+  .feature-card {
+    padding: 30px 25px;
+  }
 }
