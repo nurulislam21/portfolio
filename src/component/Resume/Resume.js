@@ -12,6 +12,7 @@ const Resume = () => {
           year={val.year}
           rate={<i className={iconClass}></i>}
           desc={val.desc}
+          skills={val.skills} // <-- PASSING THE SKILLS HERE
         />
       </div>
     ));

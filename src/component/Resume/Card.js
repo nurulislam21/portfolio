@@ -15,10 +15,18 @@ const Card = (props) => {
       
       {props.desc && (
         <>
-          {/* Tech-styled divider instead of standard hr */}
           <div className="tech-divider"></div>
           <p>{props.desc}</p>
         </>
+      )}
+
+      {/* --- PRO UPGRADE: Tech Stack Badges --- */}
+      {props.skills && (
+        <div className="resume-tags">
+          {props.skills.map((skill, index) => (
+            <span key={index} className="resume-tag">{skill}</span>
+          ))}
+        </div>
       )}
     </div>
   );
