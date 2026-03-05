@@ -1,8 +1,8 @@
 import React from "react";
 import "./Home.css";
 // import noman from "../pic/noman.jpg"
-import noman1 from "../pic/noman1.jpg"
-// import hero from "../pic/realhero.jpg";
+// import noman1 from "../pic/noman.jpg"
+import noman1 from "../pic/isnoman.jpg";
 import skill1 from "../pic/skill1.png";
 import skill2 from "../pic/skill2.png";
 import skill3 from "../pic/skill3.png";
@@ -19,12 +19,12 @@ const Home = () => {
 
         <div className="left top">
           <div className="hero-main-header">
-            
+
             <div className="system-status" data-aos="fade-in">
               <span className="pulse-dot"></span>
               <span className="status-text">SYS_ACTIVE // R&D: SN21 VTOL & TRANSIENT RESPONSE v1</span>
             </div>
-            
+
             <h1 className="hero-title">
               Nurul Islam <span className="primary_color" data-text="Noman">Noman</span>
             </h1>
@@ -35,28 +35,28 @@ const Home = () => {
               <span className="typing-text">
                 <Typewriter
                   words={[
-                    "UAV & VTOL Flight Dynamics",        
-                    "High-Speed PCB Architecture",       
-                    "Kinematic Control Systems",         
-                    "Embedded Firmware (STM32/RTOS)",    
-                    "Precision Mechanical Modeling",     
-                    "R&D Systems Engineering"            
+                    "UAV & VTOL Flight Dynamics",
+                    "High-Speed PCB Architecture",
+                    "Kinematic Control Systems",
+                    "Embedded Firmware (STM32/RTOS)",
+                    "Precision Mechanical Modeling",
+                    "R&D Systems Engineering"
                   ]}
                   loop={0}
                   cursor
                   cursorStyle="_"
-                  typeSpeed={50}     
+                  typeSpeed={50}
                   deleteSpeed={30}
                   delaySpeed={2000}
                 />
               </span>
             </div>
           </div>
-          
+
           <p className="hero-description">
             A versatile Robotics Engineer and Embedded Developer with a focus on the UAV and aerospace industries. I specialize in the full development lifecycle—from PCB design and mechanical modeling to software architecture and algorithm optimization. Holding a degree in Electrical and Electronics Engineering, I am committed to delivering robust, innovative solutions for the next generation of autonomous aerial systems.
           </p>
-          
+
           <div className="hero_btn_main">
             <a href={mypdf} className="download-btn">
               <i className="fas fa-terminal"></i> GET_FIRMWARE // Resume.pdf
@@ -108,18 +108,29 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Image Area with Pro Effects */}
-        <div className="right">
-          <div className="right_img_wrapper">
-            <div className="holographic-glow"></div> {/* New: Background Glow */}
-            <div className="tech-corner top-left"></div>
-            <div className="tech-corner top-right"></div>
-            <div className="right_img">
-              <img src={noman1} alt="Nurul Islam Noman" className="pro-hero-img" />
-              <div className="scanline"></div> {/* New: Scanning Line */}
-            </div>
-            <div className="tech-corner bottom-left"></div>
-            <div className="tech-corner bottom-right"></div>
+        {/* --- Hero Image tactical HUD --- */}
+        <div className="right_img_wrapper tactical-hud-container" data-aos="fade-up" data-aos-delay="300">
+
+          {/* Base HUD Brackets - Standard */}
+          <div className="hud-corner top-left"></div>
+          <div className="hud-corner top-right"></div>
+          <div className="hud-corner bottom-left"></div>
+          <div className="hud-corner bottom-right"></div>
+
+          {/* Tactical Data Overlays - Floating */}
+          <div className="hud-label hud-top-left">VTOL_KINE</div>
+          <div className="hud-label hud-top-right">STM32_FW_REV0.2</div>
+          <div className="hud-label hud-bottom-left">PCB_ARC: COMPLETED</div>
+          <div className="hud-label hud-bottom-right">LOC: 23.8° N / 90.4° E</div>
+
+          <div className="right_img hero-sensor-feed">
+            {/* Your *ORIGINAL* Photo */}
+            <img src={noman1} alt="Nurul Islam Noman // UAV Engineering Lead" className="sensor-img" />
+
+            {/* Animated HUD Overlays */}
+            <div className="cyber-grid-overlay"></div> {/* NEW GRID ADDED */}
+            <div className="scanline-laser"></div>
+            <div className="vignette-overlay"></div>
           </div>
         </div>
 

@@ -261,27 +261,137 @@
   pointer-events: none;
 }
 
-.right_img {
+/* --- TACTICAL HUD CONTAINER --- */
+.tactical-hud-container {
+  position: relative;
+  width: 100%;
+  max-width: 480px;
+  margin: 0 auto;
+  padding: 30px;
+  perspective: 1200px; /* Strong depth for perspective shift */
+  transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 3D Perspective Tilt on Hover */
+.tactical-hud-container:hover {
+  transform: rotateX(6deg) rotateY(-8deg) scale(1.05);
+}
+
+/* --- THE IMAGE FILTER & EFFECTS --- */
+.hero-sensor-feed {
   position: relative;
   z-index: 2;
   border-radius: 4px;
   overflow: hidden;
-  border: 1px solid rgba(0, 255, 136, 0.3);
-  box-shadow:
-    0 0 20px rgba(0, 255, 136, 0.1),
-    inset 0 0 15px rgba(0, 255, 136, 0.05);
-  background: rgba(0, 20, 10, 0.5); /* Darker background for the projection surface */
+  border: 1px solid rgba(0, 255, 136, 0.4);
+  background: #000;
+  box-shadow: 0 0 40px rgba(0, 255, 136, 0.15);
 }
 
-/* The Image itself */
-.pro-hero-img {
+/* Green "Night Vision" Color Burn Overlay */
+.hero-sensor-feed::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0, 255, 136, 0.35);
+  mix-blend-mode: multiply; /* Forces the green into the shadows */
+  z-index: 3;
+  pointer-events: none;
+  transition: all 0.5s ease;
+}
+
+.sensor-img {
   width: 100%;
   height: auto;
   display: block;
-  /* Tech Filter Look: Increase contrast and give a slight cyan tint */
-  filter: contrast(1.1) brightness(1.1) saturate(1.1) hue-rotate(5deg);
-  opacity: 0.9;
-  mix-blend-mode: lighten; /* Blends with the dark background for a projected feel */
+  /* Strips the city colors and dramatically boosts contrast */
+  filter: grayscale(100%) contrast(1.4) brightness(1);
+  transition: all 0.5s ease;
+}
+
+/* Holographic Grid Overlay */
+.cyber-grid-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 255, 136, 0.15) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 255, 136, 0.15) 1px, transparent 1px);
+  background-size: 25px 25px; /* Size of the targeting squares */
+  z-index: 4;
+  pointer-events: none;
+  opacity: .7;
+}
+
+/* --- HOVER PHYSICS: SYSTEM LOCK-ON (NO VIBRATION) --- */
+.tactical-hud-container:hover .sensor-img {
+  filter: grayscale(50%) contrast(1.5) brightness(1.0); /* Brings some life back on hover */
+}
+
+.tactical-hud-container:hover .hero-sensor-feed::before {
+  background: rgba(0, 255, 136, 0.1); /* Reduces the heavy green on hover */
+  mix-blend-mode: overlay; 
+}
+
+/* --- HUD BRACKETS --- */
+.hud-corner {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border: 3px solid var(--accent-green);
+  z-index: 3;
+  /* Soft breathing animation when static */
+  animation: bracketBreath 4s ease-in-out infinite alternate;
+  transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* LOCK-ON: Brackets shrink and lock tightly to you on hover */
+.tactical-hud-container:hover .hud-corner {
+  width: 20px;
+  height: 20px;
+  border-width: 4px;
+  box-shadow: 0 0 25px var(--accent-glow);
+}
+
+.hud-corner.top-left { top: -5px; left: -5px; border-right: none; border-bottom: none; }
+.hud-corner.top-right { top: -5px; right: -5px; border-left: none; border-bottom: none; }
+.hud-corner.bottom-left { bottom: -5px; left: -5px; border-right: none; border-top: none; }
+.hud-corner.bottom-right { bottom: -5px; right: -5px; border-left: none; border-top: none; }
+
+/* --- FLOATING DATA LABELS --- */
+.hud-label {
+  position: absolute;
+  font-family: 'Fira Code', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--accent-green);
+  opacity: 0.6;
+  z-index: 4;
+  letter-spacing: 1px;
+  pointer-events: none;
+  transition: opacity 0.4s ease, text-shadow 0.4s ease;
+}
+
+.hud-top-left { top: 5px; left: 20px; }
+.hud-top-right { top: 5px; right: 20px; }
+.hud-bottom-left { bottom: 5px; left: 20px; }
+.hud-bottom-right { bottom: 5px; right: 20px; }
+
+.tactical-hud-container:hover .hud-label {
+  opacity: 1;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* --- TACTICAL ANIMATIONS --- */
+@keyframes bracketBreath {
+  from { opacity: 0.5; filter: drop-shadow(0 0 2px var(--accent-green)); }
+  to { opacity: 1; filter: drop-shadow(0 0 15px var(--accent-green)); }
+}
+
+.vignette-overlay {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: radial-gradient(circle, transparent 55%, rgba(0,0,0,0.8) 100%);
+  pointer-events: none; z-index: 3;
 }
 
 /* Scanning Line Effect */
