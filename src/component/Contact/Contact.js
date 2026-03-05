@@ -56,7 +56,7 @@ const Contact = () => {
           <div className="left tech-panel" data-aos="fade-right">
             <div className="img">
               <img src={contact1} alt="Nurul Islam Noman" />
-              {/* <div className="img-overlay scanline"></div> */}
+              <div className="img-overlay scanline"></div>
             </div>
             <div className="details">
               <h1>Nurul Islam Noman</h1>
@@ -71,17 +71,18 @@ const Contact = () => {
               <div className="social-connect mtop">
                 <span>ESTABLISH UPLINK //</span>
                 <div className="button f_flex">
-                  <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer">
-                    <button className="pro-btn icon-btn"><i className="fab fa-linkedin-in"></i></button>
+                  {/* Semantic Fix: Applied icon-btn directly to anchor tags */}
+                  <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer" className="icon-btn">
+                    <i className="fab fa-linkedin-in"></i>
                   </a>
-                  <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer">
-                    <button className="pro-btn icon-btn"><i className="fab fa-facebook-f"></i></button>
+                  <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer" className="icon-btn">
+                    <i className="fab fa-facebook-f"></i>
                   </a>
-                  <a href="https://www.instagram.com/nurul_islam.noman/" target="_blank" rel="noopener noreferrer">
-                    <button className="pro-btn icon-btn"><i className="fab fa-instagram"></i></button>
+                  <a href="https://www.instagram.com/nurul_islam.noman/" target="_blank" rel="noopener noreferrer" className="icon-btn">
+                    <i className="fab fa-instagram"></i>
                   </a>
-                  <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer">
-                    <button className="pro-btn icon-btn"><i className="fa-brands fa-github"></i></button>
+                  <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer" className="icon-btn">
+                    <i className="fa-brands fa-github"></i>
                   </a>
                 </div>
               </div>
@@ -95,27 +96,27 @@ const Contact = () => {
               <div className="f_flex input-row">
                 <div className="input-group">
                   <label>OPERATOR NAME // </label>
-                  <input type="text" name="fullname" value={data.fullname} onChange={InputEvent} required className="tech-input" />
+                  <input type="text" name="fullname" value={data.fullname} onChange={InputEvent} required className="tech-input" placeholder="Enter your name" />
                 </div>
                 <div className="input-group">
                   <label>COMMS FREQUENCY (PHONE) // </label>
-                  <input type="tel" name="phone" value={data.phone} onChange={InputEvent} required className="tech-input" />
+                  <input type="tel" name="phone" value={data.phone} onChange={InputEvent} required className="tech-input" placeholder="Enter your number" />
                 </div>
               </div>
 
               <div className="input-group">
                 <label>RETURN ADDRESS (EMAIL) // </label>
-                <input type="email" name="email" value={data.email} onChange={InputEvent} required className="tech-input" />
+                <input type="email" name="email" value={data.email} onChange={InputEvent} required className="tech-input" placeholder="Enter your email" />
               </div>
 
               <div className="input-group">
                 <label>QUERY SUBJECT // </label>
-                <input type="text" name="subject" value={data.subject} onChange={InputEvent} required className="tech-input" />
+                <input type="text" name="subject" value={data.subject} onChange={InputEvent} required className="tech-input" placeholder="State your intent" />
               </div>
 
               <div className="input-group">
                 <label>DATA PACKET (MESSAGE) // </label>
-                <textarea name="message" value={data.message} onChange={InputEvent} rows="5" required className="tech-input"></textarea>
+                <textarea name="message" value={data.message} onChange={InputEvent} rows="5" required className="tech-input" placeholder="Enter your message details..."></textarea>
               </div>
 
               <button type="submit" className="pro-btn active-btn submit-btn" disabled={isSubmitting}>

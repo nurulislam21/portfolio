@@ -53,7 +53,7 @@
   border: 2px solid var(--accent-primary);
   object-fit: cover;
   filter: grayscale(30%);
-  transition: 0.4s ease;
+  transition: var(--transition); /* Synced to global */
 }
 
 .footer-logo:hover img {
@@ -95,7 +95,7 @@
   background: rgba(255, 255, 255, 0.03);
   border: 1px solid rgba(255, 255, 255, 0.1);
   color: var(--text-muted); font-size: 16px;
-  transition: all 0.3s ease;
+  transition: var(--transition); /* Synced to global */
 }
 
 .social-icon:hover {

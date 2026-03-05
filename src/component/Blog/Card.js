@@ -27,6 +27,7 @@ const Card = (props) => {
       >
         <div className="img">
           <img src={props.image} alt={props.title_one} />
+          {/* Moved overlay here so it sits on top of the image properly */}
           <div className="img-overlay gold-overlay">
             <span>VERIFY_RECORD //</span>
           </div>
@@ -36,9 +37,10 @@ const Card = (props) => {
         </div>
         <div className="title">
           <h2>{props.title_one}</h2>
-          <button className="arrow-btn gold-arrow" aria-label="View Certificate">
+          {/* Changed from button to span to avoid semantic errors */}
+          <span className="gold-arrow" aria-label="View Certificate">
             <i className="fas fa-certificate"></i>
-          </button>
+          </span>
         </div>
       </div>
 
