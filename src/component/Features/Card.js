@@ -3,13 +3,20 @@ import React from "react";
 const Card = ({ iconClass, title, desc, specs, index, tags }) => {
   return (
     <div className="feature-card">
-      {/* Background glow pseudo-element handled in CSS */}
+      {/* Corner targeting brackets for the hardware aesthetic */}
+      <div className="card-bracket top-left"></div>
+      <div className="card-bracket top-right"></div>
+      <div className="card-bracket bottom-left"></div>
+      <div className="card-bracket bottom-right"></div>
+
       <div className="card-content">
         
         {/* Top Status Bar Indicator */}
         <div className="card-status-bar">
-          <span className="status-dot"></span>
-          <span className="status-text">MODULE_0{index + 1} </span>
+          <div className="status-indicator">
+            <span className="status-dot active-blink"></span>
+          </div>
+          <span className="status-text">SYS_MOD_0{index + 1} </span>
         </div>
         
         <div className="card-header d_flex">
@@ -19,13 +26,15 @@ const Card = ({ iconClass, title, desc, specs, index, tags }) => {
           <span className="card-number">0{index + 1}</span>
         </div>
         
-        <h2>{title}</h2>
+        <h2 className="card-title">{title}</h2>
         <p className="card-desc">{desc}</p>
         
         {/* Technical Specs List */}
         <ul className="tech-specs-list">
           {specs && specs.map((spec, i) => (
-            <li key={i}><i className="fas fa-check-circle spec-icon"></i> {spec}</li>
+            <li key={i}>
+              <span className="spec-chevron">&gt;</span> {spec}
+            </li>
           ))}
         </ul>
         
@@ -36,9 +45,6 @@ const Card = ({ iconClass, title, desc, specs, index, tags }) => {
           ))}
         </div>
         
-        <a href="#Projects" className="card-arrow" aria-label={`View ${title} details`}>
-          <i className="fas fa-arrow-right"></i>
-        </a>
       </div>
     </div>
   );

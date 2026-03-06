@@ -27,14 +27,17 @@ const Skill = () => {
       <div className="container">
         
         <div className="heading text-center" data-aos="fade-up">
-          <h4>SYSTEM DIAGNOSTICS // CAPABILITY METRICS</h4>
-          <h1 className="sub-title">Core <span className="primary_color">Matrix</span></h1>
+          <h4 className="section-subtitle" style={{ justifyContent: 'center' }}>SYSTEM DIAGNOSTICS // CAPABILITY METRICS</h4>
+          <h1 className="section-title">Core Matrix</h1>
         </div>
 
         <div className="d_flex skill-grid mtop">
           
           {/* Left Column: Technical Skills */}
-          <div className="container1 hardware-panel" data-aos="fade-right" data-aos-duration="1000">
+          <div className="skill-panel hardware-panel" data-aos="fade-right" data-aos-duration="1000">
+            <div className="panel-bracket top-left"></div>
+            <div className="panel-bracket bottom-right"></div>
+
             <h2 className="heading1">Hardware & Firmware</h2>
             <div className="Technical-bars">
               {techSkills.map((skill, index) => (
@@ -54,7 +57,10 @@ const Skill = () => {
           </div>
 
           {/* Right Column: Professional Skills */}
-          <div className="container1 software-panel" data-aos="fade-left" data-aos-duration="1000">
+          <div className="skill-panel software-panel" data-aos="fade-left" data-aos-duration="1000">
+            <div className="panel-bracket top-left"></div>
+            <div className="panel-bracket bottom-right"></div>
+
             <h2 className="heading1">Operational Metrics</h2>
             <div className="radial-bars">
               {proSkills.map((skill, index) => (
@@ -75,9 +81,13 @@ const Skill = () => {
         {/* Terminal Style Call to Action */}
         <div className="call-to-action mtop" data-aos="fade-up">
           <div className="cta-content">
-            <h2>SYSTEM.READY // Architecting next-generation autonomous and embedded systems.</h2>
+            <div className="sys-ready">
+              <span className="pulse-dot" style={{width: '6px', height: '6px', animation: 'blink 1s infinite'}}></span> 
+              SYSTEM.READY
+            </div>
+            <h2>Architecting next-generation autonomous and embedded systems.</h2>
             <p>Available for freelance PCB topology, custom firmware integrations, and end-to-end R&D lifecycle management.</p>
-            <a href={mypdf} className="premium-btn" target="_blank" rel="noopener noreferrer">
+            <a href={mypdf} className="pro-btn active-btn" target="_blank" rel="noopener noreferrer">
               <i className="fas fa-terminal"></i> EXECUTE // GET_RESUME
             </a>
           </div>

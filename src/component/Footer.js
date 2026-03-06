@@ -23,13 +23,13 @@ const Footer = () => {
           <div className="footer-brand" data-aos="fade-right">
             <div className="footer-logo-wrapper">
               <div className="footer-logo">
-                <img src={logo1} alt="Nurul Islam Noman" />
+                <img src={logo1} alt="Nurul Islam Noman - Robotics Engineer" />
                 <div className="ring-1"></div>
                 <div className="ring-2"></div>
               </div>
               <div className="brand-text">
                 <h2>NOMAN<span className="cursor-blink">_</span></h2>
-                <p>Robotics & Embedded Systems</p>
+                <p>Systems & Robotics Engineer</p>
               </div>
             </div>
             
@@ -46,7 +46,8 @@ const Footer = () => {
             <ul>
               <li><a href="#Home"><i className="fas fa-chevron-right"></i> 00. Home</a></li>
               <li><a href="#Expertise"><i className="fas fa-chevron-right"></i> 01. Expertise</a></li>
-              <li><a href="#Projects"><i className="fas fa-chevron-right"></i> 03. Projects</a></li>
+              <li><a href="#Projects"><i className="fas fa-chevron-right"></i> 02. Projects</a></li>
+              <li><a href="#Resume"><i className="fas fa-chevron-right"></i> 03. History</a></li>
               <li><a href="#Milestones"><i className="fas fa-chevron-right"></i> 04. Milestones</a></li>
               <li><a href="#Contact"><i className="fas fa-chevron-right"></i> 05. Contact</a></li>
             </ul>
@@ -64,13 +65,13 @@ const Footer = () => {
           <div className="footer-social" data-aos="fade-left" data-aos-delay="300">
             <h3 className="footer-heading">UPLINK //</h3>
             <div className="social-flex">
-              <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://www.linkedin.com/in/nurulislam21/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
                 <i className="fab fa-linkedin-in"></i>
               </a>
-              <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://github.com/nurulislam21" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="GitHub">
                 <i className="fab fa-github"></i>
               </a>
-              <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer" className="social-icon">
+              <a href="https://www.facebook.com/nurulislamnoman.21/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
                 <i className="fab fa-facebook-f"></i>
               </a>
             </div>

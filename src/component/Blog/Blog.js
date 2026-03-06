@@ -14,9 +14,9 @@ const Blog = () => {
     <section className="Blog top" id="Milestones">
       <div className="container">
         
-        <div className="heading text-center" data-aos="fade-up">
-          <h4>MILESTONES & RECOGNITION</h4>
-          <h1>Awards & Achievements</h1>
+        <div className="heading" data-aos="fade-up">
+          <h4 className="section-subtitle">MILESTONES & RECOGNITION //</h4>
+          <h1 className="section-title">Verified Achievements</h1>
         </div>
 
         <div className="content grid">
@@ -28,20 +28,20 @@ const Blog = () => {
                 ppimage={value.ppimage} 
                 date={value.date} 
                 title_one={value.title_one} 
-                aosDelay={index * 100} 
+                aosDelay={(index % 3) * 100} 
               />
             );
           })}
         </div>
 
         {BlogApi.length > initialItems && (
-          <div className="text-center mtop" data-aos="fade-up" data-aos-delay="300">
+          <div className="text-center mtop" data-aos="fade-up">
             <button
-              className="btn_shadow load-more-btn"
+              className="load-more-btn"
               onClick={() => setShowAll(!showAll)}
             >
-              {showAll ? "Show Less" : "View All Achievements"}
-              <i className={`fas ${showAll ? "fa-chevron-up" : "fa-chevron-down"} ml-10`}></i>
+              {showAll ? "COLLAPSE RECORDS" : "ACCESS FULL ARCHIVE"}
+              <i className={`fas ${showAll ? "fa-chevron-up" : "fa-chevron-down"}`} style={{ marginLeft: "10px" }}></i>
             </button>
           </div>
         )}

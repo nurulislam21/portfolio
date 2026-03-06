@@ -6,7 +6,7 @@ import Card from "./Card";
 const Resume = () => {
   const renderContent = (category, iconClass) => {
     return ResumeApi.filter((val) => val.category === category).map((val, index) => (
-      <div key={index} data-aos="fade-up" data-aos-delay={index * 150}>
+      <div key={index} data-aos="fade-up" data-aos-delay={index * 150} data-aos-offset="100">
         <Card
           title={val.title}
           year={val.year}
@@ -23,29 +23,29 @@ const Resume = () => {
       <div className="container">
         
         <div className="heading text-center" data-aos="fade-up">
-          <h4>SYSTEM LOGS // ACADEMIC & PROFESSIONAL TIMELINE</h4>
-          <h1>Operational History</h1>
+          <h4 className="section-subtitle" style={{ justifyContent: 'center' }}>SYSTEM LOGS // ACADEMIC & PROFESSIONAL TIMELINE</h4>
+          <h1 className="section-title">Operational History</h1>
         </div>
 
         <div className="content-section mtop d_flex">
           
           {/* Education Timeline */}
-          <div className="left" data-aos="fade-right" data-aos-duration="1000">
-            <div className="heading">
+          <div className="left" style={{ width: "50%" }}>
+            <div className="heading" data-aos="fade-right">
               <h2 className="timeline-title">01. Academic Data</h2>
             </div>
             <div className="resume-timeline">
-              {renderContent("education", "fa-solid fa-microchip")}
+              {renderContent("education", "fas fa-microchip")}
             </div>
           </div>
 
           {/* Experience Timeline */}
-          <div className="left" data-aos="fade-left" data-aos-duration="1000">
-            <div className="heading">
+          <div className="left" style={{ width: "50%" }}>
+            <div className="heading" data-aos="fade-left">
               <h2 className="timeline-title">02. Field Experience</h2>
             </div>
             <div className="resume-timeline">
-              {renderContent("experience", "fa-solid fa-satellite-dish")}
+              {renderContent("experience", "fas fa-satellite-dish")}
             </div>
           </div>
           

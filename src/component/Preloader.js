@@ -8,14 +8,14 @@ const Preloader = ({ onComplete }) => {
   useEffect(() => {
     // Personalized Engineering Boot Sequence
     const bootSequence = [
-      "INIT_KERNEL: Custom BIOS v.2.4.1",
+      "INIT_KERNEL: Noman_OS v.2.4.1",
       "MOUNTING SOLIDWORKS 3D RENDER ENGINE... [OK]",
       "LOADING MODULE: STM32_Firmware_Interface.sys",
       "CALIBRATING SN21 VTOL FLIGHT DYNAMICS... [OK]",
-      "ESTABLISHING SECURE TELEMETRY LINK TO SINGAPORE...",
+      "ESTABLISHING SECURE TELEMETRY LINK TO SERVER...",
       "DECRYPTING ALTIUM PCB SCHEMATICS...",
       "USER IDENTIFIED: NURUL ISLAM NOMAN",
-      "システム起動 // INITIALIZING UI..."
+      "SYSTEM BOOT // INITIALIZING UI..."
     ];
 
     let currentLine = 0;
@@ -26,10 +26,10 @@ const Preloader = ({ onComplete }) => {
         setLines((prev) => [...prev, bootSequence[currentLine]]);
         currentLine++;
       }
-    }, 300); 
+    }, 350); 
 
     const progressInterval = setInterval(() => {
-      currentProgress += Math.floor(Math.random() * 15) + 2; 
+      currentProgress += Math.floor(Math.random() * 12) + 2; 
       
       if (currentProgress >= 100) {
         currentProgress = 100;
@@ -59,10 +59,22 @@ const Preloader = ({ onComplete }) => {
       <div className="scanlines"></div>
       
       <div className="terminal-box">
+        <div className="term-bracket top-left"></div>
+        <div className="term-bracket bottom-right"></div>
+        
         {lines.map((line, index) => (
           <div key={index} className="terminal-line">
             <span className="timestamp">[{new Date().toISOString().split('T')[1].slice(0, 8)}]</span>
-            <span className="log-text"> {line}</span>
+            <span className="log-text">
+              {/* Colorizing the [OK] tags for a true terminal feel */}
+              {line.includes('[OK]') ? (
+                <>
+                  {line.split('[OK]')[0]} <span className="log-sys">[OK]</span>
+                </>
+              ) : (
+                line
+              )}
+            </span>
           </div>
         ))}
 
@@ -74,7 +86,6 @@ const Preloader = ({ onComplete }) => {
         )}
 
         <div className="terminal-progress">
-          <br />
           <div className="progress-bar">{renderProgressBar()}</div>
           {progress === 100 && <div className="blink-cursor">_</div>}
         </div>

@@ -19,7 +19,7 @@ const Features = () => {
               <div
                 key={index}
                 data-aos="fade-up"
-                data-aos-delay={index * 100}
+                data-aos-delay={index * 100} /* Staggered fade in */
                 className="card-wrapper"
               >
                 <Card

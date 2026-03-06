@@ -151,7 +151,7 @@ const BlogApi = [
   },
   {
     id: 18,
-    image: awd6, // Using BUET 2022 placeholder until you upload the BUET 2026 photo!
+    image: awd6, 
     ppimage: awd6,
     date: "February 2026",
     title_one: "BUET Robocarnival - 2nd & 3rd Place | RoboMore Nex & Dynamic Spark",

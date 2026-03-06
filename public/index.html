@@ -2,11 +2,9 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    
     <meta name="theme-color" content="#05080f" />
-
+    
     <title>Nurul Islam Noman | Robotics & Systems Engineer</title>
     <meta name="title" content="Nurul Islam Noman | Robotics & Systems Engineer" />
     <meta name="description" content="Portfolio of Nurul Islam Noman, specializing in autonomous UAVs, VTOL dynamics, and STM32 embedded architecture. Engineering Head at Team RoboMore." />
@@ -23,13 +21,66 @@
     <meta property="twitter:description" content="Architecting next-generation autonomous systems and embedded R&D." />
     <meta property="twitter:image" content="%PUBLIC_URL%/og-image.jpg" />
 
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet" />
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
   </head>
   <body>
     <noscript>System initialization requires JavaScript.</noscript>
-    <div id="root"></div>
+    
+    <div id="root">
+      <style>
+        body {
+          background-color: #05080f; /* Matches your theme color */
+          margin: 0;
+          height: 100vh;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          font-family: 'JetBrains Mono', monospace;
+          color: #64ffda; /* A cyber-blue/emerald accent */
+          overflow: hidden;
+        }
+        .preloader-container {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          gap: 1.5rem;
+        }
+        .spinner {
+          width: 48px;
+          height: 48px;
+          border: 2px solid rgba(100, 255, 218, 0.1);
+          border-top-color: #64ffda;
+          border-radius: 50%;
+          animation: spin 1s linear infinite;
+        }
+        .loading-text {
+          font-size: 0.85rem;
+          letter-spacing: 0.15em;
+          text-transform: uppercase;
+          opacity: 0.8;
+          animation: pulse 2s ease-in-out infinite;
+        }
+        @keyframes spin { 
+          to { transform: rotate(360deg); } 
+        }
+        @keyframes pulse {
+          0%, 100% { opacity: 0.5; }
+          50% { opacity: 1; }
+        }
+      </style>
+      <div class="preloader-container">
+        <div class="spinner"></div>
+        <div class="loading-text">Booting Systems...</div>
+      </div>
+    </div>
   </body>
 </html>

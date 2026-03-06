@@ -18,10 +18,11 @@ const Slide = ({ id, image, design, name, offcer, post, date, desc, valueIndex, 
       
       {/* Left Panel: Client Identity */}
       <div className='left-panel tech-panel'>
+        <div className="panel-bracket top-left"></div>
+        <div className="panel-bracket bottom-right"></div>
+
         <div className='client-img'>
           <img src={image} alt={name} />
-          <div className='tech-corner top-left'></div>
-          <div className='tech-corner bottom-right'></div>
         </div>
         <div className='client-details'>
           <span className='tech-badge'>{design}</span>
@@ -32,10 +33,13 @@ const Slide = ({ id, image, design, name, offcer, post, date, desc, valueIndex, 
 
       {/* Right Panel: The Feedback Data */}
       <div className='right-panel tech-panel'>
+        <div className="panel-bracket top-left"></div>
+        <div className="panel-bracket bottom-right"></div>
+
         <div className='quote-header'>
           <div className='quote-meta'>
             <h1>{post}</h1>
-            <h3><i className="far fa-clock"></i> {date}</h3>
+            <h3><i className="far fa-clock" style={{marginRight: '6px'}}></i> {date}</h3>
           </div>
           <div className='quote-icon'>
             <i className="fas fa-quote-right"></i>

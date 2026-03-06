@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ReactDOM from "react-dom";
 
-const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
+const Card = ({ image, category, totalLike, title, description, techStack, aosDelay }) => {
   const [modal, setModal] = useState(false);
 
   const toggleModal = () => {
@@ -31,18 +31,23 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
             <span>INSPECT_MODULE //</span>
           </div>
         </div>
-        <div className="category d_flex">
+        
+        <div className="category">
           <span className="cat-badge">{category}</span>
           <label className="likes">
             <i className="fas fa-microchip"></i> UID-{totalLike}
           </label>
         </div>
+        
         <div className="title">
           <h2>{title}</h2>
-          {/* Replaced button with a sleeker span for the arrow indicator */}
-          <span className="arrow-btn" aria-label="View Specs">
-            <i className="fas fa-arrow-right" style={{ color: "var(--accent-primary)" }}></i>
-          </span>
+        </div>
+
+        {/* PRO UPGRADE: Displaying the Tech Stack directly on the card */}
+        <div className="card-tech-stack">
+          {techStack && techStack.map((tech, index) => (
+            <span key={index} className="stack-tag">{tech}</span>
+          ))}
         </div>
       </div>
 
@@ -51,23 +56,30 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
 
-            <button className="close-modal" onClick={toggleModal}>
+            <button className="close-modal" onClick={toggleModal} aria-label="Close Modal">
               <i className="fas fa-times"></i>
             </button>
 
-            <div className="modal-body d_flex">
-              <div className="modal-img left">
+            <div className="modal-body">
+              <div className="modal-img">
                 <img src={image} alt={title} />
-                <div className="tech-corner top-left"></div>
-                <div className="tech-corner bottom-right"></div>
               </div>
-              <div className="modal-text right">
+              
+              <div className="modal-text">
                 <span className="cat-badge system-badge">SPEC_FILE // {category}</span>
                 <h1>{title}</h1>
-                <p>{description || "Detailed project specifications and telemetry data are currently being updated in the central repository."}</p>
+                <p>{description || "Detailed telemetry data is currently being updated in the central repository."}</p>
 
-                <div className="modal-actions mtop">
-                  {/* Semantic Fix: Applied outline-btn directly to the anchor tag */}
+                {/* PRO UPGRADE: Formatted Tech Stack in the Modal */}
+                {techStack && (
+                  <div className="modal-tech-list">
+                    {techStack.map((tech, index) => (
+                       <span key={index}>&gt; {tech}</span>
+                    ))}
+                  </div>
+                )}
+
+                <div className="modal-actions">
                   <a
                     href="https://github.com/nurulislam21"
                     target="_blank"
@@ -76,8 +88,9 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
                   >
                     <i className="fas fa-code-branch"></i> REPOSITORY
                   </a>
-                  <button className="pro-btn active-btn">
-                    <i className="fas fa-file-pdf"></i> SCHEMATICS
+                  {/* You can change this link to an actual schematic PDF later */}
+                  <button className="pro-btn active-btn" onClick={toggleModal}>
+                    <i className="fas fa-check"></i> ACKNOWLEDGE
                   </button>
                 </div>
               </div>

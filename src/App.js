@@ -10,25 +10,26 @@ import Portfolio from "./component/Portfolio/Portfolio";
 import Resume from "./component/Resume/Resume";
 import Skill from './component/Skill/Skill';
 import Blog from "./component/Blog/Blog";
+import Testimonial from "./component/Testimonial/Testimonial";
 import Contact from "./component/Contact/Contact";
 import Footer from "./component/Footer";
+import CustomCursor from "./component/CustomCursor"; 
 
-// Global styling imported last to apply root overrides
 import "./index.css";
 import "./App.css";
-import Testimonial from "./component/Testimonial/Testimonial";
-import CustomCursor from "./component/CustomCursor"; // Adjust path if needed
+
 const App = () => {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     if (!isLoading) {
-      // PRO FIX: Upgraded easing function for premium bouncy/smooth scroll animations
+      // PRO FIX: Upgraded parameters for a fluid, premium scroll reveal
       AOS.init({
-        duration: 800,
-        easing: "ease-out-cubic", 
-        once: true,
-        offset: 50,
+        duration: 1000,          // Slightly longer for elegance
+        easing: "ease-out-cubic", // Smooth deceleration
+        once: true,              // Only animate once to avoid distraction
+        offset: 80,              // Trigger slightly earlier
+        delay: 50,               // Micro-delay for staggered feel
       });
       AOS.refresh(); 
     }
@@ -40,8 +41,9 @@ const App = () => {
         <Preloader onComplete={() => setIsLoading(false)} />
       ) : (
         <div className="app-wrapper">
-          <Header />
           <CustomCursor />
+          <Header />
+          
           <main className="main-content">
             <Home />
             <Features />

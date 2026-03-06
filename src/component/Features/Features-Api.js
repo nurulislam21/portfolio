@@ -6,70 +6,70 @@ const data = [
     desc: "Architecting High-Density Interconnect (HDI) boards with strict impedance control for high-stress aerospace and robotic environments.",
     specs: [
       "Rigid-Flex & Multi-layer Stackups",
-      "EMI/EMC Mitigation & Power Delivery",
-      "Dense BGA Routing for STM32 Cortex"
+      "Power Delivery Network (PDN) Design",
+      "Dense BGA Routing for Microcontrollers"
     ],
-    tags: ["Altium", "Signal Integrity", "KiCAD"]
+    tags: ["Altium Designer", "Signal Integrity", "Schematics"]
   },
   {
     id: 2,
-    iconClass: "fas fa-project-diagram",
-    title: "AUTONOMOUS NAVIGATION",
-    desc: "Bridging non-linear control algorithms with robust mechanical execution for high-speed, dynamic robotic platforms.",
-    specs: [
-      "Sensor Fusion (LiDAR, Vision, IMU)",
-      "SLAM & Real-time Path Planning",
-      "Deterministic Closed-loop Tuning"
-    ],
-    tags: ["ROS 2", "Kinematics", "C++"]
-  },
-  {
-    id: 3,
-    iconClass: "fas fa-cube",
-    title: "KINEMATIC MODELING",
-    desc: "Advanced 3D mechanical modeling, generative design, and FEA stress simulation to optimize strength-to-weight ratios.",
-    specs: [
-      "Carbon-fiber Aerodynamic Frames",
-      "FEA Structural Failure Analysis",
-      "Multi-axis Gear Kinematics"
-    ],
-    tags: ["SOLIDWORKS", "CoreXY", "FEA"]
-  },
-  {
-    id: 4,
     iconClass: "fas fa-fighter-jet",
     title: "AEROSPACE & VTOL R&D",
-    desc: "Spearheading VTOL drone architecture, focusing on complex physical transitions between vertical hover and horizontal forward flight.",
+    desc: "Spearheading UAV architecture, specifically focusing on the complex physical transitions between vertical hover and horizontal forward flight.",
     specs: [
       "Transwing Tilt-Rotor Mechanisms",
       "Dynamic CG Payload Distribution",
-      "CFD Aerofoil Prototyping"
+      "Flight Dynamics & PID Tuning"
     ],
-    tags: ["SN-21 VTOL", "ArduPilot", "Flight Dynamics"]
+    tags: ["SN-21 VTOL", "UAV", "ArduPilot"]
   },
   {
-    id: 5,
+    id: 3,
     iconClass: "fas fa-microcode",
     title: "BARE-METAL FIRMWARE",
-    desc: "Writing highly efficient, deterministic C/C++ code and implementing RTOS for mission-critical hardware environments.",
+    desc: "Writing highly efficient, deterministic C/C++ code and implementing real-time operating systems for mission-critical hardware.",
     specs: [
-      "STM32 / ARM Cortex-M Architecture",
+      "ARM Cortex-M Architecture",
       "DMA over I2C / SPI / UART",
       "Hardware-in-the-Loop (HIL) Testing"
     ],
-    tags: ["Embedded C", "FreeRTOS", "HAL"]
+    tags: ["STM32", "Embedded C", "C++"]
+  },
+  {
+    id: 4,
+    iconClass: "fas fa-robot",
+    title: "COMPETITIVE ROBOTICS",
+    desc: "Designing and programming highly autonomous Line Follower Robots (LFR) and specialized mechatronic systems for international competition.",
+    specs: [
+      "High-Speed Sensor Array Processing",
+      "Dynamic Motor Kinematics",
+      "Rapid Prototyping & Iteration"
+    ],
+    tags: ["WRO 2025 Singapore", "LFR", "Team Echo Drift"]
+  },
+  {
+    id: 5,
+    iconClass: "fas fa-cube",
+    title: "KINEMATIC MODELING",
+    desc: "Advanced 3D mechanical modeling, generative design, and stress simulation to optimize strength-to-weight ratios in moving assemblies.",
+    specs: [
+      "Aerodynamic Frame Design",
+      "FEA Structural Failure Analysis",
+      "Multi-axis Gear Kinematics"
+    ],
+    tags: ["SOLIDWORKS", "3D CAD", "FEA"]
   },
   {
     id: 6,
-    iconClass: "fas fa-network-wired",
-    title: "INDUSTRIAL TELEMETRY",
-    desc: "Deploying edge-compute devices and resilient telemetry pipelines for real-time monitoring in heavy industrial environments.",
+    iconClass: "fas fa-users-cog",
+    title: "SYSTEMS LEADERSHIP",
+    desc: "Leading cross-functional engineering teams, managing the complete hardware lifecycle from theoretical algorithms to physical deployment.",
     specs: [
-      "Long-range LoRaWAN / RF Links",
-      "Ruggedized Automation Interfaces",
-      "ESP32 Distributed Edge Processing"
+      "Cross-disciplinary Integration",
+      "Agile Hardware Development",
+      "System Architecture Blueprints"
     ],
-    tags: ["MQTT", "IoT Architecture", "Python"]
+    tags: ["Team RoboMore", "Team Dynamic Spark", "Project Lead"]
   }
 ];
 

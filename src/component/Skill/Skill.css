@@ -1,46 +1,86 @@
 /* --- Core Layout --- */
+.Skill {
+  position: relative;
+  padding-top: 100px;
+  padding-bottom: 80px;
+  z-index: 2;
+}
+
 .skill-grid {
   gap: 40px;
   align-items: stretch;
 }
 
-.container1 {
+/* --- Tech Panels --- */
+.skill-panel {
   width: 50%;
-  padding: 40px;
-  border-radius: 12px; /* Smoother premium corners */
-  background: var(--bg-card);
+  padding: 45px 40px;
+  border-radius: 8px; 
+  background: rgba(13, 18, 28, 0.4);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-color);
-  transition: var(--transition);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  position: relative;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
 }
 
-.container1:hover {
-  border-color: rgba(0, 229, 255, 0.4);
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(0, 229, 255, 0.05);
-  transform: translateY(-5px); /* Gentle premium float */
+.skill-panel:hover {
+  border-color: rgba(0, 229, 255, 0.3);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6), inset 0 0 20px rgba(0, 229, 255, 0.02);
+  transform: translateY(-5px); 
 }
+
+/* Hardware Brackets */
+.panel-bracket {
+  position: absolute;
+  width: 20px; height: 20px;
+  border: 2px solid transparent;
+  transition: all 0.4s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.skill-panel:hover .panel-bracket {
+  width: 30px; height: 30px;
+  border-color: rgba(0, 229, 255, 0.4);
+}
+
+.top-left { top: 0; left: 0; border-right: none; border-bottom: none; border-radius: 8px 0 0 0;}
+.bottom-right { bottom: 0; right: 0; border-left: none; border-top: none; border-radius: 0 0 8px 0;}
 
 .heading1 {
   text-align: left;
-  font-size: 20px;
-  color: var(--accent-primary); /* Electric Cyan */
+  font-size: 18px;
+  color: var(--text-main); 
   margin-bottom: 35px;
-  font-family: "Fira Code", monospace;
-  letter-spacing: 1px;
-  border-bottom: 1px solid rgba(0, 229, 255, 0.2);
-  padding-bottom: 10px;
+  font-family: var(--font-sans);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-/* --- Linear Progress Bars (Hardware Panel) --- */
+.heading1::before {
+  content: "";
+  display: inline-block;
+  width: 30px;
+  height: 2px;
+  background-color: var(--accent-primary);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+/* --- Linear Progress Bars (Fiber Optic Streams) --- */
 .Technical-bars .bar {
-  margin: 25px 0;
+  margin: 28px 0;
 }
 
 .Technical-bars .info {
   margin-bottom: 12px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
 
 .skill-title {
@@ -49,38 +89,39 @@
   gap: 15px;
 }
 
-/* SLEEK MONOCHROME ICONS: Grayscale until hovered for a pro tech look */
+/* SLEEK MONOCHROME ICONS */
 .skill-title svg {
-  width: 25px;
-  height: 25px;
-  filter: grayscale(100%) brightness(2) opacity(0.3);
-  transition: var(--transition);
+  width: 22px;
+  height: 22px;
+  filter: grayscale(100%) brightness(1.5) opacity(0.4);
+  transition: all 0.4s ease;
 }
 
-.container1:hover .skill-title svg {
+.skill-panel:hover .skill-title svg {
   filter: grayscale(0%) brightness(1) opacity(1);
   transform: scale(1.1);
+  filter: drop-shadow(0 0 8px rgba(0, 229, 255, 0.4));
 }
 
 .Technical-bars .info span {
-  font-family: 'Inter', sans-serif;
-  font-size: 14px; /* Slightly smaller, more refined */
-  font-weight: 500;
+  font-family: var(--font-sans);
+  font-size: 14px; 
+  font-weight: 600;
   color: var(--text-main);
   opacity: 0;
   letter-spacing: 0.5px;
 }
 
-.container1.aos-animate .Technical-bars .info span {
+.skill-panel.aos-animate .Technical-bars .info span {
   animation: showText 0.5s 0.2s linear forwards;
 }
 
-/* THIN HUD TRACK */
+/* HUD TRACK */
 .Technical-bars .progress-line {
   position: relative;
-  border-radius: 4px;
+  border-radius: 2px;
   width: 100%;
-  height: 4px; /* THINNER FOR A PREMIUM HUD FEEL */
+  height: 3px; 
   background-color: rgba(255, 255, 255, 0.05);
   overflow: visible;
 }
@@ -90,14 +131,14 @@
   position: absolute;
   height: 100%;
   background-color: var(--accent-primary);
-  box-shadow: 0 0 10px var(--accent-glow);
+  box-shadow: 0 0 12px var(--accent-glow), 0 0 4px #fff; /* Hot core glow */
   transform: scaleX(0);
   transform-origin: left;
-  border-radius: 4px;
+  border-radius: 2px;
 }
 
-.container1.aos-animate .Technical-bars .progress-line span {
-  animation: animateLinear 1s 0.4s cubic-bezier(1, 0, 0.5, 1) forwards;
+.skill-panel.aos-animate .Technical-bars .progress-line span {
+  animation: animateLinear 1.5s 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
 }
 
 /* The Hover Percentages */
@@ -105,34 +146,36 @@
   content: attr(data-percent);
   position: absolute;
   padding: 4px 8px;
-  background-color: var(--bg-dark);
+  background-color: rgba(5, 8, 15, 0.9);
   border: 1px solid var(--accent-primary);
   color: var(--accent-primary);
-  font-family: 'Fira Code', monospace;
-  font-weight: 600;
-  font-size: 10px;
-  border-radius: 4px;
-  top: -30px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 9px;
+  border-radius: 3px;
+  top: -28px;
   right: -20px;
   opacity: 0;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.8);
+  letter-spacing: 1px;
 }
 
-.container1.aos-animate .Technical-bars .progress-line span::after {
-  animation: showText 0.5s 1.2s linear forwards;
+.skill-panel.aos-animate .Technical-bars .progress-line span::after {
+  animation: showText 0.5s 1.5s linear forwards;
 }
 
-/* --- Radial Dials (Software Panel) --- */
+/* --- Radial Dials (Avionics Instruments) --- */
 .radial-bars {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
+  margin-top: 40px;
 }
 
 .radial-bar {
   width: 45%;
   height: 160px;
-  margin-bottom: 25px;
+  margin-bottom: 30px;
   position: relative;
 }
 
@@ -141,44 +184,45 @@
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%) rotate(-90deg);
-  width: 110px;
-  height: 110px;
+  width: 120px;
+  height: 120px;
 }
 
 /* TELEMETRY RADAR UPGRADE */
 .progress-bg {
-  stroke-width: 2; /* Thinner background */
-  stroke: rgba(255, 255, 255, 0.15);
+  stroke-width: 2; 
+  stroke: rgba(255, 255, 255, 0.05);
   fill: transparent;
-  stroke-dasharray: 4 4; /* Creates a dotted/radar look */
+  stroke-dasharray: 2 6; /* Fine dotted radar ring */
 }
 
 .path {
-  stroke-width: 4; /* Flat technical stroke */
+  stroke-width: 3; 
   stroke: var(--accent-primary);
   fill: transparent;
   stroke-dasharray: 502;
   stroke-dashoffset: 502;
-  stroke-linecap: butt; /* Flat edges rather than rounded */
-  filter: drop-shadow(0 0 6px var(--accent-glow)); 
+  stroke-linecap: butt; 
+  filter: drop-shadow(0 0 8px var(--accent-glow)); 
 }
 
 /* Adjusted animation offsets based on new pro data */
-.container1.aos-animate .path-1 { animation: animate-path1 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
-.container1.aos-animate .path-2 { animation: animate-path2 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
-.container1.aos-animate .path-3 { animation: animate-path3 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
-.container1.aos-animate .path-4 { animation: animate-path4 1s 0.5s cubic-bezier(0.23, 1, 0.32, 1) forwards; }
+.skill-panel.aos-animate .path-1 { animation: animate-path1 1.5s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.skill-panel.aos-animate .path-2 { animation: animate-path2 1.5s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.skill-panel.aos-animate .path-3 { animation: animate-path3 1.5s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+.skill-panel.aos-animate .path-4 { animation: animate-path4 1.5s 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
 
 .percentage {
   position: absolute;
   top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-family: 'Fira Code', monospace;
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--accent-primary);
+  font-family: var(--font-mono);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-main);
   opacity: 0;
+  text-shadow: 0 0 10px rgba(0, 0, 0, 0.8);
 }
 
 .radial-bar .text {
@@ -186,56 +230,79 @@
   width: 100%;
   text-align: center;
   left: 50%;
-  bottom: 0px;
+  bottom: -10px;
   transform: translateX(-50%);
-  font-size: 13px;
-  color: var(--text-main);
-  font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--text-muted);
+  font-weight: 600;
   opacity: 0;
+  letter-spacing: 1px;
+  text-transform: uppercase;
 }
 
-.container1.aos-animate .percentage,
-.container1.aos-animate .text {
+.skill-panel.aos-animate .percentage,
+.skill-panel.aos-animate .text {
   animation: showText 0.5s 1s linear forwards;
 }
 
 /* --- Terminal Call to Action --- */
 .call-to-action {
   text-align: center;
-  padding: 40px;
-  border: 1px dashed rgba(0, 229, 255, 0.3);
-  background: rgba(13, 18, 28, 0.4); /* Glass backer */
-  backdrop-filter: blur(10px);
+  padding: 50px 40px;
+  background: rgba(8, 12, 20, 0.8); 
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 229, 255, 0.2);
   border-radius: 8px;
   position: relative;
   overflow: hidden;
-  transition: var(--transition);
+  transition: all 0.4s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.call-to-action:hover {
-  border-color: var(--accent-primary);
-  box-shadow: 0 10px 30px rgba(0,0,0,0.5), inset 0 0 20px rgba(0, 229, 255, 0.05);
-}
-
-.call-to-action::before {
-  content: "";
+/* Scanline overlay for the CTA */
+.call-to-action::after {
+  content: '';
   position: absolute;
-  top: 0; left: 0; width: 4px; height: 100%;
-  background: var(--accent-primary);
-  box-shadow: 0 0 15px var(--accent-glow);
+  inset: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 229, 255, 0.05) 50%);
+  background-size: 100% 4px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+.cta-content { position: relative; z-index: 5; }
+
+.sys-ready {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: #27c93f; /* Terminal Green */
+  letter-spacing: 2px;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
 }
 
 .call-to-action h2 {
-  font-family: "Fira Code", monospace;
-  font-size: 18px;
+  font-family: var(--font-sans);
+  font-size: 26px;
+  font-weight: 800;
   color: var(--text-main);
-  margin-bottom: 12px;
+  margin-bottom: 15px;
+  letter-spacing: -0.5px;
 }
 
 .call-to-action p {
   color: var(--text-muted);
-  margin-bottom: 25px;
-  font-size: 15px;
+  margin-bottom: 35px;
+  font-size: 16px;
+  line-height: 1.6;
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* --- Animations --- */
@@ -249,11 +316,12 @@
 /* --- Responsive Layout --- */
 @media (max-width: 992px) {
   .skill-grid { flex-direction: column; }
-  .container1 { width: 100%; padding: 30px; }
+  .skill-panel { width: 100%; padding: 30px; }
 }
 
 @media (max-width: 768px) {
   .radial-bar { width: 100%; margin-bottom: 40px; }
-  .call-to-action h2 { font-size: 15px; line-height: 1.4; }
+  .call-to-action h2 { font-size: 20px; }
   .call-to-action p { font-size: 14px; }
+  .call-to-action { padding: 40px 20px; }
 }

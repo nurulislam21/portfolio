@@ -3,30 +3,50 @@ import "./header.css";
 
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isHidden, setIsHidden] = useState(false);
+  const [lastScrollY, setLastScrollY] = useState(0);
   const [isMobile, setIsMobile] = useState(false);
 
   const handleScroll = useCallback(() => {
-    setIsScrolled(window.scrollY > 50);
-  }, []);
+    const currentScrollY = window.scrollY;
+
+    // 1. Determine if scrolled past top (for glassmorphism effect)
+    setIsScrolled(currentScrollY > 50);
+
+    // 2. Smart Header Logic: Hide on scroll down, show on scroll up
+    if (currentScrollY > lastScrollY && currentScrollY > 100) {
+      setIsHidden(true);  // User is scrolling down
+    } else {
+      setIsHidden(false); // User is scrolling up
+    }
+
+    setLastScrollY(currentScrollY);
+  }, [lastScrollY]);
 
   useEffect(() => {
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, [handleScroll]);
 
+  // Lock background scroll when mobile menu is open
   useEffect(() => {
-    document.body.style.overflow = isMobile ? "hidden" : "unset";
+    if (isMobile) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => { document.body.style.overflow = "unset"; };
   }, [isMobile]);
 
   const closeMenu = () => setIsMobile(false);
 
   return (
     <>
-      <header className={`header ${isScrolled ? "scrolled" : ""}`}>
+      <header className={`header ${isScrolled ? "scrolled" : ""} ${isHidden ? "hidden" : ""}`}>
         <div className="container header-container">
           
           <div className="logo">
-            <a href="#Home" aria-label="Navigate to Home">
+            <a href="#Home" aria-label="Navigate to Home" onClick={closeMenu}>
               <h1 className="sub-title">
                 NOMAN<span className="cursor-blink">_</span>
               </h1>
@@ -72,6 +92,7 @@ const Header = () => {
         </div>
       </header>
 
+      {/* Mobile Overlay */}
       <div
         className={`mobile-overlay ${isMobile ? "active" : ""}`}
         onClick={closeMenu}
