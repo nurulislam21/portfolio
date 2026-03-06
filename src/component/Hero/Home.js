@@ -14,19 +14,19 @@ const Home = () => {
   return (
     <section className="hero" id="Home">
       <div className="noise-overlay"></div>
+      <div className="grid-background"></div>
       
       {/* Premium Ambient Background Glows */}
       <div className="ambient-glow glow-1"></div>
       <div className="ambient-glow glow-2"></div>
 
-      {/* FIXED SPACING: Removed redundant '.top' classes to stop compounding margins */}
       <div className="container f_flex hero-layout">
         <div className="left">
           <div className="hero-main-header">
             
             <div className="system-status premium-glass" data-aos="fade-in">
               <span className="pulse-dot"></span>
-              <span className="status-text">SYS_ACTIVE // R&D: SN21 VTOL v1.0</span>
+              <span className="status-text">SYS_ONLINE // SN21 VTOL R&D</span>
             </div>
             
             <h1 className="hero-title">
@@ -41,41 +41,42 @@ const Home = () => {
                   <span className="mac-btn minimize"></span>
                   <span className="mac-btn expand"></span>
                 </div>
-                <span className="ide-title">execute_task.sh</span>
+                <span className="ide-title">kernel_init.sh</span>
               </div>
               <div className="ide-body">
-                <span className="terminal-prefix">noman@robotics:~$</span>
-                <span className="static-text"> ./initialize --focus </span>
+                <span className="terminal-prefix">admin@noman-sys:~$</span>
+                <span className="static-text">./deploy --module</span>
                 <span className="typing-text">
                   <Typewriter
                     words={[
-                      "UAV & VTOL Flight Dynamics",        
-                      "STM32 Embedded Firmware",       
-                      "Altium High-Speed PCB Design",         
-                      "SolidWorks Kinematic Modeling",    
-                      "Autonomous Navigation Systems",     
-                      "Hardware Systems Architecture"            
+                      " UAV Flight Dynamics & Control",        
+                      " Deterministic Embedded Firmware",       
+                      " High-Speed HDI PCB Architecture",         
+                      " Multi-Axis Kinematic Simulation",    
+                      " Autonomous SLAM Navigation",     
+                      " Mission-Critical Hardware Design"            
                     ]}
                     loop={0}
                     cursor
                     cursorStyle="|"
-                    typeSpeed={50}     
-                    deleteSpeed={30}
-                    delaySpeed={2000}
+                    typeSpeed={40}     
+                    deleteSpeed={20}
+                    delaySpeed={2500}
                   />
                 </span>
               </div>
             </div>
           </div>
           
-          {/* PRO ENGINEER REWRITE: Stronger, systems-level vocabulary */}
           <p className="hero-description">
-            As a Systems & Robotics Engineer, I specialize in the architecture and deployment of autonomous aerial and ground vehicles. I manage the complete hardware lifecycle—from high-speed Altium PCB routing and multi-axis kinematic modeling to developing bare-metal embedded firmware. Leading R&D for international robotics competitions, my focus is bridging complex control theory with robust, production-ready physical systems.
+            As a Systems & Robotics Engineer, I architect and deploy autonomous aerial and ground vehicles. I manage the complete hardware lifecycle—from high-density Altium PCB routing and kinematic modeling to writing bare-metal, deterministic C/C++ firmware. My core focus is bridging theoretical control algorithms with robust, production-ready physical architectures.
           </p>
           
           <div className="hero_btn_main">
             <a href={mypdf} className="download-btn premium-btn" target="_blank" rel="noopener noreferrer">
-              <i className="fas fa-terminal"></i> <span>GET_FIRMWARE // Resume.pdf</span>
+              <span className="btn-content">
+                <i className="fas fa-terminal"></i> GET_FIRMWARE // Resume.pdf
+              </span>
             </a>
           </div>
 
@@ -124,7 +125,6 @@ const Home = () => {
           </div>
         </div>
 
-        {/* Right Image Area */}
         <div className="right">
           <div className="right_img_wrapper floating-anim">
             <div className="premium-holographic-glow"></div>

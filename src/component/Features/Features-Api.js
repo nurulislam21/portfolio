@@ -2,74 +2,74 @@ const data = [
   {
     id: 1,
     iconClass: "fas fa-microchip",
-    title: "PCB ARCHITECTURE",
-    desc: "Designing multi-layer, impedance-controlled boards for high-stress aerospace and robotic environments.",
+    title: "HDI PCB ARCHITECTURE",
+    desc: "Architecting High-Density Interconnect (HDI) boards with strict impedance control for high-stress aerospace and robotic environments.",
     specs: [
-      "EMI / EMC Mitigation",
-      "High-Current Power Delivery (PDN)",
-      "Dense BGA & STM32 Routing"
+      "Rigid-Flex & Multi-layer Stackups",
+      "EMI/EMC Mitigation & Power Delivery",
+      "Dense BGA Routing for STM32 Cortex"
     ],
-    tags: ["Altium Designer", "KiCAD", "Signal Integrity"]
+    tags: ["Altium", "Signal Integrity", "KiCAD"]
   },
   {
     id: 2,
-    iconClass: "fas fa-robot",
-    title: "AUTONOMOUS SYSTEMS",
-    desc: "Bridging complex control algorithms with robust mechanical execution for high-speed, dynamic robotics.",
+    iconClass: "fas fa-project-diagram",
+    title: "AUTONOMOUS NAVIGATION",
+    desc: "Bridging non-linear control algorithms with robust mechanical execution for high-speed, dynamic robotic platforms.",
     specs: [
-      "Sensor Fusion (LiDAR, IR, Vision)",
-      "Path Planning & Navigation",
-      "Closed-loop PID Tuning"
+      "Sensor Fusion (LiDAR, Vision, IMU)",
+      "SLAM & Real-time Path Planning",
+      "Deterministic Closed-loop Tuning"
     ],
-    tags: ["ROS", "Kinematics", "WRO Specs"]
+    tags: ["ROS 2", "Kinematics", "C++"]
   },
   {
     id: 3,
     iconClass: "fas fa-cube",
-    title: "MECHANICAL MODELING",
-    desc: "Advanced 3D modeling and stress simulation to ensure precision-engineered components are optimized for manufacturability.",
+    title: "KINEMATIC MODELING",
+    desc: "Advanced 3D mechanical modeling, generative design, and FEA stress simulation to optimize strength-to-weight ratios.",
     specs: [
-      "Aerodynamic Frame Design",
-      "Structural Failure Analysis",
-      "Complex Gear Kinematics"
+      "Carbon-fiber Aerodynamic Frames",
+      "FEA Structural Failure Analysis",
+      "Multi-axis Gear Kinematics"
     ],
-    tags: ["SOLIDWORKS", "CoreXY", "Rapid Prototyping"]
+    tags: ["SOLIDWORKS", "CoreXY", "FEA"]
   },
   {
     id: 4,
     iconClass: "fas fa-fighter-jet",
-    title: "UAV & AEROSPACE",
-    desc: "Spearheading VTOL drone R&D, focusing on flight dynamics and the complex physical transitions between hover and forward flight.",
+    title: "AEROSPACE & VTOL R&D",
+    desc: "Spearheading VTOL drone architecture, focusing on complex physical transitions between vertical hover and horizontal forward flight.",
     specs: [
       "Transwing Tilt-Rotor Mechanisms",
-      "Payload Weight Distribution",
-      "Aerofoil Prototyping"
+      "Dynamic CG Payload Distribution",
+      "CFD Aerofoil Prototyping"
     ],
     tags: ["SN-21 VTOL", "ArduPilot", "Flight Dynamics"]
   },
   {
     id: 5,
-    iconClass: "fas fa-code-branch",
-    title: "EMBEDDED FIRMWARE",
-    desc: "Writing highly efficient, bare-metal C/C++ code and implementing real-time operating systems for mission-critical hardware.",
+    iconClass: "fas fa-microcode",
+    title: "BARE-METAL FIRMWARE",
+    desc: "Writing highly efficient, deterministic C/C++ code and implementing RTOS for mission-critical hardware environments.",
     specs: [
-      "STM32 Cortex-M Integration",
-      "I2C / SPI / UART Communication",
-      "Hardware-in-the-Loop Testing"
+      "STM32 / ARM Cortex-M Architecture",
+      "DMA over I2C / SPI / UART",
+      "Hardware-in-the-Loop (HIL) Testing"
     ],
-    tags: ["C / C++", "FreeRTOS", "Microcontrollers"]
+    tags: ["Embedded C", "FreeRTOS", "HAL"]
   },
   {
     id: 6,
-    iconClass: "fas fa-satellite-dish",
-    title: "INDUSTRIAL IoT",
-    desc: "Architecting edge-compute devices and telemetry hardware for real-time monitoring in heavy industrial and factory environments.",
+    iconClass: "fas fa-network-wired",
+    title: "INDUSTRIAL TELEMETRY",
+    desc: "Deploying edge-compute devices and resilient telemetry pipelines for real-time monitoring in heavy industrial environments.",
     specs: [
-      "Wireless Telemetry Links",
-      "Rugged Automation Interfaces",
-      "ESP32 Edge Processing"
+      "Long-range LoRaWAN / RF Links",
+      "Ruggedized Automation Interfaces",
+      "ESP32 Distributed Edge Processing"
     ],
-    tags: ["MQTT", "Telemetry", "Python"]
+    tags: ["MQTT", "IoT Architecture", "Python"]
   }
 ];
 

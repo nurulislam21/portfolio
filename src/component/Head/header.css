@@ -1,16 +1,17 @@
 :root {
-  /* Unified with App.css */
-  --bg-main: #05080f;
+  --bg-main: #030509;
+  --bg-card: rgba(10, 15, 25, 0.6);
   --text-main: #f8fafc;
-  --text-muted: #8b9bb4;
-  --accent-primary: #00e5ff; /* Replaced Green with Cyan */
-  --accent-glow: rgba(0, 229, 255, 0.4);
+  --text-muted: #94a3b8;
+  --accent-primary: #00e5ff;
+  --accent-secondary: #0077ff;
+  --accent-glow: rgba(0, 229, 255, 0.5);
+  --border-color: rgba(255, 255, 255, 0.08);
   --font-mono: 'Fira Code', 'Courier New', monospace;
   --font-sans: 'Inter', system-ui, sans-serif;
-  --transition-snappy: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  --transition-snappy: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* --- Core Header Structure --- */
 .header {
   height: 90px;
   position: fixed;
@@ -18,14 +19,15 @@
   left: 0;
   width: 100%;
   z-index: 999;
-  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition: height 0.4s cubic-bezier(0.16, 1, 0.3, 1), background 0.4s ease, backdrop-filter 0.4s ease;
   background-color: transparent;
+  will-change: transform, background-color;
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0 24px;
+  padding: 0 clamp(16px, 4vw, 32px);
 }
 
 .header-container {
@@ -35,25 +37,22 @@
   height: 100%;
 }
 
-/* --- Scrolled Header (Frosted Tech Glass) --- */
+/* Scrolled State: Ultra-Premium Glass */
 .header.scrolled {
-  background: rgba(13, 18, 28, 0.65); /* UPDATED */
-  backdrop-filter: blur(24px); /* UPDATED */
-  -webkit-backdrop-filter: blur(24px);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* UPDATED */
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4); /* UPDATED */
-  height: 75px;
+  background: rgba(3, 5, 9, 0.75);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border-bottom: 1px solid var(--border-color);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  height: 70px;
 }
 
-/* --- Terminal Logo --- */
-.header .logo a {
-  text-decoration: none;
-}
-
+/* Typography & Logo */
+.header .logo a { text-decoration: none; }
 .header .logo h1 {
   font-family: var(--font-mono);
-  font-size: 28px;
-  font-weight: 700;
+  font-size: clamp(22px, 2.5vw, 28px);
+  font-weight: 800;
   color: var(--text-main);
   letter-spacing: 2px;
   margin: 0;
@@ -61,8 +60,8 @@
 
 .cursor-blink {
   color: var(--accent-primary);
-  animation: blink 1.2s step-end infinite;
-  text-shadow: 0 0 12px var(--accent-glow);
+  animation: blink 1s step-end infinite;
+  text-shadow: 0 0 15px var(--accent-glow);
 }
 
 @keyframes blink { 
@@ -70,16 +69,13 @@
   50% { opacity: 0; } 
 }
 
-/* --- Desktop Nav Links --- */
+/* Nav Links */
 .header .link {
   display: flex;
   align-items: center;
+  gap: clamp(20px, 3vw, 40px);
   margin: 0;
   padding: 0;
-}
-
-.header .link li {
-  margin-left: 35px;
   list-style: none;
 }
 
@@ -88,24 +84,25 @@
   color: var(--text-muted);
   font-size: 14px;
   font-weight: 500;
-  letter-spacing: 1px;
+  letter-spacing: 0.5px;
   transition: color 0.3s ease;
   display: flex;
   align-items: center;
   gap: 6px;
   position: relative;
-  padding-bottom: 6px;
+  padding: 8px 0;
   text-decoration: none;
 }
 
 .nav-num {
   color: var(--accent-primary);
   font-family: var(--font-mono);
-  font-size: 12px;
-  opacity: 0.9;
+  font-size: 11px;
+  font-weight: 600;
+  opacity: 0.8;
 }
 
-/* Magnetic Hover Effect: Underline (UPDATED FOR SWEEP EFFECT) */
+/* Magnetic Hover Underline */
 .header .link li a::after {
   content: '';
   position: absolute;
@@ -113,34 +110,28 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background: var(--accent-primary);
+  background: linear-gradient(90deg, transparent, var(--accent-primary), transparent);
   box-shadow: 0 0 10px var(--accent-glow);
   transform: scaleX(0);
-  transform-origin: right;
-  transition: transform 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+  transform-origin: center;
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.header .link li a:hover {
-  color: var(--text-main);
-}
+.header .link li a:hover { color: var(--text-main); }
+.header .link li a:hover::after { transform: scaleX(1); }
 
-.header .link li a:hover::after {
-  transform: scaleX(1);
-  transform-origin: left;
-}
-
-/* --- Pro Connect Button --- */
+/* Pro Connect Button */
 .pro-btn {
   position: relative;
   overflow: hidden;
   background: rgba(0, 229, 255, 0.05);
-  border: 1px solid var(--accent-primary);
+  border: 1px solid rgba(0, 229, 255, 0.3);
   color: var(--accent-primary);
   font-family: var(--font-mono);
-  font-size: 13px;
+  font-size: 12px;
   font-weight: 600;
   padding: 10px 24px;
-  border-radius: 4px;
+  border-radius: 6px;
   cursor: pointer;
   transition: var(--transition-snappy);
   letter-spacing: 1.5px;
@@ -149,116 +140,78 @@
   z-index: 1;
 }
 
-.icon-spacing {
-  margin-right: 8px;
-  font-size: 14px;
-}
-
-/* Sweeping Glare Animation */
 .pro-btn::before {
   content: '';
   position: absolute;
-  top: 0;
-  left: -100%;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, transparent, rgba(0, 229, 255, 0.3), transparent);
-  transition: left 0.6s ease;
+  top: 0; left: -100%; width: 100%; height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(0, 229, 255, 0.2), transparent);
+  transition: left 0.6s cubic-bezier(0.16, 1, 0.3, 1);
   z-index: -1;
 }
 
-.pro-btn:hover::before {
-  left: 100%;
+.pro-btn:hover {
+  border-color: var(--accent-primary);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.2);
+  transform: translateY(-2px);
 }
 
-/* .pro-btn:hover {
-  background: var(--accent-primary);
-  color: var(--bg-main);
-  box-shadow: 0 0 20px var(--accent-primary);
-  transform: translateY(-2px);
-} */
+.pro-btn:hover::before { left: 100%; }
 
-/* --- Mobile Menu Configuration --- */
+/* Mobile Menu & Toggle */
 .toggle {
   display: none;
-  font-size: 26px;
-  color: var(--accent-primary);
+  font-size: 24px;
+  color: var(--text-main);
   background: none;
   border: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, color 0.3s ease;
 }
 
-.toggle:hover {
-  transform: scale(1.1);
-}
+.toggle:hover { color: var(--accent-primary); }
 
-/* Overlay for Mobile Menu */
 .mobile-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(4px);
-  -webkit-backdrop-filter: blur(4px);
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   z-index: 997;
   opacity: 0;
   visibility: hidden;
   transition: opacity 0.4s ease, visibility 0.4s ease;
 }
 
-.mobile-overlay.active {
-  opacity: 1;
-  visibility: visible;
-}
+.mobile-overlay.active { opacity: 1; visibility: visible; }
 
 @media (max-width: 992px) {
-  .toggle {
-    display: block;
-    z-index: 1000;
-  }
-
+  .toggle { display: block; z-index: 1000; }
+  
   .header .link {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 75%;
-    max-width: 320px;
+    width: 80%;
+    max-width: 350px;
     height: 100vh;
-    background: rgba(10, 12, 16, 0.98);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    display: flex;
+    background: rgba(5, 8, 12, 0.95);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     flex-direction: column;
     justify-content: center;
     align-items: flex-start;
-    padding-left: 10%;
+    padding-left: clamp(30px, 8vw, 50px);
     z-index: 998;
-    gap: 35px;
-    transition: right 0.5s cubic-bezier(0.25, 0.8, 0.25, 1);
-    border-left: 1px solid rgba(0, 229, 255, 0.15);
-    box-shadow: -15px 0 50px rgba(0,0,0,0.9);
+    gap: 30px;
+    transition: right 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    border-left: 1px solid var(--border-color);
+    box-shadow: -20px 0 60px rgba(0,0,0,0.8);
   }
 
-  .header .link.active {
-    right: 0;
-  }
-
-  .header .link li {
-    margin-left: 0;
-    opacity: 0;
-    transform: translateX(20px);
-    transition: opacity 0.4s ease, transform 0.4s ease;
-  }
-
-  .header .link.active li {
-    opacity: 1;
-    transform: translateX(0);
-  }
-
-  /* Staggered animation for mobile links */
+  .header .link.active { right: 0; }
+  .header .link li { opacity: 0; transform: translateX(30px); transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+  .header .link.active li { opacity: 1; transform: translateX(0); }
+  
   .header .link.active li:nth-child(1) { transition-delay: 0.1s; }
   .header .link.active li:nth-child(2) { transition-delay: 0.15s; }
   .header .link.active li:nth-child(3) { transition-delay: 0.2s; }
@@ -267,8 +220,5 @@
   .header .link.active li:nth-child(6) { transition-delay: 0.35s; }
   .header .link.active li:nth-child(7) { transition-delay: 0.4s; }
 
-  .header .link li a {
-    font-size: 18px;
-    letter-spacing: 2px;
-  }
+  .header .link li a { font-size: 18px; letter-spacing: 1px; }
 }

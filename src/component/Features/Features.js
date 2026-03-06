@@ -9,8 +9,8 @@ const Features = () => {
       <div className="container">
 
         <div className="heading" data-aos="fade-up">
-          <h4>CORE COMPETENCIES</h4>
-          <h1>Engineering Expertise</h1>
+          <h4 className="section-subtitle">CORE COMPETENCIES //</h4>
+          <h1 className="section-title">Systems Architecture</h1>
         </div>
 
         <div className="content grid">
@@ -19,7 +19,8 @@ const Features = () => {
               <div
                 key={index}
                 data-aos="fade-up"
-                data-aos-delay={index * 100} /* Slightly faster stagger */
+                data-aos-delay={index * 100}
+                className="card-wrapper"
               >
                 <Card
                   index={index}
