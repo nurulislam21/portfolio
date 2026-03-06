@@ -19,21 +19,6 @@
   margin-left: 0; 
 }
 
-/* --- Premium Hardware Module Card --- */
-.resume-card {
-  position: relative;
-  padding: 30px;
-  margin-bottom: 40px;
-  /* Upgraded to Global Glass Variables */
-  background: var(--bg-card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-color);
-  border-radius: 12px; /* Smoother premium corners */
-  transition: var(--transition);
-  z-index: 1;
-}
-
 .resume-timeline::before {
   content: "";
   position: absolute;
@@ -41,8 +26,21 @@
   left: 0; 
   width: 2px;
   height: 100%;
-  /* Upgraded to Electric Cyan */
   background: linear-gradient(to bottom, rgba(0, 229, 255, 0.8), rgba(0, 229, 255, 0.1));
+}
+
+/* --- Premium Hardware Module Card --- */
+.resume-card {
+  position: relative;
+  padding: 30px;
+  margin-bottom: 40px;
+  background: var(--bg-card);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid var(--border-color);
+  border-radius: 12px; 
+  transition: var(--transition);
+  z-index: 1;
 }
 
 /* The Glowing Circuit Node (The Dot) */
@@ -54,7 +52,7 @@
   width: 14px;
   height: 14px;
   border-radius: 50%;
-  background: var(--bg-dark); /* Using global dark bg */
+  background: var(--bg-dark); 
   border: 2px solid var(--accent-primary);
   z-index: 2;
   transition: var(--transition);
@@ -65,7 +63,7 @@
 .resume-card:hover {
   border-color: rgba(0, 229, 255, 0.4);
   background: rgba(13, 18, 28, 0.6);
-  transform: translateX(8px); /* Smooth slide out */
+  transform: translateX(8px); 
   box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6), inset 0 0 20px rgba(0, 229, 255, 0.05);
 }
 
@@ -90,7 +88,9 @@
   transition: var(--transition);
 }
 
-.resume-card:hover .title h2 { color: var(--accent-primary); }
+.resume-card:hover .title h2 { 
+  color: var(--accent-primary); 
+}
 
 .resume-card .title span {
   display: inline-block;
@@ -109,7 +109,7 @@
   color: var(--accent-primary);
   width: 45px;
   height: 45px;
-  border-radius: 8px; /* Slightly softer corners */
+  border-radius: 8px; 
   display: flex;
   justify-content: center;
   align-items: center;
@@ -148,21 +148,10 @@
   transition: var(--transition);
 }
 
-.resume-card:hover p { color: #f8fafc; }
-
-/* --- Responsive Layout --- */
-@media (max-width: 992px) {
-  .Resume .content-section { flex-direction: column; gap: 0; }
-  .Resume .left { width: 100%; margin-bottom: 50px; }
+.resume-card:hover p { 
+  color: #f8fafc; 
 }
 
-@media (max-width: 768px) {
-  .resume-timeline { padding-left: 20px; }
-  .resume-card { padding: 20px; }
-  .resume-card::before { left: -27px; }
-  .resume-card .title_content { flex-direction: column-reverse; gap: 15px; }
-  .resume-card .title h2 { font-size: 18px; }
-}
 /* --- Pro Tag Styling for Resume Cards --- */
 .resume-tags {
   display: flex;
@@ -189,4 +178,18 @@
   box-shadow: 0 0 10px rgba(0, 229, 255, 0.2);
   color: #fff;
   transform: translateY(-2px);
+}
+
+/* --- Responsive Layout --- */
+@media (max-width: 992px) {
+  .Resume .content-section { flex-direction: column; gap: 0; }
+  .Resume .left { width: 100%; margin-bottom: 50px; }
+}
+
+@media (max-width: 768px) {
+  .resume-timeline { padding-left: 20px; }
+  .resume-card { padding: 20px; }
+  .resume-card::before { left: -27px; }
+  .resume-card .title_content { flex-direction: column-reverse; gap: 15px; }
+  .resume-card .title h2 { font-size: 18px; }
 }

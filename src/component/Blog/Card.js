@@ -26,8 +26,7 @@ const Card = (props) => {
         data-aos-delay={props.aosDelay}
       >
         <div className="img">
-          <img src={props.image} alt={props.title_one} />
-          {/* Moved overlay here so it sits on top of the image properly */}
+          <img src={props.image} alt={props.title_one} loading="lazy" />
           <div className="img-overlay gold-overlay">
             <span>VERIFY_RECORD //</span>
           </div>

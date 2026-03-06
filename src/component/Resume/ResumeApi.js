@@ -10,14 +10,14 @@ const ResumeApi = [
   {
     id: 2,
     category: "education",
-    year: "M.A Hashem University College (2021 - 2022)",
+    year: "M.A Hashem University College (2023)",
     title: "Higher Secondary Certificate (Science)",
     desc: "Concentration in advanced calculus and physical sciences, establishing the theoretical framework for rigid body kinematics and electromagnetic principles.",
   },
   {
     id: 3,
     category: "education",
-    year: "Chilonia Union High School (2019 - 2020)",
+    year: "Chilonia Union High School (2021)",
     title: "Secondary School Certificate",
     desc: "Foundational coursework in mathematics and physical sciences, initiating a trajectory toward complex electromechanical systems engineering.",
   },
@@ -28,8 +28,8 @@ const ResumeApi = [
     category: "experience",
     year: "Co-Founder & Engineering Head (Aug 2024 - Present)",
     title: "Team RoboMore",
-    desc: "Directing a cross-functional engineering team in the R&D of autonomous UAVs and ground robotics. Architecting VTOL flight dynamics, overseeing high-speed Altium PCB routing, and ensuring strict compliance with international competition constraints.",
-    skills: ["Systems Architecture", "Altium", "Flight Dynamics"]
+    desc: "Directing a cross-functional engineering team in the R&D of autonomous UAVs and ground robotics. Architecting VTOL flight dynamics, overseeing high-speed Altium PCB routing, and ensuring strict compliance with international competition constraints (WRO).",
+    skills: ["Systems Architecture", "Altium Designer", "Flight Dynamics"]
   },
   {
     id: 5,

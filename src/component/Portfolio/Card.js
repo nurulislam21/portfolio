@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import ReactDOM from "react-dom"; 
+import ReactDOM from "react-dom";
 
 const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
   const [modal, setModal] = useState(false);
@@ -19,14 +19,14 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
 
   return (
     <>
-      <div 
-        className="portfolio-card" 
+      <div
+        className="portfolio-card"
         onClick={toggleModal}
-        data-aos="fade-up" 
+        data-aos="fade-up"
         data-aos-delay={aosDelay}
       >
         <div className="img">
-          <img src={image} alt={title} />
+          <img src={image} alt={title} loading="lazy" />
           <div className="img-overlay">
             <span>INSPECT_MODULE //</span>
           </div>
@@ -41,7 +41,7 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
           <h2>{title}</h2>
           {/* Replaced button with a sleeker span for the arrow indicator */}
           <span className="arrow-btn" aria-label="View Specs">
-            <i className="fas fa-arrow-right" style={{color: "var(--accent-primary)"}}></i>
+            <i className="fas fa-arrow-right" style={{ color: "var(--accent-primary)" }}></i>
           </span>
         </div>
       </div>
@@ -50,7 +50,7 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
         <div className="modal-wrapper">
           <div onClick={toggleModal} className="overlay"></div>
           <div className="modal-content">
-            
+
             <button className="close-modal" onClick={toggleModal}>
               <i className="fas fa-times"></i>
             </button>
@@ -65,12 +65,12 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
                 <span className="cat-badge system-badge">SPEC_FILE // {category}</span>
                 <h1>{title}</h1>
                 <p>{description || "Detailed project specifications and telemetry data are currently being updated in the central repository."}</p>
-                
+
                 <div className="modal-actions mtop">
                   {/* Semantic Fix: Applied outline-btn directly to the anchor tag */}
-                  <a 
-                    href="https://github.com/nurulislam21" 
-                    target="_blank" 
+                  <a
+                    href="https://github.com/nurulislam21"
+                    target="_blank"
                     rel="noopener noreferrer"
                     className="pro-btn outline-btn"
                   >
@@ -82,10 +82,10 @@ const Card = ({ image, category, totalLike, title, description, aosDelay }) => {
                 </div>
               </div>
             </div>
-            
+
           </div>
         </div>,
-        document.body 
+        document.body
       )}
     </>
   );
