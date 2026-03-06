@@ -81,20 +81,21 @@
 .system-status {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
-  padding: 6px 16px;
+  gap: 12px;
+  padding: 8px 20px;
   border-radius: 50px;
-  margin-bottom: 20px;
-  background: rgba(0, 229, 255, 0.05); /* Sleeker inner fill */
+  margin-bottom: 25px;
+  background: linear-gradient(90deg, rgba(0, 229, 255, 0.08) 0%, rgba(0, 0, 0, 0) 100%);
   border: 1px solid rgba(0, 229, 255, 0.2);
+  border-left: 2px solid var(--accent-primary, #00e5ff);
 }
 
 .pulse-dot {
   width: 8px;
   height: 8px;
-  background-color: var(--accent-primary);
+  background-color: var(--accent-primary, #00e5ff);
   border-radius: 50%;
-  box-shadow: 0 0 10px var(--accent-primary);
+  box-shadow: 0 0 12px var(--accent-primary, #00e5ff);
   animation: pulse-premium 2s infinite cubic-bezier(0.4, 0, 0.2, 1);
 }
 
