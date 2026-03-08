@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/portfolio/static/css/main.99bbce79.css",
-    "main.js": "/portfolio/static/js/main.c0951800.js",
+    "main.css": "/portfolio/static/css/main.d873a7d9.css",
+    "main.js": "/portfolio/static/js/main.cfbcdff1.js",
     "static/js/488.e3cfe9d3.chunk.js": "/portfolio/static/js/488.e3cfe9d3.chunk.js",
     "static/media/V002.jpg": "/portfolio/static/media/V002.8373425e1f8c12a9756e.jpg",
     "static/media/WRO_V1.jpg": "/portfolio/static/media/WRO_V1.44eed7c6e1a40356eb4b.jpg",
@@ -53,7 +53,6 @@
     "static/media/WRO_team_INIT.jpg": "/portfolio/static/media/WRO_team_INIT.b9511829b13278d14cdc.jpg",
     "static/media/skill6.png": "/portfolio/static/media/skill6.c44b9b809ebf766cbb4f.png",
     "static/media/DU_LFR.jpg": "/portfolio/static/media/DU_LFR.0064881824a350c447e0.jpg",
-    "static/media/pimg2.jpg": "/portfolio/static/media/pimg2.b8acb353e2df816f861c.jpg",
     "static/media/awd7.jpg": "/portfolio/static/media/awd7.aa2c9db176b9175f8d8e.jpg",
     "static/media/awd5.jpg": "/portfolio/static/media/awd5.06aeab13a50e35284890.jpg",
     "static/media/awd9.png": "/portfolio/static/media/awd9.0fa068ab793054af7909.png",
@@ -65,10 +64,9 @@
     "static/media/id8.jpg": "/portfolio/static/media/id8.6aaf784948c772dead04.jpg",
     "static/media/INDROUSTRY.jpg": "/portfolio/static/media/INDROUSTRY.bc971052ea31ad94489a.jpg",
     "static/media/skill5.png": "/portfolio/static/media/skill5.6056bf20ce1b55cfd06b.png",
-    "static/media/Nurul-Islam-Resume-12-2025.pdf": "/portfolio/static/media/Nurul-Islam-Resume-12-2025.29b849dc70c3acae4fcc.pdf",
     "static/media/AUST_OSC.jpg": "/portfolio/static/media/AUST_OSC.ca36d907d9eff704c967.jpg",
+    "static/media/Nurul-Islam-Resume-12-2025.pdf": "/portfolio/static/media/Nurul-Islam-Resume-12-2025.bfc05c7608d8e4636ec8.pdf",
     "static/media/awd2.1.jpg": "/portfolio/static/media/awd2.1.dcb8a2201d78e5df10a1.jpg",
-    "static/media/skill1.png": "/portfolio/static/media/skill1.057fccbfeb08cb9a6f73.png",
     "static/media/AUST_RC.jpg": "/portfolio/static/media/AUST_RC.f2d6d2a74392989e332d.jpg",
     "static/media/awd8.1.jpg": "/portfolio/static/media/awd8.1.0df28e08ca1f0f39b988.jpg",
     "static/media/GLASS MODEL.jpg": "/portfolio/static/media/GLASS MODEL.e03c3b95b8c69b815522.jpg",
@@ -76,12 +74,12 @@
     "static/media/skill3.png": "/portfolio/static/media/skill3.e4d915db84978f37ee17.png",
     "static/media/contract.jpg": "/portfolio/static/media/contract.f2dafdf433cc51160d62.jpg",
     "index.html": "/portfolio/index.html",
-    "main.99bbce79.css.map": "/portfolio/static/css/main.99bbce79.css.map",
-    "main.c0951800.js.map": "/portfolio/static/js/main.c0951800.js.map",
+    "main.d873a7d9.css.map": "/portfolio/static/css/main.d873a7d9.css.map",
+    "main.cfbcdff1.js.map": "/portfolio/static/js/main.cfbcdff1.js.map",
     "488.e3cfe9d3.chunk.js.map": "/portfolio/static/js/488.e3cfe9d3.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.99bbce79.css",
-    "static/js/main.c0951800.js"
+    "static/css/main.d873a7d9.css",
+    "static/js/main.cfbcdff1.js"
   ]
 }
