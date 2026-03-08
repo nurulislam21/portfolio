@@ -250,146 +250,61 @@
 .icon-btn:hover i { color: var(--accent-primary); }
 .tool-btn:hover img { filter: grayscale(0%) opacity(1); drop-shadow: 0 0 8px var(--accent-glow); }
 
-/* --- SLEEK PRECISION IMAGE MODULE --- */
-.floating-anim { 
-  animation: float-img 8s ease-in-out infinite; 
-}
+/* --- HOLOGRAM IMAGE MODULE --- */
+.floating-anim { animation: float-img 8s ease-in-out infinite; }
 
 .right_img_wrapper {
   position: relative;
   width: 100%;
-  max-width: 420px; /* Slightly tighter width for a cleaner look */
+  max-width: 480px;
   margin: 0 auto;
-  padding: 20px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding: 25px;
+  transform-style: preserve-3d;
 }
 
-/* Soft, modern glowing orb behind the image */
 .premium-holographic-glow {
   position: absolute;
-  top: 50%; 
-  left: 50%;
+  top: 50%; left: 50%;
   transform: translate(-50%, -50%);
-  width: 100%; 
-  height: 100%;
-  background: linear-gradient(135deg, var(--accent-primary), #0055ff);
-  filter: blur(65px);
-  opacity: 0.35;
-  border-radius: 50%;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle, var(--accent-glow) 0%, transparent 60%);
+  filter: blur(40px);
   z-index: 0;
   animation: pulse-glow-premium 6s ease-in-out infinite alternate;
   pointer-events: none;
 }
 
-/* Clean frosted glass container */
 .premium-glass-panel {
   position: relative;
   z-index: 2;
-  border-radius: 24px; /* Softer, modern corners */
+  border-radius: 12px;
   overflow: hidden;
-  padding: 10px; /* Creates a nice frame effect */
-  background: rgba(13, 18, 28, 0.4);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5), inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease, border-color 0.4s ease;
+  border: 1px solid rgba(0, 229, 255, 0.2);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(0, 229, 255, 0.1);
 }
 
-.premium-glass-panel:hover {
-  transform: translateY(-10px) scale(1.02);
-  box-shadow: 0 30px 60px rgba(0, 229, 255, 0.15), inset 0 1px 0 rgba(255, 255, 255, 0.2);
-  border-color: rgba(0, 229, 255, 0.3);
-}
-
-/* Natural image styling */
 .pro-hero-img {
   width: 100%;
   height: auto;
   display: block;
-  border-radius: 16px; /* Inner radius to match the outer frame */
-  object-fit: cover;
+  filter: contrast(1.1) brightness(0.9) grayscale(20%);
   transition: filter 0.5s ease;
 }
 
-/* Slight brightness bump on hover instead of heavy grayscale shifting */
 .right_img_wrapper:hover .pro-hero-img {
-  filter: brightness(1.05) contrast(1.05);
-}
-/* --- PREMIUM PROFILE CARD MODULE --- */
-.floating-anim { 
-  animation: float-img 8s ease-in-out infinite; 
+  filter: contrast(1) brightness(1) grayscale(0%);
 }
 
-.right_img_wrapper {
-  position: relative;
-  width: 100%;
-  max-width: 380px; /* Tighter width for a vertical card */
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-/* Deep, dynamic background glow */
-.premium-holographic-glow {
+.premium-scanline {
   position: absolute;
-  width: 120%; 
-  height: 120%;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.3) 0%, transparent 65%);
-  filter: blur(50px);
-  z-index: 0;
-  animation: pulse-glow-premium 6s ease-in-out infinite alternate;
-  pointer-events: none;
-}
-
-/* High-tech gradient border container */
-.premium-glass-panel {
-  position: relative;
-  z-index: 2;
-  width: 100%;
-  aspect-ratio: 4 / 5; /* This is the magic part! It forces the wide photo into a clean vertical card */
-  border-radius: 24px;
-  padding: 4px; /* Thickness of the gradient border */
-  background: linear-gradient(135deg, rgba(0, 229, 255, 0.8), rgba(13, 18, 28, 0.5) 50%, rgba(0, 85, 255, 0.8));
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.9);
-  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.4s ease;
-}
-
-/* Subtle cool-blue tint overlay to match your dark theme */
-.premium-glass-panel::after {
-  content: '';
-  position: absolute;
-  inset: 4px; /* Matches the padding above */
-  border-radius: 20px;
-  background: rgba(0, 229, 255, 0.15); /* Light cyan wash */
-  mix-blend-mode: overlay; /* Blends beautifully with your photo */
+  top: 0; left: 0; width: 100%; height: 15px;
+  background: rgba(0, 229, 255, 0.3);
+  box-shadow: 0 0 20px rgba(0, 229, 255, 0.5);
   z-index: 3;
-  transition: opacity 0.5s ease;
+  animation: scan-premium 4s linear infinite;
   pointer-events: none;
 }
 
-/* Hover effects: Lift card, glow brighter, remove blue tint */
-.premium-glass-panel:hover {
-  transform: translateY(-12px);
-  box-shadow: 0 30px 60px rgba(0, 229, 255, 0.2);
-}
-
-.premium-glass-panel:hover::after {
-  opacity: 0; /* Returns your photo to its natural warm colors on hover */
-}
-
-/* The actual image */
-.pro-hero-img {
-  width: 100%;
-  height: 100%;
-  display: block;
-  border-radius: 20px; /* Inner radius */
-  object-fit: cover; /* Crops the image dynamically without distorting it */
-  object-position: center; /* Keeps you centered in the frame */
-}
 /* Targeting Crosshairs */
 .tech-corner {
   position: absolute;
