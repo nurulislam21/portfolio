@@ -1,7 +1,7 @@
 import React from "react";
 import "./Resume.css";
 import ResumeApi from "./ResumeApi";
-import Card from "./Card";
+import Card from "./Card"; // Ensure this imports from your Resume Card, not the Blog Card
 
 const Resume = () => {
   const renderContent = (category, iconClass) => {
@@ -27,10 +27,11 @@ const Resume = () => {
           <h1 className="section-title">Operational History</h1>
         </div>
 
-        <div className="content-section mtop d_flex">
+        {/* Removed d_flex, CSS Grid now perfectly controls the width */}
+        <div className="content-section mtop">
           
           {/* Education Timeline */}
-          <div className="left" style={{ width: "50%" }}>
+          <div className="timeline-column">
             <div className="heading" data-aos="fade-right">
               <h2 className="timeline-title">01. Academic Data</h2>
             </div>
@@ -40,7 +41,7 @@ const Resume = () => {
           </div>
 
           {/* Experience Timeline */}
-          <div className="left" style={{ width: "50%" }}>
+          <div className="timeline-column">
             <div className="heading" data-aos="fade-left">
               <h2 className="timeline-title">02. Field Experience</h2>
             </div>

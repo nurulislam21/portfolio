@@ -10,7 +10,7 @@ import Portfolio from "./component/Portfolio/Portfolio";
 import Resume from "./component/Resume/Resume";
 import Skill from './component/Skill/Skill';
 import Blog from "./component/Blog/Blog";
-import Testimonial from "./component/Testimonial/Testimonial";
+// import Testimonial from "./component/Testimonial/Testimonial";
 import Contact from "./component/Contact/Contact";
 import Footer from "./component/Footer";
 import CustomCursor from "./component/CustomCursor"; 
@@ -51,7 +51,7 @@ const App = () => {
             <Resume />
             <Skill />
             <Blog />
-            <Testimonial/>
+            {/* <Testimonial/> */}
             <Contact />
           </main>
 

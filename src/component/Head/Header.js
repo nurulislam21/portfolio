@@ -72,7 +72,7 @@ const Header = () => {
                     className="pro-btn"
                     aria-label="Connect on LinkedIn"
                   >
-                    <i className="fab fa-linkedin-in icon-spacing" aria-hidden="true"></i>
+                    <i className="fab fa-linkedin-in icon-spacing"aria-hidden="true"></i>
                     CONNECT //
                   </a>
                 </li>

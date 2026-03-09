@@ -2,7 +2,7 @@ import React from "react";
 import "./Home.css";
 // Make sure these paths match your actual project structure
 import noman1 from "../pic/isnoman.jpg";
-import skill1 from "../pic/skill1.png"; // e.g. TensorFlow / C++
+// import skill1 from "../pic/skill1.png"; // e.g. TensorFlow / C++
 import skill2 from "../pic/skill2.png"; // SolidWorks
 import skill3 from "../pic/skill3.png"; // Altium
 import skill4 from "../pic/skill4.png"; // STM32 / Arduino
@@ -15,19 +15,19 @@ const Home = () => {
   return (
     <section className="hero" id="Home">
       <div className="grid-background"></div>
-      
+
       {/* Premium Ambient Background Glows */}
       <div className="ambient-glow glow-1"></div>
 
       <div className="container f_flex hero-layout">
         <div className="left">
           <div className="hero-main-header">
-            
+
             <div className="system-status premium-glass" data-aos="fade-down">
               <span className="pulse-dot"></span>
               <span className="status-text">SYS_ONLINE // SN21 VTOL R&D</span>
             </div>
-            
+
             <h1 className="hero-title" data-aos="fade-up" data-aos-delay="100">
               Nurul Islam <span className="premium-gradient-text">Noman</span>
             </h1>
@@ -48,17 +48,17 @@ const Home = () => {
                 <span className="typing-text">
                   <Typewriter
                     words={[
-                      " STM32 Bare-Metal Firmware",        
-                      " Transwing VTOL Dynamics",       
-                      " High-Speed Altium PCB Routing",         
-                      " SOLIDWORKS Kinematic Simulation",    
-                      " Line Follower Robotics (LFR)",     
-                      " Engineering Team Leadership"            
+                      " STM32 Bare-Metal Firmware",
+                      " Transwing VTOL Dynamics",
+                      " High-Speed Altium PCB Routing",
+                      " SOLIDWORKS Kinematic Simulation",
+                      " Line Follower Robotics (LFR)",
+                      " Engineering Team Leadership"
                     ]}
                     loop={0}
                     cursor
                     cursorStyle="|"
-                    typeSpeed={50}     
+                    typeSpeed={50}
                     deleteSpeed={30}
                     delaySpeed={2000}
                   />
@@ -66,11 +66,11 @@ const Home = () => {
               </div>
             </div>
           </div>
-          
+
           <p className="hero-description" data-aos="fade-up" data-aos-delay="300">
-            As the Engineering Head of Team RoboMore and a Systems Engineer, I architect autonomous aerial and ground vehicles. I manage the complete hardware lifecycle—from high-density PCB routing and 3D modeling to writing deterministic firmware for STM32 microcontrollers. My focus is bridging theoretical control algorithms with production-ready physical hardware.
+            As a Systems & Robotics Engineer, I architect autonomous aerial and ground vehicles. I manage the complete hardware R&D lifecycle—from high-density PCB routing and 3D kinematic modeling to writing deterministic, bare-metal firmware for STM32 microcontrollers. My core focus is bridging theoretical control algorithms with robust, production-ready physical hardware.
           </p>
-          
+
           <div className="hero_btn_main" data-aos="fade-up" data-aos-delay="400">
             <a href={mypdf} className="download-btn premium-btn" target="_blank" rel="noopener noreferrer">
               <span className="btn-content">
@@ -124,7 +124,7 @@ const Home = () => {
         <div className="right" data-aos="zoom-in-left" data-aos-delay="300">
           <div className="right_img_wrapper floating-anim">
             <div className="premium-holographic-glow"></div>
-            
+
             {/* Targeting Crosshairs */}
             <div className="tech-corner top-left"></div>
             <div className="tech-corner top-right"></div>
