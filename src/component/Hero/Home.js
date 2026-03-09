@@ -68,7 +68,7 @@ const Home = () => {
           </div>
 
           <p className="hero-description" data-aos="fade-up" data-aos-delay="300">
-            As a Systems & Robotics Engineer, I architect autonomous aerial and ground vehicles. I manage the complete hardware R&D lifecycle—from high-density PCB routing and 3D kinematic modeling to writing deterministic, bare-metal firmware for STM32 microcontrollers. My core focus is bridging theoretical control algorithms with robust, production-ready physical hardware.
+            As an Electrical and Electronics Engineering student specializing in robotics and aviation, I architect advanced autonomous systems, including VTOL drones and high-performance ground vehicles. I drive the complete hardware R&D lifecycle—integrating high-density PCB design in Altium Designer, 3D kinematic modeling in SOLIDWORKS, and deterministic, bare-metal firmware for STM32 microcontrollers. My core focus lies in bridging complex theoretical control algorithms with robust, competition-tested physical hardware.
           </p>
 
           <div className="hero_btn_main" data-aos="fade-up" data-aos-delay="400">
