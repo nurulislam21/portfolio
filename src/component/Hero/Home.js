@@ -123,17 +123,12 @@ const Home = () => {
 
         <div className="right" data-aos="zoom-in-left" data-aos-delay="300">
           <div className="right_img_wrapper floating-anim">
+            {/* Soft, vibrant background glow */}
             <div className="premium-holographic-glow"></div>
 
-            {/* Targeting Crosshairs */}
-            <div className="tech-corner top-left"></div>
-            <div className="tech-corner top-right"></div>
-            <div className="tech-corner bottom-left"></div>
-            <div className="tech-corner bottom-right"></div>
-
+            {/* Clean glass panel framing the image */}
             <div className="right_img premium-glass-panel">
               <img src={noman1} alt="Nurul Islam Noman - Systems Engineer" className="pro-hero-img" />
-              <div className="premium-scanline"></div>
             </div>
           </div>
         </div>

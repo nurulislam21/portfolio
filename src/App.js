@@ -23,7 +23,6 @@ const App = () => {
 
   useEffect(() => {
     if (!isLoading) {
-      // PRO FIX: Upgraded parameters for a fluid, premium scroll reveal
       AOS.init({
         duration: 1000,          // Slightly longer for elegance
         easing: "ease-out-cubic", // Smooth deceleration
