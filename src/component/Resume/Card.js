@@ -10,7 +10,7 @@ const Card = (props) => {
       <div className="title_content">
         <div className="title">
           {/* Dynamic System Log Badge generated from the first word of the year string */}
-          <div className="sys-log-badge">LOG_{props.year.split(" ")[0]} //</div>
+          <div className="sys-log-badge">LOG_{props.year.split(" ")[0]} </div>
           <h2>{props.title}</h2>
           <span className="year-tag">{props.year}</span>
         </div>
