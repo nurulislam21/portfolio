@@ -1,5 +1,27 @@
-/* --- GLOBAL FONT IMPORTS --- */
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg-base: #060911;
+  --bg-surface: rgba(13, 19, 33, 0.7);
+  --bg-surface-hover: rgba(18, 26, 44, 0.85);
+  
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  
+  --accent-cyan: #00e5ff;
+  --accent-cyan-dim: rgba(0, 229, 255, 0.12);
+  --accent-emerald: #10b981;
+  --accent-gold: #f59e0b;
+  
+  --border-subtle: rgba(255, 255, 255, 0.07);
+  --border-active: rgba(0, 229, 255, 0.3);
+  
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --radius-card: 14px;
+  --radius-btn: 8px;
+}
 
 * {
   margin: 0;
@@ -12,49 +34,164 @@ html {
 }
 
 body {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  background-color: #090d16; 
-  color: #f8fafc;
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-main);
   line-height: 1.6;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
-  position: relative;
+  -webkit-font-smoothing: antialiased;
 }
 
-/* --- AMBIENT BACKGROUND GRID --- */
+/* Micro Dot-Matrix Background Pattern */
 body::before {
   content: "";
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-image: 
-    linear-gradient(rgba(255, 255, 255, 0.02) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.02) 1px, transparent 1px);
-  background-size: 40px 40px;
-  z-index: -2;
+  inset: 0;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.1) 85%);
+  -webkit-mask-image: radial-gradient(ellipse at 50% 30%, rgba(0,0,0,1) 30%, rgba(0,0,0,0.1) 85%);
+  z-index: -1;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
-  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 20%, rgba(0,0,0,0) 80%);
 }
 
-/* --- AMBIENT CENTER GLOW --- */
+/* Ambient Radial Top Glow */
 body::after {
   content: "";
   position: fixed;
-  top: 50%;
+  top: -15%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 90vw;
+  height: 600px;
+  background: radial-gradient(ellipse, rgba(0, 229, 255, 0.05) 0%, transparent 70%);
+  z-index: -1;
+  pointer-events: none;
+}
+
+::selection {
+  background: rgba(0, 229, 255, 0.3);
+  color: #ffffff;
+}
+/* --- THEME VARIABLES --- */
+:root {
+  /* Default Dark Mode (Industrial Slate/Cyan) */
+  --bg-base: #060911;
+  --bg-surface: rgba(13, 19, 33, 0.7);
+  --bg-surface-hover: rgba(18, 26, 44, 0.85);
+  --text-main: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-muted: #64748b;
+  --accent-cyan: #00e5ff;
+  --accent-cyan-dim: rgba(0, 229, 255, 0.12);
+  --border-subtle: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(0, 229, 255, 0.35);
+  --grid-color: rgba(255, 255, 255, 0.06);
+}
+
+[data-theme="light"] {
+  /* Clean Technical Lab Light Mode */
+  --bg-base: #f8fafc;
+  --bg-surface: rgba(255, 255, 255, 0.85);
+  --bg-surface-hover: rgba(241, 245, 249, 0.95);
+  --text-main: #0f172a;
+  --text-secondary: #475569;
+  --text-muted: #94a3b8;
+  --accent-cyan: #0284c7;
+  --accent-cyan-dim: rgba(2, 132, 199, 0.12);
+  --border-subtle: rgba(15, 23, 42, 0.1);
+  --border-active: rgba(2, 132, 199, 0.4);
+  --grid-color: rgba(15, 23, 42, 0.05);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-base);
+  color: var(--text-main);
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Update dot matrix to adapt with current theme */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: radial-gradient(var(--grid-color) 1px, transparent 1px);
+  background-size: 28px 28px;
+  z-index: -1;
+  pointer-events: none;
+}
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap");
+
+:root {
+  --bg-dark: #070a12;
+  --bg-card: rgba(14, 20, 36, 0.75);
+  --bg-card-hover: rgba(19, 28, 49, 0.9);
+  
+  --text-main: #f8fafc;
+  --text-muted: #94a3b8;
+  --text-faint: #64748b;
+  
+  --accent-primary: #00e5ff;
+  --accent-secondary: #2563eb;
+  --accent-glow: rgba(0, 229, 255, 0.18);
+  --border-color: rgba(255, 255, 255, 0.08);
+  --border-active: rgba(0, 229, 255, 0.35);
+  
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--bg-dark);
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-dark);
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle CAD Grid Overlay */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(255, 255, 255, 0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.025) 1px, transparent 1px);
+  background-size: 40px 40px;
+  z-index: -2;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
+  -webkit-mask-image: radial-gradient(ellipse at center, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 85%);
+}
+
+/* Ambient Radial Glow */
+body::after {
+  content: "";
+  position: fixed;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80vw;
-  height: 80vh;
-  background: radial-gradient(circle, rgba(0, 229, 255, 0.025) 0%, transparent 70%);
+  width: 90vw;
+  height: 500px;
+  background: radial-gradient(circle, rgba(0, 229, 255, 0.04) 0%, transparent 65%);
   z-index: -3;
   pointer-events: none;
 }
 
-/* Text Selection Highlight */
 ::selection {
   background: rgba(0, 229, 255, 0.25);
   color: #ffffff;

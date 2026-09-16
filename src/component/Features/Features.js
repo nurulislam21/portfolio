@@ -7,18 +7,17 @@ const Features = () => {
   return (
     <section className="features top" id="Expertise">
       <div className="container">
-
         <div className="heading" data-aos="fade-up">
-          <span className="section-subtitle">WHAT I DO</span>
-          <h2 className="section-title">Areas of Expertise</h2>
+          <span className="section-subtitle">CORE DISCIPLINES</span>
+          <h2 className="section-title">Engineering Capabilities</h2>
         </div>
 
         <div className="content grid">
           {data.map((val, index) => (
             <div
-              key={index}
+              key={val.id}
               data-aos="fade-up"
-              data-aos-delay={index * 80}
+              data-aos-delay={(index % 3) * 80}
               className="card-wrapper"
             >
               <Card
@@ -26,13 +25,12 @@ const Features = () => {
                 iconClass={val.iconClass}
                 title={val.title}
                 desc={val.desc}
-                specs={val.specs} 
-                tags={val.tags} 
+                specs={val.specs}
+                tags={val.tags}
               />
             </div>
           ))}
         </div>
-
       </div>
     </section>
   );

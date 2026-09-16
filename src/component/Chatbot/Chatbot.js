@@ -2,44 +2,37 @@ import React, { useState, useRef, useEffect } from "react";
 import "./Chatbot.css";
 
 const INITIAL_CHIPS = [
-  "Core Skills",
-  "SN-21 VTOL Project",
-  "Drishti Smart Glass",
-  "Hiring / Freelance",
+  "Core Hardware Stack",
+  "SN-21 VTOL Drone",
+  "WRO Singapore Rover",
+  "Custom PCB Designs",
+  "Direct Contact"
 ];
 
-const BOT_KNOWLEDGE = {
-  "Core Skills": {
-    reply: "Noman specializes in Hardware Engineering: Altium multi-layer PCB design, STM32 bare-metal C/C++, SOLIDWORKS CAD, and autonomous robotics (ArduPilot/ROS).",
-    nextChips: ["SN-21 VTOL Project", "View PCB Experience", "Contact Info"]
+const OXLIN_KNOWLEDGE = {
+  "Core Hardware Stack": {
+    reply: "Noman specializes in end-to-end hardware R&D: multi-layer PCB design (Altium Designer, KiCad), bare-metal STM32 C/C++ firmware, SOLIDWORKS kinematic modeling, and autonomous control pipelines (ROS/ArduPilot).",
+    nextChips: ["SN-21 VTOL Drone", "Custom PCB Designs", "Direct Contact"]
   },
-  "SN-21 VTOL Project": {
-    reply: "The DynamicSpark SN-21 is a Transwing Vertical Take-Off & Landing aircraft featuring tilt-rotor aerodynamics and ArduPilot flight control integration.",
-    nextChips: ["Drishti Smart Glass", "WRO Competitions", "Contact Info"]
+  "SN-21 VTOL Drone": {
+    reply: "The SN-21 is an autonomous Transwing VTOL UAV designed with tilting wing kinematics for vertical lift and high-efficiency forward cruise, running an ArduPilot autonomous stack.",
+    nextChips: ["WRO Singapore Rover", "Core Hardware Stack", "Direct Contact"]
   },
-  "Drishti Smart Glass": {
-    reply: "Drishti is a wearable smart glass prototype featuring micro-camera assembly, flex ribbon circuit routing, and custom CAD enclosure design.",
-    nextChips: ["Core Skills", "Hiring / Freelance", "Contact Info"]
+  "WRO Singapore Rover": {
+    reply: "Represented Bangladesh at the World Robot Olympiad International Final in Singapore with Team Echo Drift, finishing 29th globally in the Future Engineers category.",
+    nextChips: ["SN-21 VTOL Drone", "BUET Robocarnival", "Direct Contact"]
   },
-  "View PCB Experience": {
-    reply: "Noman has designed multi-layer PCBs for industrial IoT edge nodes, high-current motor drivers with heat dissipation, and ESP32 audio/vision modules.",
-    nextChips: ["SN-21 VTOL Project", "Hiring / Freelance"]
+  "BUET Robocarnival": {
+    reply: "Led Team RoboMore to a double podium finish at BUET Robocarnival (2nd Place with 'RoboMore Nex' & 3rd Place with 'Dynamic Spark').",
+    nextChips: ["Core Hardware Stack", "Direct Contact"]
   },
-  "WRO Competitions": {
-    reply: "Represented Bangladesh at the WRO Singapore International Finals (29th globally) with Team Echo Drift, engineering custom optical filtering systems.",
-    nextChips: ["Core Skills", "Contact Info"]
+  "Custom PCB Designs": {
+    reply: "Designed multi-layer, high-density PCBs including the ABHASH assistive audio/haptic system, high-current BTS7960 motor driver boards, and custom STM32 logic arrays.",
+    nextChips: ["SN-21 VTOL Drone", "Core Hardware Stack", "Direct Contact"]
   },
-  "Hiring / Freelance": {
-    reply: "Noman is open for full-time robotics/hardware roles, as well as freelance PCB layout and firmware development projects.",
-    nextChips: ["Send Message", "Email Directly"]
-  },
-  "Contact Info": {
-    reply: "You can reach Noman at noman1272003@gmail.com, call +880 1823-395901, or leave a message right here!",
-    nextChips: ["Send Message", "Hiring / Freelance"]
-  },
-  "Email Directly": {
-    reply: "Direct email address: noman1272003@gmail.com. Feel free to send over project details or job specifications!",
-    nextChips: ["Core Skills", "SN-21 VTOL Project"]
+  "Direct Contact": {
+    reply: "You can reach Noman directly via email at noman1272003@gmail.com or leave your email here to connect.",
+    nextChips: ["Send Message", "Core Hardware Stack"]
   }
 };
 
@@ -50,48 +43,50 @@ const Chatbot = () => {
   const [showContactInput, setShowContactInput] = useState(false);
   const [userEmail, setUserEmail] = useState("");
   const [messages, setMessages] = useState([
-    { sender: "bot", text: "Hello! I am Noman's automated technical assistant. How can I help you today?" }
+    {
+      sender: "bot",
+      text: "System online. I am Oxlin, Noman's technical AI co-pilot. Ask me anything about his flight systems, PCB architectures, or robotics builds."
+    }
   ]);
-  
+
   const chatEndRef = useRef(null);
 
-  const toggleChat = () => setIsOpen(!isOpen);
+  const toggleChat = () => setIsOpen((prev) => !prev);
 
-  const handleSelectOption = (questionText) => {
-    if (questionText === "Send Message") {
+  const handleSelectOption = (query) => {
+    if (query === "Send Message") {
       setShowContactInput(true);
       setMessages((prev) => [
         ...prev,
-        { sender: "user", text: questionText },
-        { sender: "bot", text: "Please enter your email below and Noman will follow up directly:" }
+        { sender: "user", text: query },
+        { sender: "bot", text: "Enter your email address below, and Noman will receive your inquiry directly:" }
       ]);
       return;
     }
 
-    const userMsg = { sender: "user", text: questionText };
-    setMessages((prev) => [...prev, userMsg]);
+    setMessages((prev) => [...prev, { sender: "user", text: query }]);
     setIsTyping(true);
 
     setTimeout(() => {
-      const data = BOT_KNOWLEDGE[questionText] || {
-        reply: "For specific technical inquiries, feel free to submit your email below or reach out directly.",
+      const data = OXLIN_KNOWLEDGE[query] || {
+        reply: "Telemetry received. You can connect with Noman directly at noman1272003@gmail.com.",
         nextChips: INITIAL_CHIPS
       };
 
       setMessages((prev) => [...prev, { sender: "bot", text: data.reply }]);
       setActiveChips(data.nextChips || INITIAL_CHIPS);
       setIsTyping(false);
-    }, 500);
+    }, 400);
   };
 
   const handleEmailSubmit = (e) => {
     e.preventDefault();
-    if (!userEmail) return;
+    if (!userEmail.trim()) return;
 
     setMessages((prev) => [
       ...prev,
       { sender: "user", text: userEmail },
-      { sender: "bot", text: "Email logged. Noman will respond to your inquiry shortly." }
+      { sender: "bot", text: `Inquiry logged for [${userEmail}]. Noman will follow up with you shortly.` }
     ]);
     setUserEmail("");
     setShowContactInput(false);
@@ -104,17 +99,23 @@ const Chatbot = () => {
 
   return (
     <div className="chatbot-wrapper">
-      <button className="chat-trigger-btn" onClick={toggleChat} aria-label="Toggle Technical Assistant">
-        <i className={`fas ${isOpen ? "fa-times" : "fa-comments"}`}></i>
+      <button
+        className="chat-trigger-btn"
+        onClick={toggleChat}
+        aria-label="Toggle Oxlin Assistant"
+      >
+        <i className={`fas ${isOpen ? "fa-times" : "fa-robot"}`}></i>
       </button>
 
       {isOpen && (
         <div className="chat-window">
           <div className="chat-header">
-            <div className="chat-avatar">N</div>
+            <div className="chat-avatar">OX</div>
             <div>
-              <h3>Technical Assistant</h3>
-              <span className="online-indicator"><span className="dot"></span> Online</span>
+              <h3>Oxlin // Co-Pilot</h3>
+              <span className="online-indicator">
+                <span className="dot"></span> Telemetry Active
+              </span>
             </div>
             <button className="close-btn" onClick={toggleChat} aria-label="Close Assistant">
               <i className="fas fa-times"></i>
@@ -133,7 +134,6 @@ const Chatbot = () => {
                 <span></span><span></span><span></span>
               </div>
             )}
-            
             <div ref={chatEndRef} />
           </div>
 
@@ -142,19 +142,25 @@ const Chatbot = () => {
               <form onSubmit={handleEmailSubmit} className="chat-email-form">
                 <input
                   type="email"
-                  placeholder="Enter email address..."
+                  placeholder="name@company.com"
                   value={userEmail}
                   onChange={(e) => setUserEmail(e.target.value)}
                   required
                 />
-                <button type="submit" aria-label="Submit Email"><i className="far fa-paper-plane"></i></button>
+                <button type="submit" aria-label="Send Email">
+                  <i className="far fa-paper-plane"></i>
+                </button>
               </form>
             ) : (
               <>
-                <p className="chip-label">Suggested Queries:</p>
+                <p className="chip-label">QUERY OXLIN // SELECT TOPIC</p>
                 <div className="chips-container">
-                  {activeChips.map((chip, i) => (
-                    <button key={i} className="chip-btn" onClick={() => handleSelectOption(chip)}>
+                  {activeChips.map((chip, idx) => (
+                    <button
+                      key={idx}
+                      className="chip-btn"
+                      onClick={() => handleSelectOption(chip)}
+                    >
                       {chip}
                     </button>
                   ))}

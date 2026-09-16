@@ -1,24 +1,47 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo1 from "./pic/logo.jpg";
-import "./Footer.css"; 
+import "./Footer.css";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
+  const [isLight, setIsLight] = useState(false);
+
+  // Initialize theme from localStorage or system preference
+  useEffect(() => {
+    const savedTheme = localStorage.getItem("app-theme");
+    if (savedTheme === "light") {
+      document.documentElement.setAttribute("data-theme", "light");
+      setIsLight(true);
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      setIsLight(false);
+    }
+  }, []);
+
+  const toggleTheme = () => {
+    const nextTheme = !isLight;
+    setIsLight(nextTheme);
+    if (nextTheme) {
+      document.documentElement.setAttribute("data-theme", "light");
+      localStorage.setItem("app-theme", "light");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      localStorage.setItem("app-theme", "dark");
+    }
+  };
 
   const scrollToTop = () => {
     window.scrollTo({
       top: 0,
-      behavior: "smooth"
+      behavior: "smooth",
     });
   };
 
   return (
     <footer className="footer-area">
       <div className="container">
-        
         <div className="footer-main-grid">
-          
-          {/* Column 1: Personal Brand & Intro */}
+          {/* Brand */}
           <div className="footer-brand" data-aos="fade-right">
             <div className="footer-logo-wrapper">
               <div className="footer-logo">
@@ -26,29 +49,27 @@ const Footer = () => {
               </div>
               <div className="brand-text">
                 <h2>Nurul Islam Noman<span className="logo-dot">.</span></h2>
-                <p>Embedded Systems & Robotics Engineer</p>
+                <p>Embedded Systems &amp; Robotics Engineer</p>
               </div>
             </div>
-            
             <p className="footer-bio-text">
-              Building autonomous VTOLs, custom hardware, and firmware. Always open to novel engineering challenges and collaboration.
+              Engineering autonomous VTOL aircraft, custom embedded hardware, and deterministic firmware.
             </p>
           </div>
 
-          {/* Column 2: Quick Links */}
+          {/* Links */}
           <div className="footer-links" data-aos="fade-up" data-aos-delay="100">
             <h3 className="footer-heading">Navigation</h3>
             <ul>
               <li><a href="#Home">Home</a></li>
-              <li><a href="#Expertise">What I Do</a></li>
+              <li><a href="#Expertise">Expertise</a></li>
               <li><a href="#Projects">Projects</a></li>
-              {/* <li><a href="#Resume">Resume</a></li>
-              <li><a href="#Milestones">Milestones</a></li> */}
+              <li><a href="#Milestones">Milestones</a></li>
               <li><a href="#Contact">Get in Touch</a></li>
             </ul>
           </div>
 
-          {/* Column 3: Direct Contact */}
+          {/* Contact */}
           <div className="footer-contact" data-aos="fade-up" data-aos-delay="200">
             <h3 className="footer-heading">Contact</h3>
             <p><i className="far fa-envelope"></i> noman1272003@gmail.com</p>
@@ -56,7 +77,7 @@ const Footer = () => {
             <p><i className="fas fa-map-marker-alt"></i> Dhaka, Bangladesh</p>
           </div>
 
-          {/* Column 4: Social Links & Back to Top */}
+          {/* Socials & Top Button */}
           <div className="footer-social" data-aos="fade-left" data-aos-delay="300">
             <h3 className="footer-heading">Socials</h3>
             <div className="social-flex">
@@ -70,26 +91,35 @@ const Footer = () => {
                 <i className="fab fa-facebook-f"></i>
               </a>
             </div>
-            
+
             <button className="back-to-top" onClick={scrollToTop} aria-label="Back to top">
               <i className="fas fa-arrow-up"></i> Back to Top
             </button>
           </div>
-          
         </div>
 
         <div className="footer-divider"></div>
 
-        {/* Bottom Bar */}
+        {/* Bottom Bar with Theme Switch */}
         <div className="footer-bottom d_flex">
           <p className="footer-text">
             © {currentYear} Nurul Islam Noman. All rights reserved.
           </p>
-          <p className="footer-text terminal-status">
-            <span className="status-dot"></span> Available for projects
-          </p>
-        </div>
 
+          <div className="theme-toggle-wrapper">
+            <span className="theme-label">
+              <i className={isLight ? "fas fa-sun" : "fas fa-moon"}></i>
+              {isLight ? "Light" : "Dark"}
+            </span>
+            <button
+              className={`theme-switch ${isLight ? "light" : ""}`}
+              onClick={toggleTheme}
+              aria-label="Toggle light and dark mode"
+            >
+              <span className="theme-switch-slider"></span>
+            </button>
+          </div>
+        </div>
       </div>
     </footer>
   );

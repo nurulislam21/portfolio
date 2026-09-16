@@ -1,19 +1,3 @@
-/* --- PRECISION SYSTEM VARIABLES --- */
-:root {
-  --bg-dark: #090d16;         
-  --bg-card: rgba(15, 23, 42, 0.65); 
-  --text-main: #f8fafc;       
-  --text-muted: #94a3b8;      
-  --accent-primary: #00e5ff;  
-  --accent-secondary: #3b82f6; 
-  --accent-glow: rgba(0, 229, 255, 0.2); 
-  --border-color: rgba(255, 255, 255, 0.08);    
-  --transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
-  --font-sans: 'Inter', sans-serif;
-  --font-mono: 'JetBrains Mono', monospace;
-}
-
-/* --- BASE UTILITIES --- */
 .app-wrapper {
   position: relative;
   overflow: hidden;
@@ -21,7 +5,7 @@
 }
 
 .container {
-  max-width: 1200px; 
+  max-width: 1240px;
   margin: auto;
   padding: 0 24px;
   position: relative;
@@ -31,76 +15,79 @@
 .d_flex { display: flex; justify-content: space-between; align-items: center; }
 .f_flex { display: flex; }
 
-a { text-decoration: none; color: var(--accent-primary); transition: var(--transition); }
-a:hover { color: #ffffff; }
+a { text-decoration: none; transition: all 0.2s ease; }
 li { list-style: none; }
 
-/* --- GLASS PANELS --- */
+/* Frosted Technical Glass */
 .box_shodow {
-  background: var(--bg-card);
-  backdrop-filter: blur(16px); 
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid var(--border-color);
-  border-radius: 12px; 
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-  transition: var(--transition);
+  background: var(--bg-surface);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-card);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .box_shodow:hover {
-  border-color: rgba(0, 229, 255, 0.25);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+  border-color: var(--border-active);
+  transform: translateY(-2px);
 }
 
-/* --- BUTTONS --- */
+/* Precision Button */
 .btn_shadow {
-  font-family: var(--font-sans);
-  font-size: 13px;
+  font-family: var(--font-mono);
+  font-size: 12px;
   font-weight: 600;
-  color: #ffffff;
-  background: rgba(30, 41, 59, 0.6);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  border-radius: 8px; 
-  padding: 12px 26px;
-  transition: var(--transition);
+  letter-spacing: 0.5px;
+  color: var(--text-main);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border-subtle);
+  border-radius: var(--radius-btn);
+  padding: 10px 22px;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
-  justify-content: center;
   gap: 8px;
+  transition: all 0.2s ease;
 }
 
 .btn_shadow:hover {
-  border-color: var(--accent-primary);
-  background: rgba(30, 41, 59, 0.9);
+  background: var(--accent-cyan-dim);
+  border-color: var(--accent-cyan);
+  color: var(--accent-cyan);
 }
 
-/* --- TYPOGRAPHY & SPACING --- */
-.top { margin-top: 100px; }
-.mtop { margin-top: 40px; }
+/* Typography Standards */
+.top { margin-top: 110px; }
+.mtop { margin-top: 36px; }
 .text-center { text-align: center; }
 
-.heading { margin-bottom: 48px; }
+.heading { margin-bottom: 40px; }
 .heading .section-subtitle {
-  color: var(--accent-primary);
+  color: var(--accent-cyan);
   font-family: var(--font-mono);
   letter-spacing: 2px;
-  font-size: 12px;
+  font-size: 11px;
+  font-weight: 700;
   text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
   margin-bottom: 8px;
-  display: block;
+}
+
+.heading .section-subtitle::before {
+  content: "";
+  display: inline-block;
+  width: 14px;
+  height: 2px;
+  background: var(--accent-cyan);
 }
 
 .heading .section-title {
   font-family: var(--font-sans);
-  font-size: clamp(28px, 3.5vw, 38px);
+  font-size: clamp(30px, 3.8vw, 42px);
   color: var(--text-main);
   font-weight: 800;
-  letter-spacing: -0.5px;
-}
-
-/* --- RESPONSIVE DESIGN --- */
-@media (max-width: 768px) {
-  .top { margin-top: 70px; }
-  .heading .section-title { font-size: 28px; }
-  .box_shodow { padding: 20px; }
+  letter-spacing: -1px;
 }

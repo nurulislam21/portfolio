@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import "./Blog.css"; 
 import Card from "./Card";
 import BlogApi from "./BlogApi";
@@ -7,45 +7,43 @@ const Blog = () => {
   const [showAll, setShowAll] = useState(false);
   const initialItems = 6;
 
-  // Reverse API data so recent achievements display first
-  const reversedBlog = [...BlogApi].reverse();
+  // Memoize reversed milestones so calculations are not redone on toggle
+  const reversedBlog = useMemo(() => [...BlogApi].reverse(), []);
+
+  const visibleItems = showAll ? reversedBlog : reversedBlog.slice(0, initialItems);
 
   return (
     <section className="Blog top" id="Milestones">
       <div className="container">
-        
         <div className="heading" data-aos="fade-up">
-          <span className="section-subtitle">AWARDS & RECOGNITION</span>
-          <h2 className="section-title">Verified Competition Milestones</h2>
+          <span className="section-subtitle">AWARDS &amp; RECOGNITION</span>
+          <h2 className="section-title">Competition Milestones</h2>
         </div>
 
         <div className="content grid">
-          {reversedBlog.slice(0, showAll ? reversedBlog.length : initialItems).map((value, index) => {
-            return (
-              <Card 
-                key={index} 
-                image={value.image} 
-                ppimage={value.ppimage} 
-                date={value.date} 
-                title_one={value.title_one} 
-                aosDelay={(index % 3) * 80} 
-              />
-            );
-          })}
+          {visibleItems.map((val, index) => (
+            <Card 
+              key={val.id} 
+              image={val.image} 
+              ppimage={val.ppimage} 
+              date={val.date} 
+              title_one={val.title_one} 
+              aosDelay={(index % 3) * 80} 
+            />
+          ))}
         </div>
 
-        {BlogApi.length > initialItems && (
+        {reversedBlog.length > initialItems && (
           <div className="text-center mtop" data-aos="fade-up">
             <button
               className="load-more-btn"
-              onClick={() => setShowAll(!showAll)}
+              onClick={() => setShowAll((prev) => !prev)}
             >
               {showAll ? "Show Fewer Milestones" : "View Complete Archive"}
               <i className={`fas ${showAll ? "fa-chevron-up" : "fa-chevron-down"}`} style={{ marginLeft: "8px" }}></i>
             </button>
           </div>
         )}
-
       </div>
     </section>
   );
